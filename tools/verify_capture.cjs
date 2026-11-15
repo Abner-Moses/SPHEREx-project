@@ -42,4 +42,5 @@ for(const target of targets){
 fs.writeFileSync('audit-evidence/frontend-browser-results.json',JSON.stringify({results,pageErrors:errors},null,2));
 console.log(JSON.stringify({results:results.map(({text,...r})=>r),pageErrors:errors},null,2));
 await browser.close();
+if(errors.length || results.some(r=>r.error || !r.localCube || r.unavailableAll.length || r.unavailableSpectrum.length)) process.exitCode=1;
 })().catch(e=>{console.error(e);process.exitCode=1});

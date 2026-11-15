@@ -1,0 +1,10 @@
+{
+  "repository": "https://github.com/Abner-Moses/SPHEREx-project.git",
+  "branch": "main",
+  "validated_source_commit": "ff6a4f4e951b112d7c35d04bd73ba1f5b82e748d",
+  "remote_commit_verified": "ff6a4f4e951b112d7c35d04bd73ba1f5b82e748d",
+  "verified_at_utc": "2026-11-15T15:52:26.716414+00:00",
+  "original_fits_in_git": false,
+  "original_fits_local_manifest_integrity": "93/93 match",
+  "note": "Final report and validation-tool exit-code update follow in the documentation commit."
+}
