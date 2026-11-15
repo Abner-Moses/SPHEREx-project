@@ -2,6 +2,94 @@
 
 A local SPHEREx dataset workspace with observation tables, measured spectra and chronological image blinking. Enter ICRS RA/Dec or select one of five demonstration targets. The existing sky explorer remains available. See [CHALLENGE_ALIGNMENT.md](CHALLENGE_ALIGNMENT.md) for NASA challenge objectives, implemented behavior and scientific limits.
 
+## Download the dataset (Git LFS)
+
+The complete `SphereX-data/` folder is versioned in this repository. Its 93 FITS files use **Git Large File Storage (LFS)**: ordinary Git stores small pointers, while Git LFS downloads the actual scientific files. The full dataset is about 5.6 GB; allow roughly 12 GB of free disk space for the working files and the local LFS cache.
+
+### 1. Install Git LFS
+
+Install Git and [Git LFS](https://git-lfs.com/) before cloning:
+
+- **macOS with Homebrew:** `brew install git-lfs`
+- **Ubuntu/Debian:** `sudo apt-get update && sudo apt-get install git-lfs`
+- **Windows:** download and run the Windows installer from the Git LFS website, then open a new Git Bash or PowerShell terminal.
+
+Enable LFS once for your user:
+
+```bash
+git lfs install
+git lfs version
+```
+
+### 2. New clone
+
+```bash
+git clone https://github.com/Abner-Moses/SPHEREx-project.git
+cd SPHEREx-project
+git lfs pull origin
+```
+
+Cloning normally downloads LFS files automatically; the final pull also retrieves any files that were skipped or interrupted. GitHub's **Download ZIP** is not a reliable replacement for this workflow because archives may contain LFS pointers instead of FITS data.
+
+### 3. Existing checkout
+
+From the repository root, update the source and download the dataset:
+
+```bash
+git lfs install
+git pull --ff-only origin main
+git lfs pull origin
+```
+
+If you deliberately configured LFS include/exclude filters, explicitly request all dataset files:
+
+```bash
+git lfs pull --include="SphereX-data/**" --exclude="" origin
+```
+
+For this original working folder only, a repository-local Git LFS binary is also available in `.audit/git-lfs-bin/`. In macOS/Linux shells, `export PATH="$PWD/.audit/git-lfs-bin:$PATH"` makes it available without a system installation. Fresh clones need the normal installation in step 1; `.audit/` is not versioned.
+
+### 4. Verify the download
+
+```bash
+git lfs ls-files
+git lfs fsck
+```
+
+The listing should contain 93 FITS paths. `git lfs fsck` verifies local LFS objects. After installing Python, this additional check confirms the working files are real FITS rather than text pointers:
+
+```bash
+python -c "from pathlib import Path; files=list(Path('SphereX-data').rglob('*.fits')); assert len(files)==93, f'Expected 93 FITS files, got {len(files)}'; assert all(p.open('rb').read(6)==b'SIMPLE' for p in files), 'An LFS pointer or incomplete FITS file remains'; print('93 real FITS files ready')"
+```
+
+Expected contents: **47 Level-2 observations, 8 spectral cubes, and 38 calibration FITS files**. The cubes contain 102 channels; channels 50 and 51 are intentionally blank. Download manifests include original source URLs and SHA-256 checksums.
+
+### 5. Start with local data
+
+Keep the downloaded folder at `SphereX-data/` beside `main.py`. The merged backend finds it automatically. Install the application dependencies using the Run section below, then start the backend:
+
+```bash
+# macOS/Linux, from the repository root:
+SPHEREX_OFFLINE=1 .venv/bin/python main.py
+```
+
+Windows PowerShell:
+
+```powershell
+$env:SPHEREX_OFFLINE="1"
+.\.venv\Scripts\python.exe main.py
+```
+
+Restart the backend after downloading the data: the index is cached per process. `GET http://127.0.0.1:8000/api/science/status` should report `available: true` and `dataset_installed: true`. The inventory is at `/api/sci/api/local/products`.
+
+### Troubleshooting
+
+- **`git: 'lfs' is not a git command`:** install Git LFS and reopen the terminal, then repeat `git lfs install` and `git lfs pull origin`.
+- **FITS files are only a few text lines or start with `version https://git-lfs.github.com/spec/v1`:** these are pointers. Run `git lfs pull origin`; do not rename or edit the files.
+- **Download interrupted:** rerun `git lfs pull origin`. Already downloaded objects are reused.
+- **Objects downloaded but working files remain pointers:** run `git lfs checkout`, then repeat the verification check.
+- **Authentication, quota, or missing-object error:** read the LFS error message; repository access or the owner's GitHub LFS allowance may need attention. Such errors cannot be fixed by the application API key.
+
 ## Run
 
 Backend (project folder):
