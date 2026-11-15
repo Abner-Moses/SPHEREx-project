@@ -7,14 +7,14 @@ import { sprite } from './voyager/sprite.js'
 import './Presentation.css'
 
 // The 30-second submission film:
-//   title  8.4 s  original intro, film seconds 24.0–32.4 (SPHEREx title lands, holds; no pigeon here)
+//   title  6.6 s  original intro, film seconds 24.0–30.6 (SPHEREx title lands, holds; no pigeon here)
 //   boot  ~2.1 s  essential boot lines only, at 1.5x
 //   tour   16 s   sky → capture → science graphs → dataset table → temporal blink → 102-channel spectrum
 //   end   ~3.4 s  four pigeons (the four Los Palomos) land on the title rule
-const INTRO_CUT = { from: 24.0, to: 32.4 }
+const INTRO_CUT = { from: 24.0, to: 30.6 }
 const BOOT_SCALE = 1.5
 const TOUR = 16
-const SIGNOFF = 3.4
+const SIGNOFF = 3.0
 const FILM = 30
 const CHAPTERS = [
   [0, 'Barnard’s Star · infrared sky', 'A calibrated SPHEREx image, placed on the real sky.'],
@@ -100,7 +100,7 @@ export default function PresentationRoot() {
   const [mode, setMode] = useState('choose'), [sky, setSky] = useState(false)
   const [prepared, setPrepared] = useState(false), [status, setStatus] = useState(''), [error, setError] = useState('')
   const [seconds, setSeconds] = useState(0), [chapter, setChapter] = useState(0), [muted, setMuted] = useState(false)
-  const [cursor, setCursor] = useState({ x: 180, y: 140 }), [clicking, setClicking] = useState(false), [frame, setFrame] = useState(null)
+  const [cursor, setCursor] = useState({ x: 180, y: 140 }), [clicking, setClicking] = useState(false), [frame, setFrame] = useState(null), [cutKey, setCutKey] = useState(0)
   const dataset = useRef(null), skyApi = useRef(null), soundtrack = useRef(null), clickSound = useRef(null), graph = useRef(null), recorder = useRef(null)
   const live = useRef(false), run = useRef(0), pointer = useRef({ x: 180, y: 140 }), timers = useRef([]), actions = useRef([])
   const avatar = useRef(null), tourStart = useRef(0), filmStart = useRef(0), introDuration = useRef(0)
@@ -129,6 +129,8 @@ export default function PresentationRoot() {
     if (!live.current) return
     if (click) { setClicking(true); sound(); el.click(); actions.current.push({ at: (performance.now() - tourStart.current) / 1000, text: el.textContent.trim() || el.getAttribute('aria-label') }); delay(190, () => setClicking(false)) }
   }
+  // a scene cut: dip to black with an amber sweep; the scene changes at the darkest moment (180 ms in)
+  function cut(fn) { setCutKey((k) => k + 1); delay(180, fn) }
   function smoothScroll(el, to, ms) { if (!el) return; const from = el.scrollTop, start = performance.now(), token = run.current; const f = (now) => { if (!live.current || token !== run.current) return; const t = Math.min(1, (now - start) / ms); el.scrollTop = from + (to - from) * (t * t * (3 - 2 * t)); if (t < 1) requestAnimationFrame(f) }; requestAnimationFrame(f) }
   async function waitFor(fn, label, timeout = 45000) {
     const start = performance.now()
@@ -180,7 +182,7 @@ export default function PresentationRoot() {
     setSky(true); setMode('playing'); setSeconds(0); setChapter(0)
     introDuration.current = (performance.now() - filmStart.current) / 1000; tourStart.current = performance.now()
     window.__demoMarks = { ...window.__demoMarks, tourMs: Date.now() }
-    soundtrack.current.play().catch(() => {}); fadeMusic(0.9, 0.6)
+    soundtrack.current.play().catch(() => {}); fadeMusic(0.9, 0.6); setCutKey((k) => k + 1)
     const origin = tourStart.current, token = run.current
     const clock = (now) => { if (!live.current || token !== run.current) return
       const time = Math.min(TOUR, (now - origin) / 1000); setSeconds(time)
@@ -202,24 +204,24 @@ export default function PresentationRoot() {
     // 4.2–6.6 s  science graphs: slow scroll through the analysis deck
     delay(4300, () => { const grid = document.querySelector('.da-grid'); if (!grid) return; smoothScroll(grid, Math.min(900, grid.scrollHeight - grid.clientHeight), 2200); const r = grid.getBoundingClientRect(); move(r.x + r.width * 0.7, r.y + r.height * 0.45, 900) })
     // 6.8–8.8 s  the dataset: target table with local observation and cube counts
-    delay(6700, () => { byLabel('Close analysis')?.click(); skyApi.current.closeCapture(); setSky(false); const ws = document.querySelector('.dataset-workspace'); if (ws) ws.scrollTop = 0 })
+    delay(6520, () => cut(() => { byLabel('Close analysis')?.click(); skyApi.current.closeCapture(); setSky(false); const ws = document.querySelector('.dataset-workspace'); if (ws) ws.scrollTop = 0; document.querySelector('table[aria-label="Local target datasets"]')?.scrollIntoView({ block: 'center' }) }))
     delay(7000, async () => {
       const table = document.querySelector('table[aria-label="Local target datasets"]'); if (!table) return
-      table.scrollIntoView({ block: 'center' }); await sleep(60)
       const rows = [...table.querySelectorAll('tbody tr')]
       for (const r of rows.slice(0, 5)) { const b = r.getBoundingClientRect(); await move(b.x + b.width * 0.55, b.y + b.height / 2, 300) }
     })
     // 9.0–12.6 s  temporal blink of real aligned frames
-    delay(9000, async () => { const play = document.querySelector('.dw-player button:nth-child(2)'); await point(play, { duration: 420 }); if (live.current && !/Pause/.test(play?.textContent || '')) dataset.current.play(true) })
+    delay(8820, () => cut(() => document.querySelector('.dw-blink-layout')?.scrollIntoView({ block: 'center' })))
+    delay(9100, async () => { const play = document.querySelector('.dw-player button:nth-child(2)'); await point(play, { scroll: false, duration: 420 }); if (live.current && !/Pause/.test(play?.textContent || '')) dataset.current.play(true) })
     // 12.8–16 s  the 102-channel cube table, scrolled slowly
-    delay(12800, async () => {
-      dataset.current.play(false); await point(byText(`Cube spectrum (${document.querySelector('.dw-tabs button:nth-child(2)')?.textContent.match(/\d+/)?.[0] ?? '102'})`) || document.querySelector('.dw-tabs button:nth-child(2)'), { duration: 380 })
+    delay(12620, async () => {
+      dataset.current.play(false); cut(() => document.querySelector('.dw-tabs')?.scrollIntoView({ block: 'start' })); await sleep(260); await point(byText(`Cube spectrum (${document.querySelector('.dw-tabs button:nth-child(2)')?.textContent.match(/\d+/)?.[0] ?? '102'})`) || document.querySelector('.dw-tabs button:nth-child(2)'), { scroll: false, duration: 380 })
       await sleep(250); const t = document.querySelector('table[aria-label="102 channel cube spectrum"]')?.parentElement; if (t) { smoothScroll(t, 600, 2400); const r = t.getBoundingClientRect(); move(r.x + r.width * 0.5, r.y + r.height * 0.6, 900) }
     })
   }
   function signoff() {
     if (!live.current) return
-    dataset.current?.play(false); fadeMusic(0, 1.4); setMode('signoff')
+    dataset.current?.play(false); fadeMusic(0, 1.4); setCutKey((k) => k + 1); setTimeout(() => { if (live.current) setMode('signoff') }, 180)
   }
   function finish() {
     window.__demoMarks = { ...window.__demoMarks, totalS: (performance.now() - filmStart.current) / 1000, introS: introDuration.current }
@@ -241,6 +243,7 @@ export default function PresentationRoot() {
     </section>}
     {mode === 'intro' && <><div data-demo-state="intro" /><Intro autoStart timeScale={1} cut={INTRO_CUT} bootScale={BOOT_SCALE} audioCtx={graph.current?.ctx} audioOut={graph.current?.master} onDone={beginTour} />{!RECORDING && <button className="demo-intro-exit" onClick={explore}>Exit demo</button>}</>}
     {mode === 'signoff' && <SignOff graph={graph.current} onDone={finish} />}
+    {cutKey > 0 && ['playing', 'signoff'].includes(mode) && <div className="demo-cut" key={cutKey} aria-hidden="true" />}
     {mode === 'explore' && <button className="demo-launch" onClick={prepare}>Demo film · 30s</button>}
     {mode === 'playing' && <>{!RECORDING && <div className="demo-topline" data-demo-state="playing" data-demo-scene={chapter}><span>VOYAGER / BARNARD’S STAR</span><span>{String(Math.floor(seconds + introDuration.current)).padStart(2, '0')} / {FILM}s</span><button onClick={() => { const next = !muted; setMuted(next); if (graph.current) graph.current.master.gain.value = next ? 0 : 1 }}>{muted ? 'Unmute' : 'Mute'}</button><button onClick={explore}>Exit demo</button><div className="demo-progress" style={{ width: `${((seconds + introDuration.current) / FILM) * 100}%` }} /></div>}
       {RECORDING && <div data-demo-state="playing" data-demo-scene={chapter} hidden />}
