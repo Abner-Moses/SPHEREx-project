@@ -7,11 +7,11 @@ import { sprite } from './voyager/sprite.js'
 import './Presentation.css'
 
 // The 30-second submission film:
-//   title  6.6 s  original intro, film seconds 24.0–30.6 (SPHEREx title lands, holds; no pigeon here)
+//   title  6.6 s  original intro, film seconds 27.0–33.6 (SPHEREx title lands, holds; no pigeon here)
 //   boot  ~2.1 s  essential boot lines only, at 1.5x
 //   tour   16 s   sky → capture → science graphs → dataset table → temporal blink → 102-channel spectrum
 //   end   ~3.4 s  four pigeons (the four Los Palomos) land on the title rule
-const INTRO_CUT = { from: 24.0, to: 30.6 }
+const INTRO_CUT = { from: 27.0, to: 33.6 } // same title shot; the film's title moved 3 s later when Voyager's lines got longer
 const BOOT_SCALE = 1.5
 const TOUR = 16
 const SIGNOFF = 3.0

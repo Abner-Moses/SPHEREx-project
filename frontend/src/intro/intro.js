@@ -7,7 +7,7 @@ const HTML = `<section class="phase on" data-x="gate">
   <div class="hd"><span>SPHEREx // SKY EXPLORER</span><span>build 2026.11</span></div>
   <hr>
   <div>This transmission contains sound. Headphones recommended.</div>
-  <div>Runtime: 34 s film · boot sequence · press Esc at any point to skip.</div>
+  <div>Runtime: 37 s film · boot sequence · press Esc at any point to skip.</div>
   <div class="q">ENABLE AUDIO? <b>[Y/n]</b> <span class="blk"></span></div>
   <div class="yn"><button data-x="yes">Y · sound on</button><button data-x="no">N · silent</button></div>
 </section>
@@ -160,7 +160,7 @@ const CH={Am:[N.A2,N.E3,N.A3,N.C4],F:[N.F2,N.F3,N.A3,N.C4],C:[N.C3,N.G3,N.C4,N.E
 function filmAudio(){
   if(muted||!audio.ctx)return
   const A=audio.ctx,bus=audio.newBus(),t0=A.currentTime+.05,at=(s)=>t0+s
-  audio.hiss(bus,at(0),34.5)
+  audio.hiss(bus,at(0),37.5)
   // the clock: tick-tock that speeds up as the cutting speeds up
   {let i=0;for(let s=.5;s<12.5;s+=1)audio.clock(bus,at(s),.16,i++%2===1)}
   {let i=0;for(let s=12.5;s<17;s+=.5)audio.clock(bus,at(s),.14,i++%2===1)}
@@ -183,19 +183,19 @@ function filmAudio(){
   const arp=[[7,9,N.A4,N.C5],[9,12.5,N.G4,N.E5],[12.5,13.5,N.B4,N.D5],[13.5,14.5,N.A4,N.E5],[14.5,15.5,N.A4,N.C5],[15.5,17,N.B4,N.D5]]
   for(const [a,b,f1,f2] of arp){let i=0;for(let s=a;s<b-.01;s+=.25)audio.pluck(bus,i++%2?f2:f1,at(s),.06)}
   // Voyager: the music drops to a low pad; a servo whine on the way in, a metal thud on landing, two shutter clicks for the blink
-  audio.chord(bus,[N.A2,N.E3],at(17),6.6,.07,.5)
+  audio.chord(bus,[N.A2,N.E3],at(17),9.6,.07,.5)
   // under the second line, the pad lifts a step: the same chord the boot's ALL SYSTEMS GO lands on later
-  audio.chord(bus,[N.C3,N.G3],at(21.2),2.8,.05,.8)
+  audio.chord(bus,[N.C3,N.G3],at(22.7),4.3,.05,.8)
   audio.servo(bus,at(17.05),.5);audio.thud(bus,at(17.6));audio.servo(bus,at(17.75),.25,.03)
   audio.click(bus,at(18.9),3200,.05);audio.click(bus,at(19.0),2600,.05)
-  audio.click(bus,at(21.15),3200,.04);audio.click(bus,at(21.25),2600,.04)
+  audio.click(bus,at(22.65),3200,.04);audio.click(bus,at(22.75),2600,.04)
   // hard cut to silence; then the title lands on a boom and a brass braam, and strings open slowly under the organ
-  audio.boom(bus,at(24.5),1)
-  audio.braam(bus,at(24.5),.24,3.4)
-  audio.chord(bus,CH.Big,at(24.5),7.2,.26,3)
-  audio.ensemble(bus,[N.A3,N.C4,N.E4,N.A4],at(24.9),7)
+  audio.boom(bus,at(T_TITLE),1)
+  audio.braam(bus,at(T_TITLE),.24,3.4)
+  audio.chord(bus,CH.Big,at(T_TITLE),7.2,.26,3)
+  audio.ensemble(bus,[N.A3,N.C4,N.E4,N.A4],at(T_TITLE+.4),7)
   // the sign-off resolves on the opening organ note, so the film ends where it began
-  audio.organ(bus,N.A2,at(31.2),2.6,.1,.6)
+  audio.organ(bus,N.A2,at(T_SIGN+.2),2.6,.1,.6)
 }
 
 // ============================================================ film rendering (ImageData, 12 drawings per second)
@@ -298,7 +298,7 @@ function shotVoyager(lt){ // 17–24 s: the cameo, in front of the dimmed all-sk
   if(lt<.5){const k=eout(lt/.5);x=lerp(-40,FW*.5,k);y=lerp(FH*.05,FH*.4,k);sx=1.18;sy=.86}
   else if(lt<.66){const k=(lt-.5)/.16;sx=1.24-.24*k;sy=.78+.22*k;ex='surprised'}
   else if(lt<.84){y-=Math.round(3*Math.sin((lt-.66)/.18*Math.PI));ex='surprised'}
-  else{y+=Math.round(Math.sin(lt*2.4)*1);if((lt>1.9&&lt<2.0)||(lt>4.15&&lt<4.25))ex='blink';else if(lt>5.3&&lt<6.6)ex='unimpressed'}
+  else{y+=Math.round(Math.sin(lt*2.4)*1);if((lt>1.9&&lt<2.0)||(lt>5.6&&lt<5.7))ex='blink';else if(lt>6.8&&lt<8.6)ex='unimpressed'}
   return {x,y,sx,sy,ex}
 }
 function shotSign(lt,ruleY){ // 31–34 s: the pigeon from the Earth shot comes back and lands on the title rule; crew credit
@@ -314,10 +314,10 @@ function shotTitle(lt){ // 21–30 s: a warm light leak on the right
 
 // --- edit decision list
 // 0 hook · 3 Earth + craft · 7 aperture · 9 Barnard's Star · 12.5 pull-back to the all-sky map · 17 Voyager arrives in
-// front of that map (two lines, 7 s) · 24.5 title · 31 the pigeon from the Earth shot lands on the title rule · 34 boot
-const T_VOY=17,T_TITLE=24.5,T_SIGN=31,T_END=34
+// front of that map (two lines, 10 s: 4.5 s + 4.3 s on screen) · 27.5 title · 34 the pigeon lands on the title rule · 37 boot
+const T_VOY=17,T_TITLE=27.5,T_SIGN=34,T_END=37
 const FLASH=[[7,C.cream],[9,C.red],[12.5,C.cream],[13.5,C.cream],[14.5,C.cream]] // at most 3 in any second; one frame each
-const CARDS=[['cHook',.6,2.9],['cCraft',3.6,6.8],['c1',12.55,13.45],['c2',13.55,14.45],['c3',14.55,15.45],['c4',15.6,17],['cYear',9.35,12.5],['cSub',18.0,21.0],['cSub2',21.3,24.1],['cTitle',T_TITLE+.3,99],['cPress',T_TITLE+4,T_SIGN],['cSign',T_SIGN+.9,99]]
+const CARDS=[['cHook',.6,2.9],['cCraft',3.6,6.8],['c1',12.55,13.45],['c2',13.55,14.45],['c3',14.55,15.45],['c4',15.6,17],['cYear',9.35,12.5],['cSub',18.0,22.5],['cSub2',22.8,27.1],['cTitle',T_TITLE+.3,99],['cPress',T_TITLE+4,T_SIGN],['cSign',T_SIGN+.9,99]]
 let filmStart=0,filmT=0,lastDraw=-1,raf=0,signed=false,signRule=null
 // where the title's amber rule sits, in film pixels (it is HTML, so it moves with the screen size)
 function ruleY(){if(signRule==null){const fr=$('frame').getBoundingClientRect(),r=$('tl').getBoundingClientRect();signRule=fr.height?((r.top-fr.top)/fr.height)*FH:FH*.47}return signRule}
@@ -426,9 +426,9 @@ function cutAudio(){
   if(muted||!audio.ctx)return
   const A=audio.ctx,bus=audio.newBus(),t0=A.currentTime+.05,at=(x)=>t0+Math.max(0,x-cut.from)/timeScale
   audio.hiss(bus,at(cut.from),(cut.to-cut.from)/timeScale+.5,.008)
-  audio.boom(bus,at(24.5),1);audio.braam(bus,at(24.5),.24,3.4)
-  audio.chord(bus,CH.Big,at(24.5),(cut.to-24.5)/timeScale,.26,3)
-  audio.ensemble(bus,[N.A3,N.C4,N.E4,N.A4],at(24.9),(cut.to-24.9)/timeScale)
+  audio.boom(bus,at(T_TITLE),1);audio.braam(bus,at(T_TITLE),.24,3.4)
+  audio.chord(bus,CH.Big,at(T_TITLE),(cut.to-T_TITLE)/timeScale,.26,3)
+  audio.ensemble(bus,[N.A3,N.C4,N.E4,N.A4],at(T_TITLE+.4),(cut.to-T_TITLE-.4)/timeScale)
 }
 function shortBoot(){
   cancelAnimationFrame(raf);clearTimers();audio.stopAll();show('boot');term.innerHTML='';ts=bootScale
