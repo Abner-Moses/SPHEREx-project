@@ -1,0 +1,29 @@
+........................................................................ [ 11%]
+........................................................................ [ 23%]
+........................................................................ [ 34%]
+........................................................................ [ 46%]
+........................................................................ [ 57%]
+........................................................................ [ 69%]
+................................ssssss....s............................. [ 80%]
+.....................................s.................................. [ 92%]
+...............................................                          [100%]
+=============================== warnings summary ===============================
+tests/test_enrichment.py::test_datalink_protocol_errors_are_explicit[kwargs2-overflow]
+  /Users/abnermoses/Downloads/SphereX/SphereX/.venv/lib/python3.14/site-packages/pyvo/dal/query.py:371: DALOverflowWarning: Result set limited by user- or server-supplied MAXREC parameter.
+    warn("Result set limited by user- or server-supplied MAXREC "
+
+tests/test_pipeline.py::test_invalid_scientific_data[wcs]
+  /Users/abnermoses/Downloads/SphereX/SphereX/.venv/lib/python3.14/site-packages/astropy/wcs/wcs.py:926: FITSFixedWarning: 'celfix' made the change 'Unmatched celestial axes'.
+    warnings.warn(
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+=========================== short test summary info ============================
+SKIPPED [1] tests/test_local_fallback.py:15: Local NASA dataset not installed
+SKIPPED [1] tests/test_local_fallback.py:38: Local NASA dataset not installed
+SKIPPED [1] tests/test_local_fallback.py:49: Local NASA dataset not installed
+SKIPPED [1] tests/test_local_fallback.py:61: Local NASA dataset not installed
+SKIPPED [1] tests/test_local_fallback.py:77: Local NASA dataset not installed
+SKIPPED [1] tests/test_local_fallback.py:88: Local NASA dataset not installed
+SKIPPED [1] tests/test_local_science_smoke.py:40: Local NASA dataset not installed
+SKIPPED [1] tests/test_pipeline.py:162: Opt-in real IRSA network test
+615 passed, 8 skipped, 2 warnings in 12.93s

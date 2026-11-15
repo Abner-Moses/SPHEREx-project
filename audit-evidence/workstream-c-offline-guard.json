@@ -1,0 +1,160 @@
+{
+  "offline": "1",
+  "data_root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+  "guards": [
+    "requests.Session.request",
+    "httpx2.AsyncClient.request"
+  ],
+  "command": "SPHEREX_OFFLINE=1 .venv/bin/python; import main,demo_targets; monkeypatch requests.Session.request and httpx2.AsyncClient.request to count/fail; demo_targets._analyse for all five",
+  "targets": [
+    {
+      "id": "barnards-star",
+      "state": "done",
+      "status": "exploratory",
+      "sources": [
+        "local dataset: DR1 spectral cube",
+        "local dataset: Level-2 observations"
+      ],
+      "frames_found": 25,
+      "frames_used": 12,
+      "cube_spectrum_channels": 102,
+      "accepted_points": 0,
+      "exploratory_points": 11,
+      "errors": [],
+      "elapsed_s": 1.99,
+      "astrometry": {
+        "ra": 269.452077,
+        "dec": 4.693365,
+        "pmra": -801.551,
+        "pmdec": 10362.394,
+        "plx_mas": 546.9759,
+        "source": "SIMBAD (CDS)"
+      },
+      "measure_at": {
+        "ra": 269.4463132244712,
+        "dec": 4.767628823666667,
+        "epoch": 2025.8
+      }
+    },
+    {
+      "id": "eps-indi-b",
+      "state": "done",
+      "status": "science",
+      "sources": [
+        "local dataset: DR1 spectral cube",
+        "local dataset: Level-2 observations"
+      ],
+      "frames_found": 6,
+      "frames_used": 6,
+      "cube_spectrum_channels": 102,
+      "accepted_points": 3,
+      "exploratory_points": 3,
+      "errors": [],
+      "elapsed_s": 1.23,
+      "astrometry": {
+        "ra": 331.0441466,
+        "dec": -56.7828442,
+        "pmra": 3981.977,
+        "pmdec": -2466.832,
+        "plx_mas": 270.658,
+        "source": "SIMBAD (CDS)"
+      },
+      "measure_at": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "epoch": 2025.8
+      }
+    },
+    {
+      "id": "wise-0855",
+      "state": "done",
+      "status": "science",
+      "sources": [
+        "local dataset: DR1 spectral cube",
+        "local dataset: Level-2 observations"
+      ],
+      "frames_found": 5,
+      "frames_used": 5,
+      "cube_spectrum_channels": 102,
+      "accepted_points": 3,
+      "exploratory_points": 2,
+      "errors": [],
+      "elapsed_s": 1.19,
+      "astrometry": {
+        "ra": 133.8189082,
+        "dec": -7.247048,
+        "pmra": -8123.7,
+        "pmdec": 673.2,
+        "plx_mas": 439.0,
+        "source": "SIMBAD (CDS)"
+      },
+      "measure_at": {
+        "ra": 133.7602195125091,
+        "dec": -7.2422234,
+        "epoch": 2025.8
+      }
+    },
+    {
+      "id": "rw-aurigae",
+      "state": "done",
+      "status": "exploratory",
+      "sources": [
+        "local dataset: DR1 spectral cube",
+        "local dataset: Level-2 observations"
+      ],
+      "frames_found": 5,
+      "frames_used": 5,
+      "cube_spectrum_channels": 102,
+      "accepted_points": 0,
+      "exploratory_points": 5,
+      "errors": [],
+      "elapsed_s": 1.04,
+      "astrometry": {
+        "ra": 76.956526,
+        "dec": 30.4014382,
+        "pmra": 7.23,
+        "pmdec": -20.33,
+        "plx_mas": 15.42,
+        "source": "SIMBAD (CDS)"
+      },
+      "measure_at": {
+        "ra": 76.95658607529498,
+        "dec": 30.401292501666667,
+        "epoch": 2025.8
+      }
+    },
+    {
+      "id": "r-draconis",
+      "state": "done",
+      "status": "exploratory",
+      "sources": [
+        "local dataset: DR1 spectral cube",
+        "local dataset: Level-2 observations"
+      ],
+      "frames_found": 4,
+      "frames_used": 4,
+      "cube_spectrum_channels": 102,
+      "accepted_points": 0,
+      "exploratory_points": 4,
+      "errors": [],
+      "elapsed_s": 0.95,
+      "astrometry": {
+        "ra": 248.1676108,
+        "dec": 66.7549794,
+        "pmra": -20.643,
+        "pmdec": 6.149,
+        "plx_mas": 1.2509,
+        "source": "SIMBAD (CDS)"
+      },
+      "measure_at": {
+        "ra": 248.16723594569885,
+        "dec": 66.75502346783333,
+        "epoch": 2025.8
+      }
+    }
+  ],
+  "outbound_attempt_count": 0,
+  "outbound_attempts": [],
+  "demo_cache": "/Users/abnermoses/Downloads/SphereX/SphereX/science/cache/demo",
+  "epoch": 2025.8
+}

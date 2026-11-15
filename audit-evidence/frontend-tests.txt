@@ -1,0 +1,56 @@
+
+> spherex-sky-explorer@0.2.0 test
+> node --test "src/lib/*.test.js"
+
+✔ galactic origin (l=0,b=0) matches the repo validator constant (RA 266.40510, Dec -28.93618) (0.599917ms)
+✔ M31 galactic coordinates agree with SIMBAD-derived values (l~121.17, b~-21.57) (0.143833ms)
+✔ galactic <-> equatorial round trip (3.133417ms)
+✔ ecliptic: lambda=90 beta=0 is RA 90, Dec = obliquity; round trip (0.195333ms)
+✔ separation: pole to pole is 180, tiny angle is stable (0.066375ms)
+✔ formatting and parsing agree (0.444542ms)
+✔ star names (0.255208ms)
+✔ dedupe keeps the brightest of a close group and leaves distant stars alone (0.437833ms)
+✔ look mode grabs the sky: the point under the pointer stays under it (6.158583ms)
+✔ the horizon never rolls and pitch stops short of the poles (0.993875ms)
+✔ look-mode zoom changes the field of view, never the camera position (1.1355ms)
+✔ keyboard movement eases in and out (no jumps) (1.050875ms)
+✔ cube spectrum keeps blank channels as gaps instead of connecting across them (3.787417ms)
+✔ measured frame count uses successful photometry, excluding attempts and cube channels (0.087625ms)
+✔ Shift-capture cap is proportional to frame area, clamped to 2..250 (0.067ms)
+✔ Lomb–Scargle recovers a known period from uneven samples (14.435792ms)
+✔ contours trace a single level around a peak (0.360292ms)
+✔ builders never invent charts without inputs (0.886375ms)
+✔ science charts label exploratory and saturated inputs (3.429ms)
+✔ fixture is the real product (0.652542ms)
+✔ sky -> image reproduces the backend WCS answer for the J2000 target (full SIP, astropy) (0.698208ms)
+✔ image -> sky -> image round-trips to a millionth of a pixel across the whole detector (0.988625ms)
+✔ the epoch-corrected Barnard's Star lands where the real bright star is (astropy: 648.7, 1476.0) (0.420334ms)
+✔ the footprint corners map to the image corners (0.127584ms)
+✔ the Sun sits on the ecliptic where it should (0.670833ms)
+✔ planets land near published positions (0.697292ms)
+✔ HEALPix cells tile the sphere: order-0 centres and the poles (0.145375ms)
+✔ project/unproject round-trips to far below a milliarcsecond in every projection at every zoom (8.477666ms)
+✔ orientation: centre is the screen centre, east is left, north is up (0.339208ms)
+✔ pixel scale is exact at the zoom ceiling: 1 arcsec offsets map to the right number of pixels (0.385ms)
+✔ sub-arcsecond precision survives at the maximum zoom (0.253ms)
+✔ points behind the viewer are not visible; wide fields stay finite (0.513833ms)
+✔ dragging grabs the sky: the point under the pointer stays under it (1.2775ms)
+✔ zoom keeps the sky point under the cursor fixed, and respects both limits (0.854959ms)
+✔ proper motion: Barnard's Star has moved ~4.6 arcmin north since J2000 by August 2026 (0.988834ms)
+✔ grid steps shrink as you zoom in and labels carry the right precision (0.494875ms)
+✔ visible bounds cover the screen and flag pole-crossing views (0.814709ms)
+✔ skyVector returns unit vectors (0.103416ms)
+✔ histogram + summary of a known image (0.592541ms)
+✔ aperture stats on a flat plate with one bright pixel (0.592917ms)
+✔ radial profile of a linear radial ramp is monotonic (3.865083ms)
+✔ line profile interpolates along a gradient (0.392292ms)
+✔ downsample averages blocks and normalises to 0..1 (1.046042ms)
+✔ colormap LUT spans first to last stop and is opaque (0.435333ms)
+ℹ tests 44
+ℹ suites 0
+ℹ pass 44
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 221.727083

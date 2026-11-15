@@ -1,0 +1,21 @@
+# Reproducible environments, validation tooling and generated artifacts
+.venv/
+.audit/
+node_modules/
+frontend/dist/
+__pycache__/
+.pytest_cache/
+.cache/
+.DS_Store
+.env
+.env.*
+!.env.example
+# Immutable upstream FITS remain local; source URLs/checksums are in manifests.
+*.fits
+*.fits.gz
+*.log
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal
+science/cache/observations/
+science/cache/hips/

@@ -1,0 +1,321 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Endurance Deck</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Michroma&family=Doto:wght@800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Silkscreen&display=swap" rel="stylesheet">
+<style>
+:root{
+  --char:#0a0b0c; --char-2:#101214; --char-3:#16191c; --gun:#252a2f; --gun-2:#333a40; --gun-3:#4a525a;
+  --steel:#c7cdd2; --dim:#7f888f; --faint:#525a61; --cream:#e6dfcc; --cream-dim:#9b9484;
+  --sig:#f2b705; --red:#e0393b; --blue:#4aa3ff; --blue-dim:#1c3550;
+  --d1:#7c8cff; --d2:#4fd1e0; --d3:#8fe07a; --d4:#f4d35e; --d5:#ff9b42; --d6:#ff5a5f;
+  --b16:125ms; --b8:250ms; --b4:500ms; --ease:cubic-bezier(.2,.8,.2,1);
+  --grain:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 1 0 0 0 0 1 0 0 0 0 1 0 0 0 .06 0'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--char);color:var(--steel);font:15px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+body::after{content:"";position:fixed;inset:0;background:var(--grain);pointer-events:none;z-index:50;mix-blend-mode:screen}
+.wrap{max-width:1160px;margin:0 auto;padding:44px 20px 90px}
+.mono{font-family:"IBM Plex Mono",monospace}
+.wide{font-family:Michroma,sans-serif;text-transform:uppercase;letter-spacing:.32em}
+.tag{font:400 9.5px Michroma;letter-spacing:.3em;text-transform:uppercase;color:var(--cream-dim)}
+.tag b{color:var(--cream);font-weight:400}
+h1{font:400 clamp(30px,5.6vw,66px)/1.15 Michroma;letter-spacing:.34em;text-transform:uppercase;margin:22px 0 18px;color:var(--cream)}
+h1 small{display:block;font-size:.3em;letter-spacing:.6em;color:var(--sig);margin-top:12px}
+h2{font:400 11px Michroma;letter-spacing:.34em;text-transform:uppercase;color:var(--cream-dim);margin:72px 0 20px;display:flex;gap:16px;align-items:center}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--gun-2),transparent)}
+.lede{max-width:700px;color:var(--dim);font-size:17px}
+.lede b{color:var(--steel);font-weight:500}
+.slab{position:relative;background:var(--char-2);border-top:1px solid var(--gun-2)}
+.slab .lab{display:flex;justify-content:space-between;align-items:center;padding-bottom:8px;margin-bottom:10px;border-bottom:1px solid var(--gun)}
+.focus{position:relative}
+.focus::before,.focus::after{content:"";position:absolute;width:14px;height:14px;border-color:var(--blue);border-style:solid;pointer-events:none}
+.focus::before{left:-1px;top:-1px;border-width:2px 0 0 2px}
+.focus::after{right:-1px;bottom:-1px;border-width:0 2px 2px 0}
+.lamp{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--gun-3);vertical-align:1px}
+.lamp.on{background:var(--sig);box-shadow:0 0 6px var(--sig)}
+.lamp.red{background:var(--red);box-shadow:0 0 6px var(--red)}
+.lamp.blue{background:var(--blue);box-shadow:0 0 6px var(--blue)}
+.cur{display:inline-block;width:8px;height:14px;background:var(--sig);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ---- deck mock */
+.screen{position:relative;margin-top:30px;height:680px;overflow:hidden;background:#07080a;border:1px solid var(--gun)}
+.screen canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+.vign{position:absolute;inset:0;pointer-events:none;background:radial-gradient(120% 90% at 50% 45%,transparent 55%,rgba(0,0,0,.55))}
+.top{position:absolute;left:0;right:0;top:0;height:54px;display:flex;align-items:center;gap:22px;padding:0 22px;background:linear-gradient(180deg,rgba(10,11,12,.95),rgba(10,11,12,.6));border-bottom:1px solid var(--gun)}
+.top .mark{font:400 12px Michroma;letter-spacing:.42em;color:var(--cream)}
+.cmd{flex:1;max-width:440px;font:500 12.5px "IBM Plex Mono";color:var(--dim);white-space:nowrap;overflow:hidden;border-bottom:1px solid var(--gun-2);padding:6px 2px}
+.cmd i{font-style:normal;color:var(--blue)}.cmd u{text-decoration:none;color:var(--steel)}
+.clocks{margin-left:auto;display:flex;gap:22px;align-items:flex-end}
+.clk{display:flex;flex-direction:column;align-items:flex-end;gap:2px}
+.clk b{font:900 19px/1 Doto;color:var(--cream);letter-spacing:.04em}
+.clk b.amber{color:var(--sig)}
+.dt{font:500 11px "IBM Plex Mono";color:var(--red);align-self:center;padding:3px 8px;border:1px solid rgba(224,57,59,.4)}
+.log{position:absolute;left:22px;top:80px;width:290px;padding:12px 0 0;font:400 11px/1.8 "IBM Plex Mono";background:transparent;border-top:1px solid var(--gun-2)}
+.log p{margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--dim);opacity:0;transition:opacity var(--b8) var(--ease)}
+.log p.in{opacity:1}
+.log s{text-decoration:none;color:var(--faint)}
+.log .ok{color:var(--blue)}.log .v{color:var(--sig)}.log .r{color:var(--red)}
+.target{position:absolute;right:22px;top:80px;width:300px;padding:16px 18px 16px;background:rgba(16,18,20,.92)}
+.target h3{font:400 23px/1.25 Michroma;letter-spacing:.14em;text-transform:uppercase;margin:4px 0 6px;color:var(--cream)}
+.target .sub{font-size:12.5px;color:var(--dim)}
+.rows{margin-top:12px;font:400 11.5px "IBM Plex Mono"}
+.rows div{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px solid var(--gun)}
+.rows span{color:var(--faint)}
+.strip{display:flex;height:3px;margin:14px 0 4px}.strip i{flex:1}
+.btns{display:flex;gap:8px;margin-top:16px}
+.btn{all:unset;cursor:pointer;flex:1;text-align:center;font:400 9.5px Michroma;letter-spacing:.24em;padding:11px 0;transition:background var(--b16),color var(--b16)}
+.btn.pri{background:var(--sig);color:#1c1500}
+.btn.pri:hover{background:#ffc928}
+.btn.sec{color:var(--blue);box-shadow:inset 0 0 0 1px var(--blue-dim)}
+.btn.sec:hover{background:var(--blue-dim);color:#cfe6ff}
+.lbl{position:absolute;font:400 9px Michroma;letter-spacing:.24em;white-space:nowrap;color:var(--cream);pointer-events:none}
+.lbl s{text-decoration:none;color:var(--cream-dim);font-family:"IBM Plex Mono";letter-spacing:0;font-size:11px}
+.xmit{position:absolute;width:310px;padding:12px 14px 13px;background:rgba(7,8,10,.94);border-left:2px solid var(--sig);font-size:13.5px;line-height:1.55;opacity:0;transition:opacity var(--b8) var(--ease)}
+.xmit.in{opacity:1}
+.xmit .hd{display:flex;justify-content:space-between;margin-bottom:6px}
+.att{position:absolute;left:22px;bottom:84px;width:150px;height:150px}
+.att svg{width:100%;height:100%;overflow:visible}
+.bottom{position:absolute;left:0;right:0;bottom:0;height:62px;display:flex;align-items:center;gap:6px;padding:0 22px;background:linear-gradient(0deg,rgba(10,11,12,.96),rgba(10,11,12,.6));border-top:1px solid var(--gun)}
+.sw{all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 14px;font:400 8.5px Michroma;letter-spacing:.26em;color:var(--dim);transition:color var(--b16)}
+.sw .lamp{transition:background var(--b16),box-shadow var(--b16)}
+.sw:hover{color:var(--steel)}
+.sw.on{color:var(--cream)}.sw.on .lamp{background:var(--blue);box-shadow:0 0 6px var(--blue)}
+.bottom .scale{margin-left:auto;display:flex;gap:16px;align-items:center;font:400 11px "IBM Plex Mono";color:var(--dim)}
+.boot{position:absolute;inset:0;background:#07080a;z-index:5;display:flex;flex-direction:column;justify-content:center;padding:0 12%;font:400 12.5px/2 "IBM Plex Mono";color:var(--dim);transition:opacity var(--b4) var(--ease)}
+.boot.gone{opacity:0;pointer-events:none}
+.boot .t{font:400 20px Michroma;letter-spacing:.5em;color:var(--cream);margin-bottom:6px}
+.boot .st{font:400 9.5px Michroma;letter-spacing:.4em;color:var(--sig);margin-bottom:26px}
+.boot p{margin:0;opacity:0;transition:opacity var(--b8)}.boot p.in{opacity:1}
+.boot .ok{color:var(--blue)}
+.boot .skip{position:absolute;right:22px;bottom:18px;font:400 9px Michroma;letter-spacing:.3em;color:var(--faint)}
+.uplink{position:absolute;top:56px;bottom:64px;width:200px;pointer-events:none;font:400 10px/1.5 "IBM Plex Mono";color:var(--blue);padding:8px;opacity:0;white-space:pre}
+.ctrls{display:flex;gap:10px;flex-wrap:wrap;margin-top:14px}
+.ctrls button{all:unset;cursor:pointer;font:400 9px Michroma;letter-spacing:.24em;color:var(--dim);padding:8px 12px;border:1px solid var(--gun-2);transition:color var(--b16),border-color var(--b16)}
+.ctrls button:hover{color:var(--cream);border-color:var(--gun-3)}
+
+/* ---- sections */
+.changes{display:grid;gap:1px;background:var(--gun);grid-template-columns:repeat(auto-fit,minmax(240px,1fr));border:1px solid var(--gun)}
+.changes div{background:var(--char);padding:18px 18px 20px}
+.changes .n{font:400 9px Michroma;letter-spacing:.3em;color:var(--sig)}
+.changes h4{font:400 13px/1.5 Michroma;letter-spacing:.14em;text-transform:uppercase;color:var(--cream);margin:10px 0 8px}
+.changes p{margin:0;color:var(--dim);font-size:13.5px}
+.instr{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(240px,1fr))}
+.instr .slab{padding:16px 18px 18px}
+.instr svg{display:block;width:100%;height:140px;margin:6px 0 10px}
+.instr p{margin:0;color:var(--dim);font-size:13px}
+.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:1px;background:var(--gun);border:1px solid var(--gun)}
+.pal div{background:var(--char)}
+.pal i{display:block;height:60px}
+.pal b,.pal span{display:block;padding:0 12px;font:400 11px "IBM Plex Mono"}
+.pal b{padding-top:9px;color:var(--steel);font-weight:500}.pal span{color:var(--faint);padding-bottom:10px}
+.types{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.types .slab{padding:16px 18px}
+.types .s{margin:12px 0 10px}
+.types p{margin:0;font-size:13px;color:var(--dim)}
+.note{color:var(--faint);font-size:13px;margin-top:12px}
+@media (max-width:900px){.log,.target,.att,.clocks .clk:first-child,.dt{display:none}.screen{height:580px}}
+@media (prefers-reduced-motion:reduce){.cur{animation:none}*{transition-duration:0s!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="tag">Theme concept <b>04</b> · retro-futurist deck · builds on Gunmetal Signal</div>
+  <h1>Endurance Deck<small>Sky explorer · flight systems</small></h1>
+  <p class="lede">Gunmetal Signal, moved onto a 1970s-style spacecraft flight deck. <b>Wide, widely spaced capitals</b>, plain instrument dials, film grain and a quiet vignette. <b>Two clocks</b> show the time the stars are drawn at and your own time. Blue corner brackets now appear in <b>one place only</b>: the thing in focus.</p>
+
+  <div class="screen" id="screen">
+    <canvas id="sky"></canvas>
+    <canvas id="fx"></canvas>
+    <div class="vign"></div>
+
+    <div class="top">
+      <span class="mark">SPHEREx</span>
+      <div class="cmd"><i>›</i> <u id="typed"></u><span class="cur" style="background:var(--blue)"></span></div>
+      <div class="clocks">
+        <div class="clk"><span class="tag">Sky epoch</span><b class="amber">2026·08·31</b></div>
+        <span class="dt">Δt −76 d</span>
+        <div class="clk"><span class="tag">Your time</span><b>08:46:02</b></div>
+      </div>
+    </div>
+
+    <div class="log" id="log"><div class="tag" style="margin-bottom:6px">Flight log</div></div>
+
+    <div class="lbl" id="lblStar">Barnard's star <s>· 5.96 ly</s></div>
+    <div class="lbl" style="left:57%;top:23%">Rasalhague</div>
+    <div class="lbl" style="left:38%;top:70%">Cebalrai</div>
+
+    <div class="xmit" id="xmit">
+      <div class="hd"><span class="tag" style="color:var(--sig)">Voyager</span><span class="tag">Humor 50%</span></div>
+      <div id="xline"></div>
+    </div>
+
+    <div class="att" id="att"></div>
+
+    <aside class="target slab focus">
+      <div class="lab"><span class="tag">Target <b>01</b></span><span class="tag" style="color:var(--sig)"><span class="lamp on"></span>&nbsp; Focus</span></div>
+      <h3>Barnard's<br>Star</h3>
+      <div class="sub">Red dwarf · Ophiuchus · fourth-nearest star system</div>
+      <div class="rows">
+        <div><span>RA / Dec</span><b>269.4521° +4.6934°</b></div>
+        <div><span>Proper motion</span><b>10.39″ / yr</b></div>
+        <div><span>Band</span><b>D6 · 4.42–5.00 µm</b></div>
+        <div><span>Light travel</span><b>5.96 years</b></div>
+      </div>
+      <div class="strip"><i style="background:var(--d1)"></i><i style="background:var(--d2)"></i><i style="background:var(--d3)"></i><i style="background:var(--d4)"></i><i style="background:var(--d5)"></i><i style="background:var(--d6)"></i></div>
+      <div class="btns"><button class="btn pri">Open image</button><button class="btn sec">Ask Voyager</button></div>
+    </aside>
+
+    <div class="bottom" id="bottom">
+      <button class="sw on"><span class="lamp"></span>Sky</button><button class="sw"><span class="lamp"></span>Image</button><button class="sw"><span class="lamp"></span>Surface</button><button class="sw"><span class="lamp"></span>Depth</button>
+      <div class="scale"><span>FOV 4.2°</span><span>│</span><span><span class="lamp red"></span>&nbsp;Live archive</span></div>
+    </div>
+
+    <div class="uplink" id="uplink"></div>
+
+    <div class="boot" id="boot">
+      <div class="t">SPHEREx</div><div class="st">Sky explorer · systems check</div>
+      <div id="bootLines"></div>
+      <span class="skip">Click to skip</span>
+    </div>
+  </div>
+  <div class="ctrls"><button id="rBoot">↻ Systems check</button><button id="rArrive">↻ Voyager arrival</button><button id="rUplink">↻ Image uplink</button></div>
+  <p class="note">The same three "very crazy" moments as v3, now quieter and more cinematic: the boot is a slow systems check, the beam is softer, and the uplink keeps its hex stream.</p>
+
+  <h2>What changed from 03</h2>
+  <div class="changes">
+    <div><div class="n">01</div><h4>Brackets mean focus</h4><p>The blue corners are gone from every panel except the one in focus. Panels are now flat slabs with a single top rule and a spaced-out label.</p></div>
+    <div><div class="n">02</div><h4>Wide capitals</h4><p>Michroma, a wide 1970s-style face with very open spacing, replaces the dot matrix for names and labels. Dot matrix survives only in the clocks.</p></div>
+    <div><div class="n">03</div><h4>Two clocks, one gap</h4><p>"Sky epoch" (the date the stars are drawn at) and "your time", with the difference between them in red. It's a real feature of the app, framed like time dilation.</p></div>
+    <div><div class="n">04</div><h4>Instruments, not widgets</h4><p>An attitude dial shows where you're looking and how wide. View switches are lamp toggles. Data reads like a flight log.</p></div>
+    <div><div class="n">05</div><h4>Film, not screen</h4><p>Fixed film grain (it doesn't flicker), a soft vignette and cream label text give the warmth of a projected film instead of a monitor.</p></div>
+    <div><div class="n">06</div><h4>Voyager on a carrier line</h4><p>Its messages hang off a single amber edge line instead of a boxed panel, like a caption on a cockpit display.</p></div>
+  </div>
+
+  <h2>Instruments</h2>
+  <div class="instr">
+    <div class="slab"><div class="lab"><span class="tag">Attitude</span><span class="tag"><b>RA 269.5°</b></span></div><div id="attBig"></div><p>Where you're looking (RA ring) and how much sky fits on screen (the cream arc).</p></div>
+    <div class="slab"><div class="lab"><span class="tag">Band selector</span><span class="tag"><b>D6</b></span></div>
+      <svg viewBox="0 0 260 140"><g font-family="IBM Plex Mono" font-size="10" fill="#7f888f">
+        <path d="M30 110 A100 100 0 0 1 230 110" fill="none" stroke="#333a40" stroke-width="2"/>
+        <g id="bandTicks"></g>
+        <line x1="130" y1="110" x2="214" y2="62" stroke="#f2b705" stroke-width="2"/><circle cx="130" cy="110" r="5" fill="#16191c" stroke="#f2b705" stroke-width="2"/>
+        <text x="20" y="130">0.75 µm</text><text x="196" y="130">5.00 µm</text></g></svg>
+      <p>A rotary selector for the six detectors. The needle points at the band of the loaded image.</p></div>
+    <div class="slab"><div class="lab"><span class="tag">Distance</span><span class="tag"><b>5.96 ly</b></span></div>
+      <svg viewBox="0 0 260 140"><g font-family="IBM Plex Mono" font-size="10" fill="#7f888f">
+        <line x1="14" y1="76" x2="246" y2="76" stroke="#333a40"/>
+        
+        <circle cx="20" cy="76" r="5" fill="#f2b705"/><text x="10" y="102">Sun</text>
+        <circle cx="62" cy="76" r="4" fill="#ff5a5f"/><text x="44" y="60">Barnard's</text>
+        <circle cx="34" cy="76" r="3" fill="#c7cdd2"/>
+        <line x1="20" y1="90" x2="62" y2="90" stroke="#4aa3ff"/><text x="22" y="118" fill="#4aa3ff">light: 5.96 yr</text>
+        <text x="150" y="60">log scale →</text><circle cx="160" cy="76" r="3" fill="#7f888f"/><text x="140" y="102">Vega 25 ly</text><circle cx="232" cy="76" r="3" fill="#7f888f"/><text x="196" y="118">Polaris 446 ly</text></g></svg>
+      <p>How far, on a log scale, and how long the light took to reach us.</p></div>
+  </div>
+
+  <h2>Palette</h2>
+  <div class="pal" id="pal"></div>
+
+  <h2>Type</h2>
+  <div class="types">
+    <div class="slab"><div class="lab"><span class="tag">Display · <b>Michroma</b></span></div><div class="s" style="font:400 22px/1.3 Michroma;letter-spacing:.22em;color:var(--cream)">BARNARD'S STAR</div><p>Names, headings and labels. Wide and spaced, like stencilling on a hull.</p></div>
+    <div class="slab"><div class="lab"><span class="tag">Data · <b>IBM Plex Mono</b></span></div><div class="s mono" style="font-size:16px">› goto m31<span class="cur" style="background:var(--blue)"></span></div><p>Commands, the flight log, all numbers.</p></div>
+    <div class="slab"><div class="lab"><span class="tag">Reading · <b>IBM Plex Sans</b></span></div><div class="s" style="font-size:20px">Infrared light passes through dust.</div><p>Explanations and Voyager's messages.</p></div>
+    <div class="slab"><div class="lab"><span class="tag">Clocks · <b>Doto</b></span></div><div class="s" style="font:900 28px Doto;color:var(--sig)">2026·08·31</div><p>The two clocks only.</p></div>
+  </div>
+  <p class="note">03 (Gunmetal Signal) stays in design/ as the fallback baseline.</p>
+</div>
+
+<script>
+const $=(id)=>document.getElementById(id)
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches
+const C={bg:'#07080a',steel:'#c7cdd2',cream:'#e6dfcc',sig:'#f2b705',red:'#e0393b',blue:'#4aa3ff',d6:'#ff5a5f'}
+const BAYER=[0,8,2,10,12,4,14,6,3,11,1,9,15,7,13,5].map((v)=>(v+.5)/16)
+const S=3
+let W,H,star,home
+
+// attitude dial (SVG)
+function dial(size,ra=269.5,fov=4.2){
+  const c=size/2,r=c-8;let t=''
+  for(let i=0;i<72;i++){const a=i*5*Math.PI/180,l=i%6===0?9:4,x1=c+Math.sin(a)*r,y1=c-Math.cos(a)*r,x2=c+Math.sin(a)*(r-l),y2=c-Math.cos(a)*(r-l);t+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="${i%6===0?'#7f888f':'#333a40'}"/>`}
+  for(const [lab,deg] of [['0',0],['90',90],['180',180],['270',270]]){const a=deg*Math.PI/180;t+=`<text x="${c+Math.sin(a)*(r-20)}" y="${c-Math.cos(a)*(r-20)+3}" text-anchor="middle" font-family="IBM Plex Mono" font-size="${size>140?10:8}" fill="#525a61">${lab}</text>`}
+  const a=ra*Math.PI/180,span=Math.max(fov,4)*Math.PI/180*4
+  const arc=(r2)=>{const a0=a-span/2,a1=a+span/2;return `M${c+Math.sin(a0)*r2} ${c-Math.cos(a0)*r2} A${r2} ${r2} 0 0 1 ${c+Math.sin(a1)*r2} ${c-Math.cos(a1)*r2}`}
+  t+=`<path d="${arc(r+4)}" stroke="#e6dfcc" stroke-width="2" fill="none"/>`
+  t+=`<line x1="${c}" y1="${c}" x2="${c+Math.sin(a)*(r-12)}" y2="${c-Math.cos(a)*(r-12)}" stroke="#f2b705" stroke-width="1.5"/><circle cx="${c}" cy="${c}" r="3" fill="#f2b705"/>`
+  t+=`<circle cx="${c}" cy="${c}" r="${r}" fill="none" stroke="#252a2f"/>`
+  return `<svg viewBox="0 0 ${size} ${size}">${t}</svg>`
+}
+$('att').innerHTML=dial(150)
+$('attBig').innerHTML=dial(140).replace('<svg','<svg style="height:140px;width:140px;margin:6px auto 10px;display:block"')
+{let t='';for(let i=0;i<6;i++){const a=Math.PI*(1-(i+.5)/6),x1=130+Math.cos(a)*100,y1=110-Math.sin(a)*100,x2=130+Math.cos(a)*86,y2=110-Math.sin(a)*86;t+=`<line x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}" stroke="var(--d${i+1})" stroke-width="3"/><text x="${130+Math.cos(a)*72}" y="${110-Math.sin(a)*72+3}" text-anchor="middle">D${i+1}</text>`};$('bandTicks').innerHTML=t}
+
+function layout(){
+  const sc=$('screen'),cw=sc.clientWidth,ch=sc.clientHeight
+  W=Math.ceil(cw/S);H=Math.ceil(ch/S)
+  for(const id of ['sky','fx']){$(id).width=W;$(id).height=H}
+  const sx=Math.max(cw*.5,cw<900?cw*.62:360),sy=ch*.45
+  star={x:Math.round(sx/S),y:Math.round(sy/S)};home={x:star.x-46,y:star.y+3}
+  $('lblStar').style.cssText=`left:${star.x*S+20}px;top:${star.y*S-7}px`
+  const xm=$('xmit');xm.style.left=Math.max(12,home.x*S-140)+'px';xm.style.top=(home.y*S+42)+'px';xm.style.maxWidth='calc(100% - 24px)'
+  drawSky()
+}
+let seed=9;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647
+function drawSky(){
+  const g=$('sky').getContext('2d');seed=9;g.fillStyle=C.bg;g.fillRect(0,0,W,H)
+  // a faint warm band, like a dusty galactic plane seen through glass
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){const yy=(y-H*.62)+(x-W*.5)*.18,d=Math.exp(-((yy/(H*.12))**2))*Math.exp(-(((x-W*.45)/(W*.7))**2))*.26;if(d>BAYER[(y%4)*4+x%4]+.02){g.fillStyle=d>.2?'#2a2620':'#17161a';g.fillRect(x,y,1,1)}}
+  for(let i=0;i<W*H/70;i++){const x=rnd()*W|0,y=rnd()*H|0,m=rnd();g.fillStyle=m>.988?'#9fc9ff':m>.94?C.cream:'#3a3f44';g.fillRect(x,y,1,1);if(m>.994){g.globalAlpha=.35;g.fillRect(x-1,y,3,1);g.fillRect(x,y-1,1,3);g.globalAlpha=1}}
+  // a thin ecliptic arc
+  g.fillStyle='#3b3424';for(let x=0;x<W;x+=2){const y=Math.round(H*.3+Math.sin(x/W*Math.PI)*-H*.12+x*.05);g.fillRect(x,y,1,1)}
+  g.fillStyle=C.d6;g.fillRect(star.x-1,star.y-1,3,3);g.globalAlpha=.4;g.fillRect(star.x-3,star.y,7,1);g.fillRect(star.x,star.y-3,1,7);g.globalAlpha=1
+}
+const SPR=['.....WWWWWW.....','...WW......WW...','..W....AA....W..','.......AA.......','.....GGGGGG.....','....GHHHHHHG....','...GHGEEEEGHG...','...GHGEeEEGHG...','...GHGEEEEGHG...','....GHHHHHHG....','.....GGGGGG.....','......D..D......','......D..D......']
+const PAL={W:'#c7cdd2',A:'#7f888f',G:'#a8741f',H:'#f0bd55',E:C.sig,e:'#fff',D:'#4a525a'}
+function drawVoy(g,cx,cy,sx=1,sy=1,flame=0){g.save();g.translate(cx,cy+6.5);g.scale(sx,sy);g.translate(-8,-13);SPR.forEach((r,y)=>[...r].forEach((ch,x)=>{if(ch!=='.'){g.fillStyle=PAL[ch];g.fillRect(x,y,1,1)}}));if(flame){g.fillStyle=flame%2?C.red:C.sig;g.fillRect(6,13,1,1+flame%2);g.fillRect(9,13,1,2-flame%2)}g.restore()}
+function beam(g,ex,ey,tx,ty,a){const dx=tx-ex,dy=ty-ey,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,hw=6;g.fillStyle=C.sig
+  for(let y=Math.floor(Math.min(ey,ty)-hw-2);y<=Math.max(ey,ty)+hw+2;y++)for(let x=Math.floor(Math.min(ex,tx)-2);x<=Math.max(ex,tx)+hw;x++){const px=x-ex,py=y-ey,t=(px*ux+py*uy)/L,d=Math.abs(-px*uy+py*ux);if(t<.08||t>1.04)continue;const w=hw*t;if(d>w)continue;const k=a*(.5-.3*t)*(1-(d/(w+.01))**2);if(k>BAYER[((y%4+4)%4)*4+((x%4)+4)%4])g.fillRect(x,y,1,1)}}
+let anim=null,up=null
+const easeOut=(t)=>1-(1-t)**3
+function arrive(){$('xmit').classList.remove('in');$('xline').innerHTML='';anim={t0:performance.now()-(reduced?5000:0)};arrive.done=false}
+function fxFrame(now){
+  const g=$('fx').getContext('2d');g.clearRect(0,0,W,H)
+  let x=home.x,y=home.y,sx=1,sy=1,fl=0,b=1
+  if(anim){const t=(now-anim.t0)/1000
+    if(t<.5){const k=easeOut(t/.5);x=Math.round(-12+(home.x+12)*k);y=Math.round(home.y-26+26*k);sx=1.15;sy=.88;fl=Math.floor(t*16)}
+    else if(t<.625){const k=(t-.5)/.125;sx=1.2-.2*k;sy=.8+.2*k}
+    else if(t<.75){const k=(t-.625)/.125;y=home.y-Math.round(2*Math.sin(k*Math.PI))}
+    b=t<.75?0:Math.min(1,(t-.75)/.5)
+    if(t>=1.0&&!arrive.done){arrive.done=true;$('xmit').classList.add('in');typeLine()}}
+  if(b>0)beam(g,x+1,y,star.x,star.y,b)
+  if(!anim||(now-anim.t0)/1000>.75)y+=reduced?0:Math.round(Math.sin(now/1000*2.4)*1.2)
+  drawVoy(g,x,y,sx,sy,fl)
+  if(up){const p=(now-up.t0)/2000;if(p>=1){up=null;$('uplink').style.opacity=0}else{const cx=Math.round(p*(W+40))-20;for(let yy=Math.round(56/S);yy<H-Math.round(64/S);yy++)for(let xx=cx-14;xx<cx+2;xx++){const k=1-(cx-xx)/16;if(k>BAYER[(yy%4)*4+((xx%4)+4)%4]){g.fillStyle=k>.85?C.cream:C.blue;g.fillRect(xx,yy,1,1)}}const u=$('uplink');u.style.opacity=.8;u.style.left=(cx*S+10)+'px';if(Math.floor(now/125)!==up.tick){up.tick=Math.floor(now/125);u.textContent=Array.from({length:18},()=>Array.from({length:6},()=>(Math.random()*256|0).toString(16).padStart(2,'0').toUpperCase()).join(' ')).join('\n')}}}
+  requestAnimationFrame(fxFrame)}
+function uplink(){if(reduced)return;up={t0:performance.now(),tick:0};pushLog('<span class="r">●</span> uplink D6 · 2026W34_1A_0007 <s>64.7 MB</s>')}
+const LINE="That's Barnard's Star, about six light-years out. It moves across our sky faster than any other star, which still works out to one Moon-width every 180 years."
+let typer
+function typeLine(){clearInterval(typer);const el=$('xline');if(reduced){el.innerHTML=LINE+'<span class="cur"></span>';return}let i=0;typer=setInterval(()=>{i+=2;el.innerHTML=LINE.slice(0,i)+'<span class="cur"></span>';if(i>=LINE.length)clearInterval(typer)},16)}
+function pushLog(html){const p=document.createElement('p');p.innerHTML=`<s>T+0${$('log').querySelectorAll('p').length}</s> ${html}`;$('log').appendChild(p);requestAnimationFrame(()=>requestAnimationFrame(()=>p.classList.add('in')))}
+const LOGS=['<span class="ok">✓</span> catalogue <s>1,214 stars</s>','<span class="ok">▸</span> resolve "barnard" → 269.4521 +4.6934','<span class="v">◆</span> voyager {"move":"barnard","pose":"point"}','<span class="v">◆</span> voyager {"say":"…","humor":50}']
+function typeCmd(text,done){const el=$('typed');el.textContent='';let i=0;const t=setInterval(()=>{el.textContent=text.slice(0,++i);if(i>=text.length){clearInterval(t);done&&done()}},reduced?0:60)}
+function runMain(){$('log').querySelectorAll('p').forEach((p)=>p.remove());typeCmd('goto "Barnard\'s Star"',()=>{LOGS.forEach((l,i)=>setTimeout(()=>pushLog(l),reduced?0:i*250));setTimeout(arrive,reduced?0:500)})}
+const BOOT=[['Star catalogue','1,214 stars'],['Archive link · IRSA','spherex_qr3'],['Detectors D1–D6','0.75–5.00 µm'],['Voyager','humor 50%']]
+function boot(){const b=$('boot'),L=$('bootLines');b.classList.remove('gone');L.innerHTML='';if(reduced){b.classList.add('gone');runMain();return}
+  BOOT.forEach(([a,v],i)=>{const p=document.createElement('p');p.innerHTML=(`${a.padEnd(24,'·')} ${v.padEnd(14)} `).replace(/ /g,'&nbsp;')+'<span class="ok">NOMINAL</span>';L.appendChild(p);setTimeout(()=>p.classList.add('in'),400+i*500)})
+  const r=document.createElement('p');r.innerHTML='<span style="color:var(--sig)">ALL SYSTEMS GO</span>';L.appendChild(r);setTimeout(()=>r.classList.add('in'),2500)
+  clearTimeout(boot.t);boot.t=setTimeout(endBoot,3500)}
+function endBoot(){clearTimeout(boot.t);if($('boot').classList.contains('gone'))return;$('boot').classList.add('gone');setTimeout(runMain,500)}
+$('boot').onclick=endBoot;$('rBoot').onclick=boot;$('rArrive').onclick=arrive;$('rUplink').onclick=uplink
+$('bottom').querySelectorAll('.sw').forEach((b)=>b.onclick=()=>$('bottom').querySelectorAll('.sw').forEach((o)=>o.classList.toggle('on',o===b)))
+const PALS=[['Deep space','#07080a','Sky'],['Charcoal','#101214','Slabs'],['Gunmetal','#252a2f','Rules, dividers'],['Steel','#c7cdd2','Data text'],['Flight-manual cream','#e6dfcc','Names, labels'],['Signal amber','#f2b705','Voyager, focus, primary (rare)'],['Alert red','#e0393b','Live, time gap (rarer)'],['Glint blue','#4aa3ff','Selectable, focus brackets, lamps'],['Dust','#2a2620','Galactic band, warmth']]
+$('pal').innerHTML=PALS.map(([n,h,r])=>`<div><i style="background:${h}"></i><b>${n}</b><span>${h} · ${r}</span></div>`).join('')
+layout();addEventListener('resize',layout);requestAnimationFrame(fxFrame);boot()
+</script>
+</body>
+</html>

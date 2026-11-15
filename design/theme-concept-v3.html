@@ -1,0 +1,339 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Gunmetal Signal</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@600;800;900&family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600&family=Silkscreen&display=swap" rel="stylesheet">
+<style>
+:root{
+  --char:#0b0c0e; --char-2:#111317; --char-3:#171a1f; --gun:#262c32; --gun-2:#343c44; --gun-3:#4a535c;
+  --steel:#c9d0d6; --dim:#828c96; --faint:#545d66;
+  --sig:#f5c400; --red:#e5383b; --blue:#4aa3ff; --blue-dim:#1e3a57;
+  --d1:#7c8cff; --d2:#4fd1e0; --d3:#8fe07a; --d4:#f4d35e; --d5:#ff9b42; --d6:#ff5a5f;
+  --b16:125ms; --b8:250ms; --b4:500ms; --bar:2000ms; --ease:cubic-bezier(.2,.8,.2,1); --snap:cubic-bezier(.3,1.4,.5,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--char);color:var(--steel);font:15px/1.6 "IBM Plex Sans",system-ui,sans-serif}
+.wrap{max-width:1160px;margin:0 auto;padding:40px 20px 90px}
+.mono{font-family:"IBM Plex Mono",monospace}
+.dot{font-family:Doto,monospace;font-weight:900;letter-spacing:.02em}
+.px{font-family:Silkscreen,monospace}
+.tag{font:500 10.5px "IBM Plex Mono";letter-spacing:.14em;text-transform:uppercase;color:var(--faint)}
+.tag b{color:var(--blue);font-weight:500}
+h1{font:900 clamp(46px,8.5vw,104px)/.9 Doto;margin:14px 0 16px;color:var(--steel);text-transform:uppercase}
+h1 em{font-style:normal;color:var(--sig)}
+h2{font:500 12px "IBM Plex Mono";letter-spacing:.16em;text-transform:uppercase;color:var(--dim);margin:64px 0 18px;display:flex;gap:12px;align-items:center}
+h2::before{content:"//";color:var(--blue)}
+h2::after{content:"";flex:1;border-top:1px dashed var(--gun-2)}
+.lede{max-width:680px;color:var(--dim);font-size:17px}
+.lede b{color:var(--steel);font-weight:500}
+.frame{position:relative;background:var(--char-2);border:1px solid var(--gun)}
+.frame::before,.frame::after{content:"";position:absolute;width:12px;height:12px;border-color:var(--blue);border-style:solid;pointer-events:none}
+.frame::before{left:-1px;top:-1px;border-width:2px 0 0 2px}
+.frame::after{right:-1px;bottom:-1px;border-width:0 2px 2px 0}
+.ticks{background:repeating-linear-gradient(90deg,var(--gun-2) 0 1px,transparent 1px 8px) bottom/100% 4px no-repeat,repeating-linear-gradient(90deg,var(--gun-3) 0 1px,transparent 1px 40px) bottom/100% 8px no-repeat}
+
+/* ---- mock */
+.screen{position:relative;margin-top:28px;height:660px;overflow:hidden;background:var(--char);border:1px solid var(--gun)}
+.screen canvas{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+.cmd{position:absolute;left:14px;right:14px;top:12px;height:44px;display:flex;align-items:center;gap:14px;padding:0 14px}
+.cmd .prompt{font:500 13px "IBM Plex Mono";white-space:nowrap;overflow:hidden}
+.cmd .prompt i{font-style:normal;color:var(--blue)}
+.cmd .prompt u{text-decoration:none;color:var(--steel)}
+.cur{display:inline-block;width:8px;height:15px;background:var(--blue);vertical-align:-3px;animation:blink 1s steps(1) infinite}
+.cur.y{background:var(--sig)}
+@keyframes blink{50%{opacity:0}}
+.live{margin-left:auto;display:flex;gap:8px;align-items:center;font:500 11px "IBM Plex Mono";color:var(--red);white-space:nowrap}
+.live::before{content:"";width:7px;height:7px;background:var(--red)}
+.ruler{position:absolute;left:14px;right:14px;top:56px;height:20px;font:400 10px "IBM Plex Mono";color:var(--faint);display:flex;justify-content:space-between;padding:0 4px;align-items:flex-start}
+.log{position:absolute;left:14px;top:84px;width:300px;bottom:76px;padding:12px 12px;font:400 11px/1.75 "IBM Plex Mono";overflow:hidden}
+.log .hd{display:flex;justify-content:space-between;margin-bottom:6px}
+.log p{margin:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--dim);opacity:0;transform:translateX(-6px);transition:opacity var(--b8) var(--ease),transform var(--b8) var(--ease)}
+.log p.in{opacity:1;transform:none}
+.log p s{text-decoration:none;color:var(--faint)}
+.log .ok{color:var(--blue)}.log .v{color:var(--sig)}.log .r{color:var(--red)}
+.target{position:absolute;right:14px;top:84px;width:300px;padding:16px 16px 14px}
+.target .lbar{display:flex;justify-content:space-between;align-items:center}
+.target h3{font:900 34px/.95 Doto;text-transform:uppercase;margin:12px 0 6px;color:var(--steel)}
+.target .sub{font-size:12.5px;color:var(--dim)}
+.rows{margin-top:12px;font:400 11.5px "IBM Plex Mono"}
+.rows div{display:flex;justify-content:space-between;padding:5px 0;border-bottom:1px dashed var(--gun)}
+.rows span{color:var(--faint)}
+.strip{display:flex;height:5px;margin:14px 0 4px}
+.strip i{flex:1}
+.strip+.tag{display:flex;justify-content:space-between}
+.btns{display:flex;gap:6px;margin-top:14px}
+.btn{all:unset;cursor:pointer;flex:1;text-align:center;font:500 11.5px "IBM Plex Mono";letter-spacing:.06em;padding:9px 0;transition:background var(--b16),color var(--b16),transform var(--b16)}
+.btn.pri{background:var(--sig);color:#1a1500}
+.btn.pri:hover{background:#ffd633}
+.btn.sec{box-shadow:inset 0 0 0 1px var(--blue);color:var(--blue)}
+.btn.sec:hover{background:var(--blue-dim)}
+.btn:active{transform:translateY(1px)}
+.tabs{position:absolute;left:14px;right:14px;bottom:12px;height:52px;display:flex;align-items:stretch;gap:0}
+.tabs button{all:unset;cursor:pointer;padding:0 16px;display:flex;gap:8px;align-items:center;font:500 11.5px "IBM Plex Mono";color:var(--dim);border-right:1px solid var(--gun);transition:color var(--b16),background var(--b16)}
+.tabs button kbd{font:inherit;color:var(--faint)}
+.tabs button:hover{color:var(--steel);background:var(--char-3)}
+.tabs button.on{color:var(--steel);background:var(--char-3);box-shadow:inset 0 -2px 0 var(--blue)}
+.tabs .clock{margin-left:auto;padding:0 16px;display:flex;align-items:center;gap:10px}
+.tabs .clock b{font:800 22px Doto;color:var(--steel)}
+.lbl{position:absolute;font:500 11px "IBM Plex Mono";white-space:nowrap;color:var(--steel);pointer-events:none}
+.lbl s{text-decoration:none;color:var(--faint)}
+.xmit{position:absolute;width:300px;padding:11px 13px 12px;font-size:13.5px;line-height:1.5;opacity:0;transform:translateY(6px);transition:opacity var(--b8) var(--ease),transform var(--b8) var(--ease)}
+.xmit.in{opacity:1;transform:none}
+.xmit .hd{display:flex;justify-content:space-between;font:500 10.5px "IBM Plex Mono";letter-spacing:.12em;margin-bottom:6px}
+.xmit .hd b{color:var(--sig);font-weight:500}
+.xmit .hd span{color:var(--faint)}
+.boot{position:absolute;inset:0;background:var(--char);z-index:5;padding:40px 44px;font:400 13px/1.9 "IBM Plex Mono";color:var(--dim);transition:transform var(--b8) var(--ease)}
+.boot.gone{transform:translateY(-102%)}
+.boot .t{font:900 28px Doto;color:var(--steel);margin-bottom:18px}
+.boot p{margin:0;opacity:0}.boot p.in{opacity:1}
+.boot .ok{color:var(--blue)}
+.boot .skip{position:absolute;right:20px;bottom:16px}
+.uplink{position:absolute;top:84px;bottom:76px;width:220px;pointer-events:none;font:400 10px/1.5 "IBM Plex Mono";color:var(--blue);padding:8px;opacity:0;z-index:3;white-space:pre}
+.ctrls{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.ctrls button{all:unset;cursor:pointer;font:500 11.5px "IBM Plex Mono";color:var(--dim);padding:6px 10px;border:1px solid var(--gun-2);transition:color var(--b16),border-color var(--b16)}
+.ctrls button:hover{color:var(--steel);border-color:var(--blue)}
+
+/* ---- sections */
+.mix{display:grid;gap:10px}
+.track{display:grid;grid-template-columns:150px minmax(0,1fr);min-width:0;gap:16px;align-items:center;padding:14px 16px}
+.track .name{font:500 12px "IBM Plex Mono";letter-spacing:.08em;text-transform:uppercase}
+.meter{display:flex;gap:3px;height:16px;margin-bottom:8px}
+.meter i{flex:1;max-width:8px;background:var(--gun)}
+.track p{margin:0;font-size:13.5px;color:var(--dim)}
+.tempo{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:10px}
+.beat{padding:14px 16px}
+.lane{position:relative;height:26px;margin:12px 0 10px;background:repeating-linear-gradient(90deg,var(--gun) 0 1px,transparent 1px 25%)}
+.lane i{position:absolute;left:0;top:5px;width:16px;height:16px;background:var(--blue);transition:left var(--d) var(--ease)}
+.tempo.go .lane i{left:calc(100% - 16px)}
+.beat p{margin:0;font-size:13px;color:var(--dim)}
+.pal{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:10px}
+.pal div{background:var(--char-2);border:1px solid var(--gun)}
+.pal i{display:block;height:64px}
+.pal b,.pal span{display:block;padding:0 12px;font:400 11px "IBM Plex Mono"}
+.pal b{padding-top:9px;color:var(--steel);font-weight:500}.pal span{color:var(--faint);padding-bottom:10px}
+.types{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.types .frame{padding:16px}
+.types .s{font-size:28px;line-height:1.1;margin:10px 0}
+.types p{margin:0;font-size:13px;color:var(--dim)}
+.learn{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.learn .frame{padding:16px}
+.learn h4{margin:6px 0 6px;font:600 16px "IBM Plex Sans";color:var(--steel)}
+.learn p{margin:0;font-size:13.5px;color:var(--dim)}
+.note{color:var(--faint);font-size:13px;margin-top:10px}
+@media (max-width:900px){.log,.target{display:none}.track{grid-template-columns:1fr}.screen{height:560px}}
+@media (prefers-reduced-motion:reduce){.cur{animation:none}*{transition-duration:0s!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="tag">Theme concept <b>03</b> · SPHEREx Sky Explorer · terminal × gunmetal</div>
+  <h1>Gunmetal<br><em>Signal</em></h1>
+  <p class="lede">A night-shift observatory terminal. <b>Charcoal and gunmetal</b> are the only materials. <b>Yellow</b> is the signal: rare, and always where Voyager is looking. <b>Red</b> means live or alert. <b>Blue</b> is the cold glint on everything you can touch. Mostly calm and readable, with a few moments built to be remembered.</p>
+
+  <div class="screen" id="screen">
+    <canvas id="sky"></canvas>
+    <canvas id="fx"></canvas>
+
+    <div class="cmd frame ticks">
+      <span class="prompt"><i>spx@sky</i>:~$ <u id="typed"></u><span class="cur"></span></span>
+      <span class="live">LIVE · 2026W34</span>
+    </div>
+    <div class="ruler"><span>RA 270°</span><span>│</span><span>269.5°</span><span>│</span><span>269°</span><span>│</span><span>268.5°</span></div>
+
+    <div class="log frame" id="log">
+      <div class="hd"><span class="tag">Console</span><span class="tag"><b>●</b> 4 events</span></div>
+    </div>
+
+    <div class="lbl" id="lblStar">BARNARD'S STAR <s>· 5.96 ly</s></div>
+    <div class="lbl" id="lblA" style="left:56%;top:22%"><s>+</s> RASALHAGUE</div>
+    <div class="lbl" id="lblB" style="left:36%;top:72%"><s>+</s> CEBALRAI</div>
+
+    <div class="xmit frame" id="xmit">
+      <div class="hd"><b>&gt;&gt; VOYAGER</b><span>HUMOR 75 · DETAIL 60</span></div>
+      <div id="xline"></div>
+    </div>
+
+    <aside class="target frame">
+      <div class="lbar"><span class="tag">┌ Target <b>01</b></span><span class="tag" style="color:var(--sig)">◆ focus</span></div>
+      <h3>Barnard's<br>Star</h3>
+      <div class="sub">Red dwarf · Ophiuchus · nearest stars, #4</div>
+      <div class="rows">
+        <div><span>RA / Dec</span><b>269.4521° +4.6934°</b></div>
+        <div><span>Proper motion</span><b>10.39″ / yr</b></div>
+        <div><span>Band</span><b>D6 · 4.42–5.00 µm</b></div>
+        <div><span>Brightness</span><b>142 / 255</b></div>
+      </div>
+      <div class="strip"><i style="background:var(--d1)"></i><i style="background:var(--d2)"></i><i style="background:var(--d3)"></i><i style="background:var(--d4)"></i><i style="background:var(--d5)"></i><i style="background:var(--d6);box-shadow:0 0 0 1px var(--steel)"></i></div>
+      <div class="tag"><span>0.75 µm</span><span>5.00 µm</span></div>
+      <div class="btns"><button class="btn pri">OPEN IMAGE ⏎</button><button class="btn sec">ASK VOYAGER</button></div>
+    </aside>
+
+    <div class="tabs frame" id="tabs">
+      <button class="on"><kbd>1</kbd>SKY</button><button><kbd>2</kbd>IMAGE</button><button><kbd>3</kbd>SURFACE</button><button><kbd>4</kbd>DEPTH</button>
+      <div class="clock"><span class="tag">UTC</span><b>08:46:02</b></div>
+    </div>
+
+    <div class="uplink" id="uplink"></div>
+
+    <div class="boot" id="boot">
+      <div class="t">SPHEREx SKY EXPLORER</div>
+      <div id="bootLines"></div>
+      <button class="ctrls skip" style="all:unset;cursor:pointer;font:500 11px 'IBM Plex Mono';color:var(--dim)" id="skip">skip ⏎</button>
+    </div>
+  </div>
+  <div class="ctrls">
+    <button id="rBoot">↻ boot sequence</button><button id="rArrive">↻ Voyager arrival + signal beam</button><button id="rUplink">↻ image uplink wipe</button>
+  </div>
+  <p class="note">These three are the only "very crazy" moments. Each runs once per event and never loops while idle.</p>
+
+  <h2>The mix</h2>
+  <div class="mix" id="mix"></div>
+
+  <h2>Tempo · 120 BPM</h2>
+  <div class="tempo" id="tempo">
+    <div class="beat frame"><div class="tag"><b>1/16</b> · 125 ms</div><div class="lane"><i style="--d:125ms"></i></div><p>Hovers and key presses.</p></div>
+    <div class="beat frame"><div class="tag"><b>1/8</b> · 250 ms</div><div class="lane"><i style="--d:250ms"></i></div><p>Panels, console lines, Voyager's messages.</p></div>
+    <div class="beat frame"><div class="tag"><b>1/4</b> · 500 ms</div><div class="lane"><i style="--d:500ms"></i></div><p>Voyager moving, camera fly-to steps.</p></div>
+    <div class="beat frame"><div class="tag"><b>1 bar</b> · 2 s</div><div class="lane"><i style="--d:2000ms"></i></div><p>Very-crazy moments only: boot, uplink.</p></div>
+  </div>
+  <div class="ctrls"><button id="playTempo">▶ play the grid</button></div>
+
+  <h2>Palette and roles</h2>
+  <div class="pal" id="pal"></div>
+
+  <h2>Type</h2>
+  <div class="types">
+    <div class="frame"><div class="tag">Display · <b>Doto</b> dot matrix</div><div class="s dot" style="font-size:34px">BARNARD'S STAR</div><p>Identity moments only: object names, the clock, big numbers. Never paragraphs.</p></div>
+    <div class="frame"><div class="tag">Terminal · <b>IBM Plex Mono</b></div><div class="s mono" style="font-size:17px">spx@sky:~$ goto m31<span class="cur"></span></div><p>Commands, console, data, labels: the main voice of the chrome.</p></div>
+    <div class="frame"><div class="tag">Reading · <b>IBM Plex Sans</b></div><div class="s" style="font-size:22px">Infrared light passes through dust.</div><p>Explanations and Voyager's messages, where readability wins.</p></div>
+    <div class="frame"><div class="tag">Voyager · <b>Silkscreen</b></div><div class="s px" style="font-size:20px">VOYAGER ONLINE</div><p>Kept for Voyager's own labels so the sprite and its text match.</p></div>
+  </div>
+
+  <h2>What we took from whom</h2>
+  <div class="learn">
+    <div class="frame"><div class="tag"><b>Marathon</b> · Bungie</div><h4>Limited materials, loud statements</h4><p>Two materials, colour used as a statement, dithering, typographic "sauce" kept to the edges.</p></div>
+    <div class="frame"><div class="tag"><b>Teenage Engineering</b></div><h4>Mono everywhere, the product is the hero</h4><p>Zero radius, rare brand colour, honest texture. Here the sky is the product.</p></div>
+    <div class="frame"><div class="tag"><b>Nothing</b></div><h4>Dot matrix for character, not reading</h4><p>Doto only for names and numbers; Plex Sans for anything you read.</p></div>
+    <div class="frame"><div class="tag"><b>Awwwards</b> · KPR, Igloo Inc</div><h4>Calm, plus a few unforgettable moments</h4><p>Minimal futurism with signature animation, and a boot sequence as the opening.</p></div>
+    <div class="frame"><div class="tag"><b>NASA</b> · Eyes on the Solar System</div><h4>Gamer controls, colour-coded live state</h4><p>Confirms our WASD/QE 3D controls. Blue = selectable, yellow = Voyager's focus, red = live.</p></div>
+  </div>
+  <p class="note">Full notes and sources: design/research-notes.md</p>
+</div>
+
+<script>
+const $=(id)=>document.getElementById(id)
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches
+const C={char:'#0b0c0e',steel:'#c9d0d6',faint:'#545d66',gun:'#343c44',sig:'#f5c400',red:'#e5383b',blue:'#4aa3ff',d6:'#ff5a5f'}
+const BAYER=[0,8,2,10,12,4,14,6,3,11,1,9,15,7,13,5].map((v)=>(v+.5)/16)
+const S=3
+let W,H,star,voyHome
+
+// ---------- layout
+function layout(){
+  const sc=$('screen'),cw=sc.clientWidth,ch=sc.clientHeight
+  W=Math.ceil(cw/S);H=Math.ceil(ch/S)
+  for(const id of ['sky','fx']){$(id).width=W;$(id).height=H}
+  const sx=Math.max(cw*.5,cw<900?cw*.62:360),sy=ch*.44
+  star={x:Math.round(sx/S),y:Math.round(sy/S)}
+  voyHome={x:star.x-44,y:star.y+2}
+  $('lblStar').style.cssText=`left:${star.x*S+20}px;top:${star.y*S-9}px`
+  const xm=$('xmit');xm.style.left=Math.max(12,voyHome.x*S-150)+'px';xm.style.top=(voyHome.y*S+40)+'px';xm.style.maxWidth=`calc(100% - 24px)`
+  drawSky()
+}
+
+// ---------- sky: dithered, cool
+let seed=5;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647
+function drawSky(){
+  const g=$('sky').getContext('2d');seed=5
+  g.fillStyle=C.char;g.fillRect(0,0,W,H)
+  for(let y=0;y<H;y++)for(let x=0;x<W;x++){const d=Math.exp(-(((x-W*.5)/(W*.6))**2+((y-H*.48)/(H*.22))**2))*.22;if(d>BAYER[(y%4)*4+x%4]*1.0+.02){g.fillStyle='#14202c';g.fillRect(x,y,1,1)}}
+  for(let i=0;i<W*H/80;i++){const x=rnd()*W|0,y=rnd()*H|0,m=rnd();g.fillStyle=m>.985?C.blue:m>.93?C.steel:'#3b434b';g.fillRect(x,y,1,1);if(m>.992){g.globalAlpha=.4;g.fillRect(x-1,y,3,1);g.fillRect(x,y-1,1,3);g.globalAlpha=1}}
+  g.fillStyle=C.d6;g.fillRect(star.x-1,star.y-1,3,3);g.globalAlpha=.45;g.fillRect(star.x-3,star.y,7,1);g.fillRect(star.x,star.y-3,1,7);g.globalAlpha=1
+}
+
+// ---------- Voyager
+const SPR=['.....WWWWWW.....','...WW......WW...','..W....AA....W..','.......AA.......','.....GGGGGG.....','....GHHHHHHG....','...GHGEEEEGHG...','...GHGEeEEGHG...','...GHGEEEEGHG...','....GHHHHHHG....','.....GGGGGG.....','......D..D......','......D..D......']
+const PAL={W:'#c9d0d6',A:'#828c96',G:'#a8741f',H:'#f0bd55',E:C.sig,e:'#fff',D:'#4a535c'}
+function drawVoy(g,cx,cy,sx=1,sy=1,flame=0){g.save();g.translate(cx,cy+6.5);g.scale(sx,sy);g.translate(-8,-13);SPR.forEach((r,y)=>[...r].forEach((ch,x)=>{if(ch!=='.'){g.fillStyle=PAL[ch];g.fillRect(x,y,1,1)}}));if(flame){g.fillStyle=flame%2?C.red:C.sig;g.fillRect(6,13,1,1+flame%2);g.fillRect(9,13,1,2-flame%2)}g.restore()}
+function beam(g,ex,ey,tx,ty,a){ // dithered yellow cone from Voyager's eye to the target
+  const dx=tx-ex,dy=ty-ey,L=Math.hypot(dx,dy),ux=dx/L,uy=dy/L,hw=7
+  g.fillStyle=C.sig
+  for(let y=Math.floor(Math.min(ey,ty)-hw-2);y<=Math.max(ey,ty)+hw+2;y++)for(let x=Math.floor(Math.min(ex,tx)-2);x<=Math.max(ex,tx)+hw;x++){
+    const px=x-ex,py=y-ey,t=(px*ux+py*uy)/L,d=Math.abs(-px*uy+py*ux)
+    if(t<.06||t>1.05)continue
+    const w=hw*t;if(d>w)continue
+    const k=a*(.75-.45*t)*(1-(d/(w+.01))**2)
+    if(k>BAYER[((y%4+4)%4)*4+((x%4)+4)%4])g.fillRect(x,y,1,1)}
+}
+
+// ---------- sequences
+let anim=null
+function easeOut(t){return 1-(1-t)**3}
+function arrive(){
+  clearTimeout(arrive.t);$('xmit').classList.remove('in');$('xline').innerHTML=''
+  anim={t0:performance.now(),kind:'arrive'}
+  if(reduced){anim.t0-=5000}
+}
+function fxFrame(now){
+  const g=$('fx').getContext('2d');g.clearRect(0,0,W,H)
+  let x=voyHome.x,y=voyHome.y,sx=1,sy=1,fl=0,b=0
+  if(anim&&anim.kind==='arrive'){
+    const t=(now-anim.t0)/1000
+    if(t<.5){const k=easeOut(t/.5);x=Math.round(-12+(voyHome.x+12)*k);y=Math.round(voyHome.y-30+30*k);sx=1.15;sy=.88;fl=Math.floor(t*16)}
+    else if(t<.625){const k=(t-.5)/.125;sx=1.2-.2*k;sy=.8+.2*k}
+    else if(t<.75){const k=(t-.625)/.125;y=voyHome.y-Math.round(2*Math.sin(k*Math.PI))}
+    if(t>=.75){b=Math.min(1,(t-.75)/.25)}
+    if(t>=1&&!arrive.done){arrive.done=true;$('xmit').classList.add('in');typeLine()}
+    if(t<1)arrive.done=false
+  } else b=1
+  if(b>0)beam(g,x+1,y,star.x,star.y,b)
+  if(!anim||(now-anim.t0)/1000>.75){const bob=Math.sin(now/1000*2.4);y+=reduced?0:Math.round(bob*1.2)}
+  drawVoy(g,x,y,sx,sy,fl)
+  // uplink wipe
+  if(up){const p=(now-up.t0)/2000;if(p>=1){up=null;$('uplink').style.opacity=0}else{const cx=Math.round(p*(W+40))-20;for(let yy=Math.round(84/S);yy<H-Math.round(76/S);yy++)for(let xx=cx-14;xx<cx+2;xx++){const k=1-(cx-xx)/16;if(k>BAYER[(yy%4)*4+((xx%4)+4)%4]){g.fillStyle=k>.85?C.steel:C.blue;g.fillRect(xx,yy,1,1)}}const u=$('uplink');u.style.opacity=1;u.style.left=(cx*S+10)+'px';if(Math.floor(now/125)!==up.tick){up.tick=Math.floor(now/125);u.textContent=Array.from({length:18},()=>Array.from({length:6},()=>(Math.random()*256|0).toString(16).padStart(2,'0').toUpperCase()).join(' ')).join('\n')}}}
+  requestAnimationFrame(fxFrame)
+}
+let up=null
+function uplink(){if(reduced)return;up={t0:performance.now(),tick:0};pushLog('<span class="r">●</span> uplink D6 · 2026W34_1A_0007 <s>64.7 MB</s>')}
+
+const LINE='The fastest-moving star in our sky. It takes 180 years to cover one Moon-width. I\'ve watched paint with more ambition, but I respect the commitment.'
+let typer
+function typeLine(){clearInterval(typer);const el=$('xline');if(reduced){el.innerHTML=LINE+'<span class="cur y"></span>';return}let i=0;typer=setInterval(()=>{i+=2;el.innerHTML=LINE.slice(0,i)+'<span class="cur y"></span>';if(i>=LINE.length)clearInterval(typer)},16)}
+
+function pushLog(html){const p=document.createElement('p');p.innerHTML=`<s>08:46:0${Math.min(9,$('log').children.length)}</s> ${html}`;$('log').appendChild(p);requestAnimationFrame(()=>requestAnimationFrame(()=>p.classList.add('in')))}
+const LOGS=['<span class="ok">✓</span> catalogue <s>1,214 stars</s>','<span class="ok">▸</span> resolve "barnard" → 269.4521 +4.6934','<span class="v">◆</span> voyager {"move":"barnard","pose":"point"}','<span class="v">◆</span> voyager {"say":"…","humor":75}']
+function typeCmd(text,done){const el=$('typed');el.textContent='';let i=0;const t=setInterval(()=>{el.textContent=text.slice(0,++i);if(i>=text.length){clearInterval(t);done&&done()}},reduced?0:60)}
+
+function runMain(){
+  [...$('log').querySelectorAll('p')].forEach((p)=>p.remove())
+  typeCmd('goto "Barnard\'s Star"',()=>{LOGS.forEach((l,i)=>setTimeout(()=>pushLog(l),reduced?0:i*250));setTimeout(arrive,reduced?0:500)})
+}
+
+// boot
+const BOOT=[['mount catalogue','1,214 stars'],['link archive (IRSA)','spherex_qr3'],['calibrate 6 detectors','0.75–5.00 µm'],['wake voyager','humor 75%']]
+function boot(){
+  const b=$('boot'),L=$('bootLines');b.classList.remove('gone');L.innerHTML=''
+  if(reduced){b.classList.add('gone');runMain();return}
+  BOOT.forEach(([a,v],i)=>{const p=document.createElement('p');p.innerHTML=`&gt; ${a.padEnd(26,'.')} ${v.padEnd(14)} <span class="ok">OK</span>`.replace(/ /g,'&nbsp;');L.appendChild(p);setTimeout(()=>p.classList.add('in'),250+i*250)})
+  const r=document.createElement('p');r.innerHTML='READY<span class="cur"></span>';L.appendChild(r);setTimeout(()=>r.classList.add('in'),1500)
+  clearTimeout(boot.t);boot.t=setTimeout(endBoot,2000)
+}
+function endBoot(){clearTimeout(boot.t);if($('boot').classList.contains('gone'))return;$('boot').classList.add('gone');setTimeout(runMain,250)}
+$('skip').onclick=endBoot;$('boot').onclick=endBoot
+$('rBoot').onclick=boot;$('rArrive').onclick=arrive;$('rUplink').onclick=uplink
+$('tabs').querySelectorAll('button').forEach((b)=>b.onclick=()=>{$('tabs').querySelectorAll('button').forEach((o)=>o.classList.toggle('on',o===b))})
+
+// sections
+const MIX=[['Normal',70,'var(--gun-3)','Charcoal panels, clean Plex Sans, generous spacing, readable data. The sky is the hero.'],['Crazy',25,'var(--blue)','Terminal command line, console log, ASCII corners, tick rulers, dithering, dot-matrix names.'],['Very crazy',5,'var(--sig)','Three moments only: boot sequence, image uplink wipe, Voyager\'s signal beam.']]
+$('mix').innerHTML=MIX.map(([n,p,c,t])=>`<div class="track frame"><div><div class="name">${n}</div><div class="tag">${p}% of the screen</div></div><div><div class="meter">${Array.from({length:40},(_,i)=>`<i style="background:${i<Math.max(1,Math.round(p/2.5))?c:'var(--gun)'}"></i>`).join('')}</div><p>${t}</p></div></div>`).join('')
+$('playTempo').onclick=()=>{const t=$('tempo');t.classList.remove('go');void t.offsetWidth;t.classList.add('go');setTimeout(()=>t.classList.remove('go'),2600)}
+const PALS=[['Charcoal','#0b0c0e','Base, sky'],['Charcoal 2','#111317','Panels'],['Gunmetal','#262c32','Borders, rails'],['Gunmetal hi','#4a535c','Normal layer'],['Steel','#c9d0d6','Text'],['Signal yellow','#f5c400','Voyager, primary action (rare)'],['Alert red','#e5383b','Live, record, alert (rarer)'],['Glint blue','#4aa3ff','Selectable, links, focus, ticks'],['Blue deep','#1e3a57','Hover fills, sky haze']]
+$('pal').innerHTML=PALS.map(([n,h,r])=>`<div><i style="background:${h}"></i><b>${n}</b><span>${h} · ${r}</span></div>`).join('')
+
+layout();addEventListener('resize',layout);requestAnimationFrame(fxFrame);boot()
+</script>
+</body>
+</html>

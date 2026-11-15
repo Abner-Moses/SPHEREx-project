@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Spectral Plate</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=Martian+Mono:wght@300;400;500&family=Silkscreen&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#07060b; --plate:#0f0d14; --plate-2:#16131d; --emulsion:#e9e2d0; --ink:#b9b2a3; --faint:#6d6878; --rule:rgba(233,226,208,.12); --rule-2:rgba(233,226,208,.24);
+  --d1:#7c8cff; --d2:#4fd1e0; --d3:#8fe07a; --d4:#f4d35e; --d5:#ff9b42; --d6:#ff5a5f;
+  --band:var(--d6); --gold:#d39a34; --gold-hi:#f3c15b;
+  --lvf:linear-gradient(90deg,var(--d1),var(--d2),var(--d3),var(--d4),var(--d5),var(--d6));
+  --step:polygon(0 6px,2px 6px,2px 4px,4px 4px,4px 2px,6px 2px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 2px,calc(100% - 4px) 2px,calc(100% - 4px) 4px,calc(100% - 2px) 4px,calc(100% - 2px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 2px) calc(100% - 6px),calc(100% - 2px) calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) calc(100% - 2px),calc(100% - 6px) calc(100% - 2px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 2px),4px calc(100% - 2px),4px calc(100% - 4px),2px calc(100% - 4px),2px calc(100% - 6px),0 calc(100% - 6px));
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--void);color:var(--emulsion);font:15px/1.6 "Instrument Sans",system-ui,sans-serif}
+.wrap{max-width:1120px;margin:0 auto;padding:40px 20px 80px}
+.mono{font-family:"Martian Mono",ui-monospace,monospace}
+.px{font-family:Silkscreen,monospace;letter-spacing:.04em}
+h1{font:400 clamp(40px,7vw,76px)/1 "Instrument Serif",serif;font-style:italic;margin:6px 0 10px;letter-spacing:-.01em}
+h2{font:500 13px "Martian Mono",monospace;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin:56px 0 16px;display:flex;gap:12px;align-items:center}
+h2::after{content:"";flex:1;height:1px;background:var(--rule)}
+.kicker{font:400 11px "Martian Mono";letter-spacing:.2em;color:var(--faint);text-transform:uppercase}
+.lede{max-width:640px;color:var(--ink);font-size:17px}
+.lvf{height:4px;background:var(--lvf);image-rendering:pixelated}
+.lvf.stepped{background:linear-gradient(90deg,var(--d1) 0 16.66%,var(--d2) 0 33.33%,var(--d3) 0 50%,var(--d4) 0 66.66%,var(--d5) 0 83.33%,var(--d6) 0)}
+
+/* ---- the mock screen */
+.screen{position:relative;margin-top:28px;height:560px;border:1px solid var(--rule-2);overflow:hidden;background:var(--void)}
+.screen canvas.sky{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+.bar{position:absolute;left:16px;right:16px;top:14px;display:flex;gap:10px;align-items:center}
+.chip{background:var(--plate);clip-path:var(--step);padding:9px 14px;font:400 12px "Martian Mono";color:var(--ink);display:flex;gap:10px;align-items:center}
+.chip b{font-weight:500;color:var(--emulsion)}
+.search{flex:1;max-width:420px}
+.search i{width:8px;height:8px;border:2px solid var(--faint);border-radius:0}
+.bands{display:flex;gap:2px;padding:4px;margin-left:auto}
+.bands span{font:400 11px Silkscreen;padding:5px 8px;color:var(--faint);cursor:default}
+.bands span.on{background:var(--band);color:var(--void)}
+.plate{position:absolute;right:16px;top:66px;width:300px;background:var(--plate);padding:18px 18px 16px;clip-path:var(--step)}
+.plate::before,.plate::after{content:"";position:absolute;width:10px;height:10px;border:1px solid var(--rule-2)}
+.plate::before{left:8px;top:8px;border-right:0;border-bottom:0}
+.plate::after{right:8px;bottom:8px;border-left:0;border-top:0}
+.plate .id{font:400 10px "Martian Mono";color:var(--faint);letter-spacing:.12em;display:flex;justify-content:space-between}
+.plate h3{font:400 30px/1.05 "Instrument Serif";font-style:italic;margin:10px 0 2px}
+.plate .sub{font-size:12.5px;color:var(--ink)}
+.plate .lvf{margin:14px -18px 14px}
+.row{display:flex;justify-content:space-between;font:400 11.5px "Martian Mono";padding:6px 0;border-bottom:1px dashed var(--rule)}
+.row span{color:var(--faint)}
+.spark{display:flex;align-items:flex-end;gap:2px;height:46px;margin-top:12px}
+.spark i{flex:1;background:var(--d1)}
+.btn{display:inline-block;margin-top:14px;font:400 12px Silkscreen;letter-spacing:.06em;padding:9px 14px;background:var(--band);color:var(--void);clip-path:var(--step)}
+.btn.ghost{background:transparent;color:var(--emulsion);box-shadow:inset 0 0 0 2px var(--rule-2)}
+.time{position:absolute;right:16px;bottom:14px}
+.reticle{position:absolute;width:34px;height:34px;transform:translate(-50%,-50%)}
+.reticle::before,.reticle::after{content:"";position:absolute;inset:0;border:2px solid var(--band);clip-path:polygon(0 0,35% 0,35% 2px,2px 2px,2px 35%,0 35%,0 0,100% 0,100% 35%,calc(100% - 2px) 35%,calc(100% - 2px) 2px,65% 2px,65% 0,100% 0,100% 100%,65% 100%,65% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 65%,100% 65%,100% 100%,0 100%,0 65%,2px 65%,2px calc(100% - 2px),35% calc(100% - 2px),35% 100%,0 100%)}
+.reticle::after{border:0}
+.label{position:absolute;font:400 11px "Martian Mono";color:var(--emulsion);white-space:nowrap}
+.label small{color:var(--faint)}
+.voy{position:absolute;image-rendering:pixelated}
+.bubble{position:absolute;width:250px;background:var(--emulsion);color:var(--void);padding:12px 14px 12px;clip-path:var(--step);font-size:13px;line-height:1.45}
+.bubble .who{font:400 10px Silkscreen;letter-spacing:.08em;display:flex;justify-content:space-between;margin-bottom:6px;color:#4a4552}
+.bubble .who b{font-weight:400;color:#8a2f2f}
+.caret{display:inline-block;width:7px;height:13px;background:var(--void);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+
+/* ---- sections */
+.grid{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.card{background:var(--plate);padding:18px;clip-path:var(--step)}
+.card .n{font:400 10px Silkscreen;color:var(--band)}
+.card h4{font:400 22px/1.15 "Instrument Serif";font-style:italic;margin:6px 0 6px}
+.card p{margin:0;color:var(--ink);font-size:13.5px}
+.sw{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:10px}
+.sw div{background:var(--plate);clip-path:var(--step);padding:0 0 10px}
+.sw i{display:block;height:58px;margin-bottom:10px}
+.sw b,.sw span{display:block;padding:0 12px;font:400 11px "Martian Mono"}
+.sw span{color:var(--faint)}
+.type{display:grid;gap:12px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr))}
+.type .card .spec{font-size:34px;line-height:1.1;margin:8px 0 10px;color:var(--emulsion)}
+.anims{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px}
+.anims .card{display:flex;flex-direction:column;align-items:center;text-align:center}
+.anims canvas{width:192px;height:144px;image-rendering:pixelated;background:var(--void);margin:6px 0 12px}
+.note{color:var(--faint);font-size:13px;margin-top:10px}
+@media (max-width:760px){.plate{display:none}.screen{height:460px}.bands{display:none}}
+@media (prefers-reduced-motion:reduce){.caret{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="kicker">Theme concept · SPHEREx Sky Explorer</div>
+  <h1>Spectral Plate</h1>
+  <p class="lede">The interface works like an infrared survey instrument. Every panel is a photographic plate with registration marks. The accent colour is the wavelength of the image you're looking at, taken from SPHEREx's own six detector bands. Corners step in pixels, so Voyager, our pixel-art guide, lives in the same world as the UI.</p>
+  <div class="lvf stepped" style="max-width:640px;margin-top:22px"></div>
+
+  <div class="screen" id="screen">
+    <canvas class="sky" id="sky"></canvas>
+    <div class="bar">
+      <div class="chip px" style="color:var(--emulsion)">SPHEREx</div>
+      <div class="chip search"><i></i>Search an object, name or coordinates</div>
+      <div class="chip bands" id="bands"></div>
+    </div>
+
+    <div class="reticle" style="left:39%;top:47%"></div>
+    <div class="label" style="left:calc(39% + 24px);top:calc(47% - 8px)">Barnard's Star <small>· 5.96 ly</small></div>
+    <div class="label" style="left:22%;top:72%"><small>+</small> Cebalrai</div>
+    <div class="label" style="left:58%;top:24%"><small>+</small> Rasalhague</div>
+
+    <canvas class="voy" id="voyMain" width="80" height="40"></canvas>
+    <div class="bubble" style="left:calc(39% - 250px);top:calc(47% + 48px)">
+      <div class="who"><span>VOYAGER · TELEMETRY</span><b>● REC</b></div>
+      This red dwarf moves faster across our sky than any other star: about one Moon-width every 180 years. Watch it slide when you change the date<span class="caret"></span>
+    </div>
+
+    <aside class="plate">
+      <div class="id"><span>PLATE 2026W34·0007</span><span id="bandId">D6</span></div>
+      <h3>Barnard's Star</h3>
+      <div class="sub">Red dwarf in Ophiuchus · SPHEREx image</div>
+      <div class="lvf"></div>
+      <div class="row"><span>Band</span><b id="bandRange">4.42–5.00 µm</b></div>
+      <div class="row"><span>Observed</span><b>2026-08-31</b></div>
+      <div class="row"><span>Proper motion</span><b>10.39″ / yr</b></div>
+      <div class="row"><span>Brightness</span><b>142 / 255</b></div>
+      <div class="spark" id="spark"></div>
+      <span class="btn">Open image</span> <span class="btn ghost">Ask Voyager</span>
+    </aside>
+
+    <div class="chip time"><b>08:46:02</b> 2026-11-15</div>
+  </div>
+  <p class="note">Click a band chip (D1–D6) to see the whole interface re-tune to that wavelength.</p>
+
+  <h2>Five ideas</h2>
+  <div class="grid">
+    <div class="card"><div class="n">01</div><h4>Wavelength is the accent</h4><p>No fixed brand colour. The accent is the band of the image on screen, so the interface tells you what light you're looking at.</p></div>
+    <div class="card"><div class="n">02</div><h4>Plates, not cards</h4><p>Panels are survey plates: warm off-black emulsion, corner registration marks, a plate ID line and a strip of the filter's spectrum.</p></div>
+    <div class="card"><div class="n">03</div><h4>Pixel-stepped corners</h4><p>Corners step down in 2 px stairs instead of rounding. The detector is made of pixels, and so is Voyager.</p></div>
+    <div class="card"><div class="n">04</div><h4>Develop, don't fade</h4><p>Panels appear like a plate developing: a short grain-to-clear reveal over 250 ms. Reduced-motion users see it instantly.</p></div>
+    <div class="card"><div class="n">05</div><h4>Telemetry voice</h4><p>Voyager speaks in cream "transmission" slips with a typing cursor. The interface itself stays quiet and lets the sky lead.</p></div>
+  </div>
+
+  <h2>Palette</h2>
+  <div class="sw" id="sw"></div>
+  <p class="note">The six band colours run short to long wavelength (violet to red) in infrared false colour, the convention astronomers use. Base tones are warm, like photographic emulsion, rather than the usual cold blue-black.</p>
+
+  <h2>Type</h2>
+  <div class="type">
+    <div class="card"><div class="n">DISPLAY</div><div class="spec" style="font:italic 400 40px/1.1 'Instrument Serif'">Barnard's Star</div><p>Instrument Serif Italic, for object names and headings. It reads like a hand-labelled plate.</p></div>
+    <div class="card"><div class="n">DATA</div><div class="spec mono" style="font-size:22px">17ʰ57ᵐ48.5ˢ +04°41′36″</div><p>Martian Mono, for coordinates, measurements and plate IDs: every number in the app.</p></div>
+    <div class="card"><div class="n">BODY</div><div class="spec" style="font-size:22px">Infrared light passes through dust.</div><p>Instrument Sans, for explanations and controls.</p></div>
+    <div class="card"><div class="n">PIXEL</div><div class="spec px" style="font-size:22px">VOYAGER ONLINE</div><p>Silkscreen, used sparingly: Voyager, band chips and primary buttons only.</p></div>
+  </div>
+
+  <h2>Voyager, first sketch</h2>
+  <div class="anims">
+    <div class="card"><div class="n">IDLE</div><canvas width="64" height="48" data-mode="idle"></canvas><p>Hovers with a slow bob. Squashes slightly at the bottom of each bob.</p></div>
+    <div class="card"><div class="n">FLY</div><canvas width="64" height="48" data-mode="fly"></canvas><p>Stretches along its path and leaves a thruster trail.</p></div>
+    <div class="card"><div class="n">LAND</div><canvas width="64" height="48" data-mode="land"></canvas><p>Squash on arrival, a small overshoot, then settles.</p></div>
+    <div class="card"><div class="n">POINT</div><canvas width="64" height="48" data-mode="point"></canvas><p>Extends its magnetometer boom (as on the real Voyager) to touch a target.</p></div>
+  </div>
+  <p class="note">16×13 sprite: radio dish, gold-foil body (a nod to the Golden Record), and one lens eye that glows in the current band colour. The look is not final; this is to set the direction.</p>
+</div>
+
+<script>
+const BANDS=[['D1','0.75–1.09 µm','--d1'],['D2','1.10–1.62 µm','--d2'],['D3','1.63–2.41 µm','--d3'],['D4','2.42–3.82 µm','--d4'],['D5','3.83–4.41 µm','--d5'],['D6','4.42–5.00 µm','--d6']]
+const css=(v)=>getComputedStyle(document.documentElement).getPropertyValue(v).trim()
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches
+let band=5
+
+const bandsEl=document.getElementById('bands')
+BANDS.forEach(([id],i)=>{const s=document.createElement('span');s.textContent=id;s.onclick=()=>setBand(i);bandsEl.appendChild(s)})
+function setBand(i){
+  band=i
+  document.documentElement.style.setProperty('--band',`var(${BANDS[i][2]})`)
+  ;[...bandsEl.children].forEach((s,j)=>s.classList.toggle('on',j===i))
+  document.getElementById('bandId').textContent=BANDS[i][0]
+  document.getElementById('bandRange').textContent=BANDS[i][1]
+  drawSky()
+}
+
+const sw=[['--void','Void','#07060b'],['--plate','Plate','#0f0d14'],['--emulsion','Emulsion','#e9e2d0'],['--ink','Ink','#b9b2a3'],['--gold','Foil','#d39a34'],...BANDS.map(([id,r,v])=>[v,id+' · '+r.split(' ')[0],css(v)])]
+document.getElementById('sw').innerHTML=sw.map(([v,n,h])=>`<div><i style="background:var(${v})"></i><b>${n}</b><span>${h}</span></div>`).join('')
+
+const sp=document.getElementById('spark')
+for(let i=0;i<34;i++){const x=i/33;const h=18+70*Math.exp(-((x-.52)**2)/.012)+8*Math.sin(i*1.7)**2;const b=document.createElement('i');b.style.height=Math.min(100,h)+'%';b.style.background=`var(${BANDS[Math.min(5,Math.floor(x*6))][2]})`;sp.appendChild(b)}
+
+// sky: dithered pixel starfield tinted by the band
+let seed=7;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647
+function drawSky(){
+  const c=document.getElementById('sky'),S=3,w=Math.ceil(c.clientWidth/S),h=Math.ceil(c.clientHeight/S)
+  c.width=w;c.height=h;const g=c.getContext('2d');seed=7
+  g.fillStyle='#07060b';g.fillRect(0,0,w,h)
+  const tint=css(BANDS[band][2])
+  for(let y=0;y<h;y+=2)for(let x=(y/2)%2;x<w;x+=2){const d=Math.exp(-(((x-w*.45)/(w*.5))**2+((y-h*.55)/(h*.35))**2));if(rnd()<d*.16){g.globalAlpha=.07;g.fillStyle=tint;g.fillRect(x,y,1,1)}}
+  g.globalAlpha=1
+  for(let i=0;i<w*h/90;i++){const x=rnd()*w|0,y=rnd()*h|0,m=rnd();g.fillStyle=m>.97?tint:m>.9?'#e9e2d0':'#6d6878';g.fillRect(x,y,1,1);if(m>.985){g.globalAlpha=.5;g.fillRect(x-1,y,3,1);g.fillRect(x,y-1,1,3);g.globalAlpha=1}}
+  g.fillStyle=tint;const bx=w*.39|0,by=h*.47|0;g.fillRect(bx-1,by-1,3,3);g.globalAlpha=.4;g.fillRect(bx-3,by,7,1);g.fillRect(bx,by-3,1,7);g.globalAlpha=1
+}
+
+// Voyager sprite
+const SPR=[
+'.....WWWWWW.....',
+'...WW......WW...',
+'..W....AA....W..',
+'.......AA.......',
+'.....GGGGGG.....',
+'....GHHHHHHG....',
+'...GHGEEEEGHG...',
+'...GHGEeEEGHG...',
+'...GHGEEEEGHG...',
+'....GHHHHHHG....',
+'.....GGGGGG.....',
+'......D..D......',
+'......D..D......']
+function pal(){return{W:'#e9e2d0',A:'#8b8696',G:'#b07a22',H:'#f3c15b',E:css(BANDS[band][2]),e:'#ffffff',D:'#5b5666'}}
+function drawVoy(g,cx,cy,sx,sy,opt={}){
+  const p=pal(),w=16,h=13
+  g.save();g.translate(cx,cy+h/2);g.scale(sx,sy);g.translate(-w/2,-h)
+  SPR.forEach((r,y)=>[...r].forEach((ch,x)=>{if(ch!=='.'){g.fillStyle=p[ch];g.fillRect(x,y,1,1)}}))
+  if(opt.flame){g.fillStyle=opt.flame%2?'#ff9b42':'#f4d35e';g.fillRect(6,13,1,1+opt.flame%2);g.fillRect(9,13,1,2-opt.flame%2)}
+  g.restore()
+  if(opt.boom){const L=opt.boom,y=Math.round(cy+1),x0=Math.round(cx+6);g.fillStyle='#8b8696';for(let i=0;i<L;i+=1)g.fillRect(x0+i,y,1,1);g.fillStyle=p.E;g.fillRect(x0+L,y-1,2,3)}
+}
+const ease=(t)=>t*t*(3-2*t)
+function frame(mode,t,g,W,H){
+  g.clearRect(0,0,W,H);const cx=W/2,cy=H/2
+  if(mode==='idle'){const b=Math.sin(t*2.4);const sq=b>.6?(b-.6)*.2:0;drawVoy(g,cx,Math.round(cy+b*2),1+sq,1-sq)}
+  if(mode==='fly'){const ph=(t*.6)%1,x=-12+ph*(W+24),y=cy+Math.sin(ph*6)*3;g.fillStyle=css(BANDS[band][2]);for(let i=1;i<6;i++){g.globalAlpha=.5-i*.08;g.fillRect(Math.round(x-6-i*4),Math.round(y+5),2,1)}g.globalAlpha=1;drawVoy(g,Math.round(x),Math.round(y),1.18,.86,{flame:Math.floor(t*12)})}
+  if(mode==='land'){const ph=(t*.55)%1;let y,sx=1,sy=1;if(ph<.4){const k=ph/.4;y=-10+(cy+10)*k*k;sy=1+.15*k;sx=1-.1*k}else if(ph<.5){const k=(ph-.4)/.1;y=cy+1;sx=1.22-.1*k;sy=.78+.1*k}else if(ph<.62){const k=(ph-.5)/.12;y=cy-2*Math.sin(k*Math.PI);sx=1+.06*(1-k);sy=1-.04*(1-k)}else{y=cy}drawVoy(g,cx,Math.round(y),sx,sy)}
+  if(mode==='point'){const ph=(t*.5)%1;const L=ph<.15?0:ph<.35?Math.round(ease((ph-.15)/.2)*18):ph<.8?18:Math.round(ease(1-(ph-.8)/.2)*18);g.fillStyle='#e9e2d0';g.fillRect(cx+27,cy-1,1,3);g.fillRect(cx+26,cy,3,1);drawVoy(g,cx-10,cy,1,1,{boom:L})}
+}
+const cards=[...document.querySelectorAll('canvas[data-mode]')].map((c)=>({c,g:c.getContext('2d'),mode:c.dataset.mode}))
+const vm=document.getElementById('voyMain'),vg=vm.getContext('2d')
+function place(){vm.style.width='320px';vm.style.height='160px';vm.style.left='calc(39% - 274px)';vm.style.top='calc(47% - 84px)'}
+place()
+function loop(now){
+  const t=reduced?0:now/1000
+  cards.forEach(({c,g,mode})=>frame(mode,t,g,c.width,c.height))
+  vg.clearRect(0,0,80,40);const b=Math.sin(t*2.4);const sq=b>.6?(b-.6)*.2:0
+  drawVoy(vg,12,Math.round(20+b*1.5),1+sq,1-sq,{boom:48})
+  if(!reduced)requestAnimationFrame(loop)
+}
+setBand(5);requestAnimationFrame(loop)
+addEventListener('resize',drawSky)
+</script>
+</body>
+</html>

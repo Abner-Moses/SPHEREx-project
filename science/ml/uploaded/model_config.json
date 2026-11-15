@@ -1,0 +1,36 @@
+{
+  "architecture": "ImaginationSky V3 / IMF-AFTC adaptation",
+  "classes": [
+    "source_A",
+    "source_B",
+    "moving_A",
+    "moving_B",
+    "variable_B",
+    "artifact_B"
+  ],
+  "patch": 64,
+  "encoder_widths": [
+    16,
+    24,
+    48
+  ],
+  "parameters": 154634,
+  "dataset_fingerprint": "07b14f523e748fccd912e47218c56b8a18a3c04f56a664509f4c4611d279a474",
+  "input_channels": [
+    "epoch_A",
+    "epoch_B",
+    "difference_SNR",
+    "valid"
+  ],
+  "thresholds": [
+    0.03,
+    0.12,
+    0.35,
+    0.75,
+    0.12,
+    0.08
+  ],
+  "best_epoch": 3,
+  "weights": "attention_weights.pt",
+  "training": "random initialization; real-background labelled ROI injections only"
+}

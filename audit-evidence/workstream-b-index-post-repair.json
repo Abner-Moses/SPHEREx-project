@@ -1,0 +1,739 @@
+{
+  "http_server": "http://127.0.0.1:8000",
+  "captured_after_parent_restart": true,
+  "check_1": {
+    "http_status": 200,
+    "response": {
+      "available": true,
+      "reason": null,
+      "offline": true,
+      "data_root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+      "dataset_installed": true
+    }
+  },
+  "check_2": {
+    "http_status": 200,
+    "data_root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+    "offline": true,
+    "observation_count": 47,
+    "cube_count": 8,
+    "wavelengths_um_count": 102,
+    "products": [
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2025W33_2C_0321_1D3_spx_l2b-v27-2026-228.fits",
+        "id": "438bd2e0e54cb167e7259704056160ab",
+        "shape": [
+          88,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2025W33_2C_0321_1D6_spx_l2b-v27-2026-228.fits",
+        "id": "8e9e6099199a59a8218eb007bb6222f6",
+        "shape": [
+          88,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2025W34_2B_0090_4D2_spx_l2b-v27-2026-229.fits",
+        "id": "5398bcd9f566966ac4ac0e3ce2e11303",
+        "shape": [
+          68,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2025W34_2B_0090_4D5_spx_l2b-v27-2026-229.fits",
+        "id": "a56c07ed459ec9434c9a3a639158729e",
+        "shape": [
+          80,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2025W35_1A_0432_4D1_spx_l2b-v27-2026-230.fits",
+        "id": "f2def02464c2f33d55e7707b59fdfa3c",
+        "shape": [
+          82,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2025W35_1A_0432_4D4_spx_l2b-v27-2026-230.fits",
+        "id": "1ca4c0408bee920eadca331d6371771a",
+        "shape": [
+          88,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2025W40_1A_0500_1D1_spx_l2b-v27-2026-239.fits",
+        "id": "7db58b4cbb47d47cd3dc349e398eaed1",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2025W40_1A_0500_1D4_spx_l2b-v27-2026-239.fits",
+        "id": "2f80e1d6bd6faa5d0cce6fc1058c49e8",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2026W11_1A_0430_2D1_spx_l2b-v27-2026-232.fits",
+        "id": "642b78ed503811e56ecfa47986dd13f2",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2026W11_1A_0430_2D4_spx_l2b-v27-2026-232.fits",
+        "id": "ee95668ded7de1b07a96d15ca613c088",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2026W11_2A_0501_1D2_spx_l2b-v27-2026-234.fits",
+        "id": "1786f590562e79c9ae77a9811d0e0411",
+        "shape": [
+          88,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2026W11_2A_0501_1D5_spx_l2b-v27-2026-234.fits",
+        "id": "16ad906d66823ba4d1c36fdf3ff6bf54",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2026W12_1A_0598_1D3_spx_l2b-v27-2026-235.fits",
+        "id": "5207c2824fd3c7b565a3392bea6182c8",
+        "shape": [
+          88,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2026W12_1A_0598_1D6_spx_l2b-v27-2026-235.fits",
+        "id": "e1afb362222d5eb57523efd2fc55b33c",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2026W19_1A_0403_1D3_spx_l2b-v27-2026-245.fits",
+        "id": "c43e65c8374a4f54f9d4546f0a029bc2",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/dr1_level2_2026W19_1A_0403_1D6_spx_l2b-v27-2026-245.fits",
+        "id": "ff70a3f6f72c05dca5c42b9b5cbfca1a",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/qr3_level2_2026W33_2A_0594_4D3_spx_l2b-v27-2026-241.fits",
+        "id": "d5b1b941f6496c3aeb871682221bea80",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/qr3_level2_2026W33_2A_0594_4D6_spx_l2b-v27-2026-241.fits",
+        "id": "b769bd10c97e6d27390e62a00ade4015",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/qr3_level2_2026W34_1A_0363_1D2_spx_l2b-v27-2026-243.fits",
+        "id": "0d82a0a5289d402e3b3cbd85d4564756",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/qr3_level2_2026W34_1A_0363_1D5_spx_l2b-v27-2026-243.fits",
+        "id": "7e7548a0141670265d46da9251b612dc",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/qr3_level2_2026W36_1A_0510_1D1_spx_l2b-v27-2026-252.fits",
+        "id": "37cd32fbd7c4b5075b33d649c2f970b0",
+        "shape": [
+          88,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/qr3_level2_2026W36_1A_0510_1D4_spx_l2b-v27-2026-252.fits",
+        "id": "700480cadb9ed562dc1b2dd0811826d7",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/qr3_level2_2026W38_2A_0562_1D3_spx_l2b-v27-2026-264.fits",
+        "id": "4f3d156d561897a1988835b5217d12df",
+        "shape": [
+          88,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/qr3_level2_2026W38_2A_0562_1D6_spx_l2b-v27-2026-264.fits",
+        "id": "a22374cc734c418090c8fd38e170d958",
+        "shape": [
+          77,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/qr3_level2_2026W39_1A_0371_1D2_spx_l2b-v27-2026-268.fits",
+        "id": "cfe99164099c7ff088b4c7def8c8ef39",
+        "shape": [
+          88,
+          88
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "barnards_star",
+        "file": "observations/barnards_star/qr3_level2_2026W39_1A_0371_1D5_spx_l2b-v27-2026-268.fits",
+        "id": "58e4f3b621ff87f8c2758015b1cab363",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "epsilon_indi_b",
+        "file": "observations/epsilon_indi_b/dr1_level2_2025W18_1B_0091_1D6_spx_l2b-v27-2026-196.fits",
+        "id": "ef7ca8ce5cea9c4ada0e000dd896b8e2",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "epsilon_indi_b",
+        "file": "observations/epsilon_indi_b/dr1_level2_2025W18_1B_0238_4D6_spx_l2b-v27-2026-196.fits",
+        "id": "6c1b6ac25f11e4ddc7d2f4831b4c100a",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "epsilon_indi_b",
+        "file": "observations/epsilon_indi_b/dr1_level2_2025W18_2B_0011_3D6_spx_l2b-v27-2026-197.fits",
+        "id": "e451da9d1dcce88b0f3d1f1d8292bab2",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "epsilon_indi_b",
+        "file": "observations/epsilon_indi_b/dr1_level2_2025W18_2B_0042_2D6_spx_l2b-v27-2026-197.fits",
+        "id": "441ec85c867064511050369a527bb307",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "epsilon_indi_b",
+        "file": "observations/epsilon_indi_b/dr1_level2_2025W44_2B_0494_1D6_spx_l2b-v27-2026-246.fits",
+        "id": "eeecfa6d9df5d96f3d250ab9847dcaa7",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "epsilon_indi_b",
+        "file": "observations/epsilon_indi_b/dr1_level2_2025W45_1A_0003_1D6_spx_l2b-v27-2026-247.fits",
+        "id": "56653fdf224941c4379d6facfc20117c",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "epsilon_indi_b",
+        "file": "observations/epsilon_indi_b/dr1_level2_2025W45_1A_0327_1D6_spx_l2b-v27-2026-247.fits",
+        "id": "df684a846635eb61e7b7565301dca19a",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "r_draconis",
+        "file": "observations/r_draconis/dr1_level2_2025W24_1A_0123_2D2_spx_l2b-v27-2026-201.fits",
+        "id": "811307c17a0cfe0993c492d10e3b8657",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "r_draconis",
+        "file": "observations/r_draconis/dr1_level2_2025W24_1A_0215_1D2_spx_l2b-v27-2026-201.fits",
+        "id": "519e7bea5c7450b25551201488a655fb",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "r_draconis",
+        "file": "observations/r_draconis/dr1_level2_2025W50_1A_0661_3D2_spx_l2b-v27-2026-209.fits",
+        "id": "f5056a37e53bf6106a18422f9bca087d",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "r_draconis",
+        "file": "observations/r_draconis/dr1_level2_2025W50_2A_0259_2D2_spx_l2b-v27-2026-210.fits",
+        "id": "624766a320b89b655396fd320c8073c8",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "rw_aurigae",
+        "file": "observations/rw_aurigae/dr1_level2_2025W37_1A_0366_1D2_spx_l2b-v27-2026-235.fits",
+        "id": "599399ce45d10f1dcd98215abc7d0801",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "rw_aurigae",
+        "file": "observations/rw_aurigae/dr1_level2_2025W37_1A_0496_1D2_spx_l2b-v27-2026-235.fits",
+        "id": "cbc7bd44c712c7c03ba2b768865e96ca",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "rw_aurigae",
+        "file": "observations/rw_aurigae/dr1_level2_2026W10_2B_0340_2D2_spx_l2b-v27-2026-231.fits",
+        "id": "ef385502a99bda15ae3a0dae025924ce",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "rw_aurigae",
+        "file": "observations/rw_aurigae/qr3_level2_2026W37_2A_0287_4D2_spx_l2b-v27-2026-259.fits",
+        "id": "343ca610c98ac9acd721ec27777b6115",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "rw_aurigae",
+        "file": "observations/rw_aurigae/qr3_level2_2026W37_2A_0630_2D2_spx_l2b-v27-2026-259.fits",
+        "id": "79e7a71620fa2d2897f0aa9f12025c25",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "wise_0855",
+        "file": "observations/wise_0855/dr1_level2_2025W19_1B_0116_2D6_spx_l2b-v27-2026-197.fits",
+        "id": "bc07f348c4bb31b323c37927de61359b",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "wise_0855",
+        "file": "observations/wise_0855/dr1_level2_2025W46_1A_0076_3D6_spx_l2b-v27-2026-206.fits",
+        "id": "07e44bb8c546c7ac71678c9efa986c2a",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "wise_0855",
+        "file": "observations/wise_0855/dr1_level2_2025W46_2A_0214_4D6_spx_l2b-v27-2026-207.fits",
+        "id": "7215a5b2bf714f970ef80e38c9b92e0a",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "wise_0855",
+        "file": "observations/wise_0855/dr1_level2_2026W19_2A_0651_1D6_spx_l2b-v27-2026-245.fits",
+        "id": "59939b2a2ad380eb20f54c36e538e0b5",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "observations",
+        "target": "wise_0855",
+        "file": "observations/wise_0855/dr1_level2_2026W19_2A_0952_1D6_spx_l2b-v27-2026-245.fits",
+        "id": "1a5625292197090b10cffbb9e9734903",
+        "shape": [
+          2040,
+          2040
+        ],
+        "field_center": null
+      },
+      {
+        "kind": "cubes",
+        "target": "wise_0855",
+        "file": "cubes/Npix10226_cube.fits",
+        "id": "8c191816ac45eb07ca61cd31c7cdd58d",
+        "shape": [
+          102,
+          512,
+          512
+        ],
+        "field_center": {
+          "ra": 133.79512917,
+          "dec": -7.24514722,
+          "frame": "ICRS",
+          "epoch": "not supplied; downloaded field center"
+        }
+      },
+      {
+        "kind": "cubes",
+        "target": "epsilon_indi_b",
+        "file": "cubes/Npix11391_cube.fits",
+        "id": "b747c362d227264b8b5369a52e5440d8",
+        "shape": [
+          102,
+          512,
+          512
+        ],
+        "field_center": {
+          "ra": 331.04414583,
+          "dec": -56.78284417,
+          "frame": "ICRS",
+          "epoch": "not supplied; downloaded field center"
+        }
+      },
+      {
+        "kind": "cubes",
+        "target": "rw_aurigae",
+        "file": "cubes/Npix277_cube.fits",
+        "id": "bae44296e4a6765f6412ec2c77ca5e23",
+        "shape": [
+          102,
+          512,
+          512
+        ],
+        "field_center": {
+          "ra": 76.956525,
+          "dec": 30.401438,
+          "frame": "ICRS",
+          "epoch": "not supplied; downloaded field center"
+        }
+      },
+      {
+        "kind": "cubes",
+        "target": "r_draconis",
+        "file": "cubes/Npix2928_cube.fits",
+        "id": "790cc3ea06a7821990e541075d349d9e",
+        "shape": [
+          102,
+          512,
+          512
+        ],
+        "field_center": {
+          "ra": 248.1676125,
+          "dec": 66.75497944,
+          "frame": "ICRS",
+          "epoch": "not supplied; downloaded field center"
+        }
+      },
+      {
+        "kind": "cubes",
+        "target": "cygnus_x",
+        "file": "cubes/Npix3676_cube.fits",
+        "id": "2c32cf80c1b68508f50d514dad59ae94",
+        "shape": [
+          102,
+          512,
+          512
+        ],
+        "field_center": {
+          "ra": 309.75665,
+          "dec": 42.32719,
+          "frame": "ICRS",
+          "epoch": "not supplied; downloaded field center"
+        }
+      },
+      {
+        "kind": "cubes",
+        "target": "orion",
+        "file": "cubes/Npix5359_cube.fits",
+        "id": "a954caef5734f67f98304a374a6a4557",
+        "shape": [
+          102,
+          512,
+          512
+        ],
+        "field_center": {
+          "ra": 83.8201,
+          "dec": -5.3876,
+          "frame": "ICRS",
+          "epoch": "not supplied; downloaded field center"
+        }
+      },
+      {
+        "kind": "cubes",
+        "target": "cosmos",
+        "file": "cubes/Npix6814_cube.fits",
+        "id": "d0eeeb34c80b70fef713b7e292bceab2",
+        "shape": [
+          102,
+          512,
+          512
+        ],
+        "field_center": {
+          "ra": 150.1163,
+          "dec": 2.2058,
+          "frame": "ICRS",
+          "epoch": "not supplied; downloaded field center"
+        }
+      },
+      {
+        "kind": "cubes",
+        "target": "barnards_star",
+        "file": "cubes/Npix7945_cube.fits",
+        "id": "a961becafe10b2208e592832251f93e7",
+        "shape": [
+          102,
+          512,
+          512
+        ],
+        "field_center": {
+          "ra": 269.4521,
+          "dec": 4.6934,
+          "frame": "ICRS",
+          "epoch": "not supplied; downloaded field center"
+        }
+      }
+    ]
+  },
+  "check_3": {
+    "http_status": 200,
+    "offline": true,
+    "targets": [
+      {
+        "id": "barnards-star",
+        "name": "Barnard's Star",
+        "local": {
+          "installed": true,
+          "root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+          "cubes": 1,
+          "observations": 26
+        }
+      },
+      {
+        "id": "eps-indi-b",
+        "name": "Epsilon Indi B",
+        "local": {
+          "installed": true,
+          "root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+          "cubes": 1,
+          "observations": 7
+        }
+      },
+      {
+        "id": "wise-0855",
+        "name": "WISE 0855-0714",
+        "local": {
+          "installed": true,
+          "root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+          "cubes": 1,
+          "observations": 5
+        }
+      },
+      {
+        "id": "rw-aurigae",
+        "name": "RW Aurigae",
+        "local": {
+          "installed": true,
+          "root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+          "cubes": 1,
+          "observations": 5
+        }
+      },
+      {
+        "id": "r-draconis",
+        "name": "R Draconis",
+        "local": {
+          "installed": true,
+          "root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+          "cubes": 1,
+          "observations": 4
+        }
+      }
+    ]
+  },
+  "checks": {
+    "status_installed": true,
+    "product_counts": true,
+    "demo_targets": true
+  },
+  "status": "PASS"
+}

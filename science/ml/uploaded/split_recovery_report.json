@@ -1,0 +1,65 @@
+{
+  "policy": "cache recovery: training-prioritized independent groups",
+  "assignment": {
+    "h0_r0_00": "val",
+    "h0_r0_01": "test",
+    "h0_r0_02": "val",
+    "h0_r0_03": "test",
+    "h0_r1_00": "test",
+    "h0_r1_01": "val",
+    "h0_r1_09": "val",
+    "h0_r2_00": "val",
+    "h0_r2_08": "train",
+    "h1_r0_09": "test",
+    "h1_r1_08": "val",
+    "h1_r2_07": "val"
+  },
+  "requested": {
+    "train": 8000,
+    "val": 800,
+    "test": 500
+  },
+  "actual": {
+    "train": 4000,
+    "val": 800,
+    "test": 500
+  },
+  "coverage": {
+    "train": {
+      "fields": [
+        "h0_r2_08"
+      ],
+      "independent_groups": [
+        "h0_r2_08"
+      ],
+      "bands": [
+        "SPHEREx-D6"
+      ],
+      "pairs": 2
+    },
+    "val": {
+      "fields": [
+        "h0_r1_01"
+      ],
+      "independent_groups": [
+        "h0_r1_01"
+      ],
+      "bands": [
+        "SPHEREx-D3"
+      ],
+      "pairs": 1
+    },
+    "test": {
+      "fields": [
+        "h1_r0_09"
+      ],
+      "independent_groups": [
+        "h1_r0_09"
+      ],
+      "bands": [
+        "SPHEREx-D1"
+      ],
+      "pairs": 1
+    }
+  }
+}

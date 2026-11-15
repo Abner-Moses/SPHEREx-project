@@ -1,0 +1,49 @@
+{
+  "pass": true,
+  "preview": {
+    "id": "102f1abcf3fd",
+    "obs_id": "2026W11_2A_0501_1",
+    "detector": 2,
+    "source": "irsa",
+    "width": 88,
+    "height": 88,
+    "meshNodes": 65,
+    "epochMs": 1773535622656.7231
+  },
+  "observe": {
+    "id": "102f1abcf3fd",
+    "obs_id": "2026W11_2A_0501_1",
+    "detector": 2,
+    "source": "irsa",
+    "images_are": "SPHEREx level-2 detector image"
+  },
+  "detector": {
+    "visible": true,
+    "noEmptyMessage": true
+  },
+  "surface": {
+    "active": true,
+    "vertices": 7744
+  },
+  "depth": {
+    "active": true,
+    "stars": 744,
+    "imagePreserved": true
+  },
+  "returnedSkyImagePreserved": true,
+  "pageErrors": [],
+  "apiResponses": [
+    {
+      "url": "http://localhost:5173/api/observe",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:5173/api/products/102f1abcf3fd/image.png",
+      "status": 200
+    },
+    {
+      "url": "http://localhost:5173/api/observations?ra=269.45208&dec=4.69336&radius=0.05&limit=500",
+      "status": 200
+    }
+  ]
+}

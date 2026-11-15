@@ -1,0 +1,17 @@
+# Full environment for the merged app, including the SphereX2 science backend (science/). Tested on Python 3.14.
+#   python -m venv .venv && .venv/Scripts/python -m pip install -r requirements-science.txt
+# Without these, the app still runs; /api/science/status then reports the missing module and Capture skips science graphs.
+astropy==8.0.2
+fastapi==0.163.1
+httpx2==2.16.0
+numpy==2.5.4
+opencv-python-headless==5.0.0.93
+photutils==3.1.1
+pillow==13.0.0
+pytest==9.2.0
+pyvo==1.10.0
+reproject==0.21.0
+requests==2.34.2
+scipy==1.18.1
+spherical_geometry==1.4.0
+uvicorn[standard]==0.54.0

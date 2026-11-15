@@ -1,0 +1,161 @@
+{
+  "real_cubes": [
+    {
+      "target": "wise_0855",
+      "id": "8c191816ac45eb07ca61cd31c7cdd58d",
+      "bytes": 5335160,
+      "shape": [
+        102,
+        32,
+        32
+      ],
+      "valid_samples": 102325,
+      "seconds": 1.323050333012361,
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir10000/Npix10226_cube.fits"
+    },
+    {
+      "target": "epsilon_indi_b",
+      "id": "b747c362d227264b8b5369a52e5440d8",
+      "bytes": 5335160,
+      "shape": [
+        102,
+        32,
+        32
+      ],
+      "valid_samples": 102373,
+      "seconds": 0.8978072910103947,
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir10000/Npix11391_cube.fits"
+    },
+    {
+      "target": "rw_aurigae",
+      "id": "bae44296e4a6765f6412ec2c77ca5e23",
+      "bytes": 5335152,
+      "shape": [
+        102,
+        32,
+        32
+      ],
+      "valid_samples": 102384,
+      "seconds": 1.3568506669835187,
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix277_cube.fits"
+    },
+    {
+      "target": "r_draconis",
+      "id": "790cc3ea06a7821990e541075d349d9e",
+      "bytes": 5335152,
+      "shape": [
+        102,
+        32,
+        32
+      ],
+      "valid_samples": 102322,
+      "seconds": 1.4690172909758985,
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix2928_cube.fits"
+    },
+    {
+      "target": "cygnus_x",
+      "id": "2c32cf80c1b68508f50d514dad59ae94",
+      "bytes": 5335152,
+      "shape": [
+        102,
+        32,
+        32
+      ],
+      "valid_samples": 102360,
+      "seconds": 1.0517437499947846,
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix3676_cube.fits"
+    },
+    {
+      "target": "orion",
+      "id": "a954caef5734f67f98304a374a6a4557",
+      "bytes": 5335152,
+      "shape": [
+        102,
+        32,
+        32
+      ],
+      "valid_samples": 102285,
+      "seconds": 1.0079042909783311,
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix5359_cube.fits"
+    },
+    {
+      "target": "cosmos",
+      "id": "d0eeeb34c80b70fef713b7e292bceab2",
+      "bytes": 5335152,
+      "shape": [
+        102,
+        32,
+        32
+      ],
+      "valid_samples": 102341,
+      "seconds": 0.8044374999590218,
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix6814_cube.fits"
+    },
+    {
+      "target": "barnards_star",
+      "id": "a961becafe10b2208e592832251f93e7",
+      "bytes": 5335152,
+      "shape": [
+        102,
+        32,
+        32
+      ],
+      "valid_samples": 102396,
+      "seconds": 1.510700499988161,
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix7945_cube.fits"
+    }
+  ],
+  "geometry": {
+    "surface": {
+      "vertices": 1022,
+      "indices": 5730,
+      "ms": 18.237291999999997
+    },
+    "wireframe": {
+      "vertices": 1022,
+      "indices": 5730,
+      "ms": 2.918875
+    },
+    "cloud": {
+      "vertices": 102285,
+      "indices": 0,
+      "ms": 47.236999999999995
+    },
+    "waterfall": {
+      "vertices": 1597,
+      "indices": 3126,
+      "ms": 7.416000000000025
+    },
+    "isosurface": {
+      "triangles": 80000,
+      "truncated": true
+    },
+    "loss": {
+      "intercept": 0.16905851781368256,
+      "slope": -0.004026603541677841,
+      "minimum_sse": 1.4064365803371142,
+      "samples": 100
+    },
+    "measuredScatter": {
+      "samples": 3
+    }
+  },
+  "browser": {
+    "cube_id": "a954caef5734f67f98304a374a6a4557",
+    "modes": [
+      "surface",
+      "wireframe",
+      "point cloud",
+      "spectral volume",
+      "isosurface",
+      "waterfall",
+      "loss landscape"
+    ],
+    "gpuErrors": [],
+    "orthographic": true
+  },
+  "limitations": [
+    "Display geometry and GPU smoke checks, not independent astrophysical inference validation.",
+    "Trajectories require associated epoch measurements; none are manufactured from spectral cubes."
+  ]
+}

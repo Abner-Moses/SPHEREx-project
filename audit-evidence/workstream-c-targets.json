@@ -1,0 +1,584 @@
+{
+  "base_url": "http://localhost:8000",
+  "commands": [
+    "POST /api/demo/targets/<id>/analysis?refresh=1",
+    "GET /api/demo/targets/<id>/analysis every 2s until done/failed"
+  ],
+  "science_status": {
+    "available": true,
+    "reason": null,
+    "offline": true,
+    "data_root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+    "dataset_installed": true
+  },
+  "targets_endpoint": {
+    "targets": [
+      {
+        "id": "barnards-star",
+        "name": "Barnard's Star",
+        "kind": "Red dwarf (M4V), highest proper motion known",
+        "ra_j2000": 269.452083,
+        "dec_j2000": 4.693364,
+        "ra_epoch": 269.44631922447957,
+        "dec_epoch": 4.7676278236666665,
+        "epoch": 2025.8,
+        "local": {
+          "installed": true,
+          "root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+          "cubes": 1,
+          "observations": 26
+        },
+        "bundle_cached": true,
+        "bundle_age_s": 189.07593488693237
+      },
+      {
+        "id": "eps-indi-b",
+        "name": "Epsilon Indi B",
+        "kind": "Binary brown dwarf (T1 + T6)",
+        "ra_j2000": 331.043833,
+        "dec_j2000": -56.782694,
+        "ra_epoch": 331.09592653098804,
+        "dec_epoch": -56.80039566666667,
+        "epoch": 2025.8,
+        "local": {
+          "installed": true,
+          "root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+          "cubes": 1,
+          "observations": 7
+        },
+        "bundle_cached": true,
+        "bundle_age_s": 186.7923641204834
+      },
+      {
+        "id": "wise-0855",
+        "name": "WISE 0855-0714",
+        "kind": "Coldest known brown dwarf (Y4)",
+        "ra_j2000": 133.7958,
+        "dec_j2000": -7.2451,
+        "ra_epoch": 133.73715274499332,
+        "dec_epoch": -7.240226666666667,
+        "epoch": 2025.8,
+        "local": {
+          "installed": true,
+          "root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+          "cubes": 1,
+          "observations": 5
+        },
+        "bundle_cached": true,
+        "bundle_age_s": 184.37585067749023
+      },
+      {
+        "id": "rw-aurigae",
+        "name": "RW Aurigae",
+        "kind": "Young T Tauri binary with a disk",
+        "ra_j2000": 76.956417,
+        "dec_j2000": 30.401417,
+        "ra_epoch": 76.9564502366705,
+        "dec_epoch": 30.401252166666666,
+        "epoch": 2025.8,
+        "local": {
+          "installed": true,
+          "root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+          "cubes": 1,
+          "observations": 5
+        },
+        "bundle_cached": true,
+        "bundle_age_s": 181.65327262878418
+      },
+      {
+        "id": "r-draconis",
+        "name": "R Draconis",
+        "kind": "Mira variable (long-period pulsating giant)",
+        "ra_j2000": 248.167375,
+        "dec_j2000": 66.754978,
+        "ra_epoch": 248.16712077532733,
+        "dec_epoch": 66.75517866666667,
+        "epoch": 2025.8,
+        "local": {
+          "installed": true,
+          "root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+          "cubes": 1,
+          "observations": 4
+        },
+        "bundle_cached": true,
+        "bundle_age_s": 179.59093165397644
+      }
+    ],
+    "offline": true,
+    "max_products": 12
+  },
+  "targets": [
+    {
+      "id": "barnards-star",
+      "state": "done",
+      "status": "exploratory",
+      "sources": [
+        "local dataset: DR1 spectral cube",
+        "local dataset: Level-2 observations"
+      ],
+      "frames_found": 25,
+      "frames_used": 12,
+      "measured_limit": 12,
+      "frames_measured": 11,
+      "accepted_points": 0,
+      "exploratory_points": 11,
+      "cube_spectrum": true,
+      "cube_spectrum_channels": 102,
+      "cube_finite_values": 100,
+      "cube_limitation": "No variance supplied; NHITS is coverage, never an uncertainty estimate. Square aperture mean, ZODI already subtracted.",
+      "cube_quality_acceptance": "Not established from Level-2 flags; cube flags retained separately.",
+      "astrometry": {
+        "ra": 269.452077,
+        "dec": 4.693365,
+        "pmra": -801.551,
+        "pmdec": 10362.394,
+        "plx_mas": 546.9759,
+        "source": "SIMBAD (CDS)"
+      },
+      "measure_at": {
+        "ra": 269.4463132244712,
+        "dec": 4.767628823666667,
+        "epoch": 2025.8,
+        "note": "J2000 position moved by proper motion to the survey mid-epoch; apertures are 3 px (about 18 arcsec)."
+      },
+      "errors": [],
+      "rejected_verbatim": [
+        {
+          "product_id": "1786f590562e79c9ae77a9811d0e0411",
+          "reason": "The retrieved observation failed scientific data validation: Requested coordinate is outside the image footprint"
+        },
+        {
+          "asset_id": "a89b4ed7913f9495228f6428957ab60c",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "49eb75f4727c51b49b1a93b98e8e69dd",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "dd78c99f142776d965f22a25841b2f43",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "fb87049e57d5b786a4f0c99387bf4b6f",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "872a7cb19eba50178dc73f484827dc0e",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "2457f80a70dd18823c68190624a50a8f",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "2985359fc287dbca4d7083fdc548e1c8",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "fe716ec0387b4cfbc5bf5a5cd60cdbbb",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "65a92e0169a3449873ce9e45e2215bff",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "efe897c5852d76c6c179b77ad0295953",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "91c48cae82ab58d300871e2e6ba87880",
+          "reason": "Inspection-only quality"
+        }
+      ],
+      "exploratory_skipped_verbatim": [],
+      "reason": null,
+      "check4_pass": true,
+      "nonempty_frame_points": true
+    },
+    {
+      "id": "eps-indi-b",
+      "state": "done",
+      "status": "science",
+      "sources": [
+        "local dataset: DR1 spectral cube",
+        "local dataset: Level-2 observations"
+      ],
+      "frames_found": 6,
+      "frames_used": 6,
+      "measured_limit": 12,
+      "frames_measured": 6,
+      "accepted_points": 3,
+      "exploratory_points": 3,
+      "cube_spectrum": true,
+      "cube_spectrum_channels": 102,
+      "cube_finite_values": 100,
+      "cube_limitation": "No variance supplied; NHITS is coverage, never an uncertainty estimate. Square aperture mean, ZODI already subtracted.",
+      "cube_quality_acceptance": "Not established from Level-2 flags; cube flags retained separately.",
+      "astrometry": {
+        "ra": 331.0441466,
+        "dec": -56.7828442,
+        "pmra": 3981.977,
+        "pmdec": -2466.832,
+        "plx_mas": 270.658,
+        "source": "SIMBAD (CDS)"
+      },
+      "measure_at": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "epoch": 2025.8,
+        "note": "J2000 position moved by proper motion to the survey mid-epoch; apertures are 3 px (about 18 arcsec)."
+      },
+      "errors": [],
+      "rejected_verbatim": [
+        {
+          "asset_id": "37c4fb64c0888ef8170dda2293c933bc",
+          "reason": "Unusable aperture or uncertainty"
+        },
+        {
+          "asset_id": "98f253e272df13766fd46b64eddbde1c",
+          "reason": "Unusable aperture or uncertainty"
+        },
+        {
+          "asset_id": "578c9e6ec36dc74211d69aeef768f2e8",
+          "reason": "Unusable aperture or uncertainty"
+        }
+      ],
+      "exploratory_skipped_verbatim": [],
+      "reason": null,
+      "check4_pass": true,
+      "nonempty_frame_points": true
+    },
+    {
+      "id": "wise-0855",
+      "state": "done",
+      "status": "science",
+      "sources": [
+        "local dataset: DR1 spectral cube",
+        "local dataset: Level-2 observations"
+      ],
+      "frames_found": 5,
+      "frames_used": 5,
+      "measured_limit": 12,
+      "frames_measured": 5,
+      "accepted_points": 3,
+      "exploratory_points": 2,
+      "cube_spectrum": true,
+      "cube_spectrum_channels": 102,
+      "cube_finite_values": 100,
+      "cube_limitation": "No variance supplied; NHITS is coverage, never an uncertainty estimate. Square aperture mean, ZODI already subtracted.",
+      "cube_quality_acceptance": "Not established from Level-2 flags; cube flags retained separately.",
+      "astrometry": {
+        "ra": 133.8189082,
+        "dec": -7.247048,
+        "pmra": -8123.7,
+        "pmdec": 673.2,
+        "plx_mas": 439.0,
+        "source": "SIMBAD (CDS)"
+      },
+      "measure_at": {
+        "ra": 133.7602195125091,
+        "dec": -7.2422234,
+        "epoch": 2025.8,
+        "note": "J2000 position moved by proper motion to the survey mid-epoch; apertures are 3 px (about 18 arcsec)."
+      },
+      "errors": [],
+      "rejected_verbatim": [
+        {
+          "asset_id": "db44fbda7439ef727374972d8d638b82",
+          "reason": "Unusable aperture or uncertainty"
+        },
+        {
+          "asset_id": "6508853c6357db3bbae6c50d22fc6820",
+          "reason": "Unusable aperture or uncertainty"
+        }
+      ],
+      "exploratory_skipped_verbatim": [],
+      "reason": null,
+      "check4_pass": true,
+      "nonempty_frame_points": true
+    },
+    {
+      "id": "rw-aurigae",
+      "state": "done",
+      "status": "exploratory",
+      "sources": [
+        "local dataset: DR1 spectral cube",
+        "local dataset: Level-2 observations"
+      ],
+      "frames_found": 5,
+      "frames_used": 5,
+      "measured_limit": 12,
+      "frames_measured": 5,
+      "accepted_points": 0,
+      "exploratory_points": 5,
+      "cube_spectrum": true,
+      "cube_spectrum_channels": 102,
+      "cube_finite_values": 100,
+      "cube_limitation": "No variance supplied; NHITS is coverage, never an uncertainty estimate. Square aperture mean, ZODI already subtracted.",
+      "cube_quality_acceptance": "Not established from Level-2 flags; cube flags retained separately.",
+      "astrometry": {
+        "ra": 76.956526,
+        "dec": 30.4014382,
+        "pmra": 7.23,
+        "pmdec": -20.33,
+        "plx_mas": 15.42,
+        "source": "SIMBAD (CDS)"
+      },
+      "measure_at": {
+        "ra": 76.95658607529498,
+        "dec": 30.401292501666667,
+        "epoch": 2025.8,
+        "note": "J2000 position moved by proper motion to the survey mid-epoch; apertures are 3 px (about 18 arcsec)."
+      },
+      "errors": [],
+      "rejected_verbatim": [
+        {
+          "asset_id": "bb9569da23ef8e10550a0579b8c1439b",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "71b57e9dfb25ec2ec77052bedd3f1ef3",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "c6dba9ed2b3f8159291359842d17d8b8",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "7b35cac56c4313a76e57392a2d3a52ad",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "912a6a18efe237045fc940e6b81b2447",
+          "reason": "Inspection-only quality"
+        }
+      ],
+      "exploratory_skipped_verbatim": [],
+      "reason": null,
+      "check4_pass": true,
+      "nonempty_frame_points": true
+    },
+    {
+      "id": "r-draconis",
+      "state": "done",
+      "status": "exploratory",
+      "sources": [
+        "local dataset: DR1 spectral cube",
+        "local dataset: Level-2 observations"
+      ],
+      "frames_found": 4,
+      "frames_used": 4,
+      "measured_limit": 12,
+      "frames_measured": 4,
+      "accepted_points": 0,
+      "exploratory_points": 4,
+      "cube_spectrum": true,
+      "cube_spectrum_channels": 102,
+      "cube_finite_values": 100,
+      "cube_limitation": "No variance supplied; NHITS is coverage, never an uncertainty estimate. Square aperture mean, ZODI already subtracted.",
+      "cube_quality_acceptance": "Not established from Level-2 flags; cube flags retained separately.",
+      "astrometry": {
+        "ra": 248.1676108,
+        "dec": 66.7549794,
+        "pmra": -20.643,
+        "pmdec": 6.149,
+        "plx_mas": 1.2509,
+        "source": "SIMBAD (CDS)"
+      },
+      "measure_at": {
+        "ra": 248.16723594569885,
+        "dec": 66.75502346783333,
+        "epoch": 2025.8,
+        "note": "J2000 position moved by proper motion to the survey mid-epoch; apertures are 3 px (about 18 arcsec)."
+      },
+      "errors": [],
+      "rejected_verbatim": [
+        {
+          "asset_id": "3ef29846d65be6db4fca0c70d471bd0b",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "e921ce0e6b9aaa106f7deacc80d4cae0",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "f7337f0f6bf3c0d1c3ae768d1dd4f9ce",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "e155fe952cb8fbf62e21104a6fb28f0a",
+          "reason": "Inspection-only quality"
+        }
+      ],
+      "exploratory_skipped_verbatim": [],
+      "reason": null,
+      "check4_pass": true,
+      "nonempty_frame_points": true
+    }
+  ],
+  "check4_pass": true,
+  "check5_pass": true,
+  "offline_guard": {
+    "offline": "1",
+    "data_root": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data",
+    "guards": [
+      "requests.Session.request",
+      "httpx2.AsyncClient.request"
+    ],
+    "command": "SPHEREX_OFFLINE=1 .venv/bin/python; import main,demo_targets; monkeypatch requests.Session.request and httpx2.AsyncClient.request to count/fail; demo_targets._analyse for all five",
+    "targets": [
+      {
+        "id": "barnards-star",
+        "state": "done",
+        "status": "exploratory",
+        "sources": [
+          "local dataset: DR1 spectral cube",
+          "local dataset: Level-2 observations"
+        ],
+        "frames_found": 25,
+        "frames_used": 12,
+        "cube_spectrum_channels": 102,
+        "accepted_points": 0,
+        "exploratory_points": 11,
+        "errors": [],
+        "elapsed_s": 1.99,
+        "astrometry": {
+          "ra": 269.452077,
+          "dec": 4.693365,
+          "pmra": -801.551,
+          "pmdec": 10362.394,
+          "plx_mas": 546.9759,
+          "source": "SIMBAD (CDS)"
+        },
+        "measure_at": {
+          "ra": 269.4463132244712,
+          "dec": 4.767628823666667,
+          "epoch": 2025.8
+        }
+      },
+      {
+        "id": "eps-indi-b",
+        "state": "done",
+        "status": "science",
+        "sources": [
+          "local dataset: DR1 spectral cube",
+          "local dataset: Level-2 observations"
+        ],
+        "frames_found": 6,
+        "frames_used": 6,
+        "cube_spectrum_channels": 102,
+        "accepted_points": 3,
+        "exploratory_points": 3,
+        "errors": [],
+        "elapsed_s": 1.23,
+        "astrometry": {
+          "ra": 331.0441466,
+          "dec": -56.7828442,
+          "pmra": 3981.977,
+          "pmdec": -2466.832,
+          "plx_mas": 270.658,
+          "source": "SIMBAD (CDS)"
+        },
+        "measure_at": {
+          "ra": 331.0962400386477,
+          "dec": -56.800523162666664,
+          "epoch": 2025.8
+        }
+      },
+      {
+        "id": "wise-0855",
+        "state": "done",
+        "status": "science",
+        "sources": [
+          "local dataset: DR1 spectral cube",
+          "local dataset: Level-2 observations"
+        ],
+        "frames_found": 5,
+        "frames_used": 5,
+        "cube_spectrum_channels": 102,
+        "accepted_points": 3,
+        "exploratory_points": 2,
+        "errors": [],
+        "elapsed_s": 1.19,
+        "astrometry": {
+          "ra": 133.8189082,
+          "dec": -7.247048,
+          "pmra": -8123.7,
+          "pmdec": 673.2,
+          "plx_mas": 439.0,
+          "source": "SIMBAD (CDS)"
+        },
+        "measure_at": {
+          "ra": 133.7602195125091,
+          "dec": -7.2422234,
+          "epoch": 2025.8
+        }
+      },
+      {
+        "id": "rw-aurigae",
+        "state": "done",
+        "status": "exploratory",
+        "sources": [
+          "local dataset: DR1 spectral cube",
+          "local dataset: Level-2 observations"
+        ],
+        "frames_found": 5,
+        "frames_used": 5,
+        "cube_spectrum_channels": 102,
+        "accepted_points": 0,
+        "exploratory_points": 5,
+        "errors": [],
+        "elapsed_s": 1.04,
+        "astrometry": {
+          "ra": 76.956526,
+          "dec": 30.4014382,
+          "pmra": 7.23,
+          "pmdec": -20.33,
+          "plx_mas": 15.42,
+          "source": "SIMBAD (CDS)"
+        },
+        "measure_at": {
+          "ra": 76.95658607529498,
+          "dec": 30.401292501666667,
+          "epoch": 2025.8
+        }
+      },
+      {
+        "id": "r-draconis",
+        "state": "done",
+        "status": "exploratory",
+        "sources": [
+          "local dataset: DR1 spectral cube",
+          "local dataset: Level-2 observations"
+        ],
+        "frames_found": 4,
+        "frames_used": 4,
+        "cube_spectrum_channels": 102,
+        "accepted_points": 0,
+        "exploratory_points": 4,
+        "errors": [],
+        "elapsed_s": 0.95,
+        "astrometry": {
+          "ra": 248.1676108,
+          "dec": 66.7549794,
+          "pmra": -20.643,
+          "pmdec": 6.149,
+          "plx_mas": 1.2509,
+          "source": "SIMBAD (CDS)"
+        },
+        "measure_at": {
+          "ra": 248.16723594569885,
+          "dec": 66.75502346783333,
+          "epoch": 2025.8
+        }
+      }
+    ],
+    "outbound_attempt_count": 0,
+    "outbound_attempts": [],
+    "demo_cache": "/Users/abnermoses/Downloads/SphereX/SphereX/science/cache/demo",
+    "epoch": 2025.8
+  },
+  "check6_pass": true
+}

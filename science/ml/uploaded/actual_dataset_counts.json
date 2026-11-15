@@ -1,0 +1,26 @@
+{
+  "train": {
+    "pairs": 4000,
+    "image_patches": 8000,
+    "unique_parent_observations": 4,
+    "unique_background_pairs": 2,
+    "unique_fields": 1,
+    "unique_patch_origins": 3581
+  },
+  "val": {
+    "pairs": 800,
+    "image_patches": 1600,
+    "unique_parent_observations": 2,
+    "unique_background_pairs": 1,
+    "unique_fields": 1,
+    "unique_patch_origins": 778
+  },
+  "test": {
+    "pairs": 500,
+    "image_patches": 1000,
+    "unique_parent_observations": 2,
+    "unique_background_pairs": 1,
+    "unique_fields": 1,
+    "unique_patch_origins": 487
+  }
+}

@@ -1,0 +1,88 @@
+{
+  "pass": true,
+  "offline": true,
+  "outbound_attempts": [],
+  "targets": [
+    {
+      "id": "barnards-star",
+      "observations": 25,
+      "source": "irsa",
+      "images_are": "SPHEREx level-2 detector image",
+      "size": [
+        88,
+        88
+      ],
+      "target_pixel": [
+        47.921,
+        87.666
+      ],
+      "image_png_bytes": 5702,
+      "mask_status": 200
+    },
+    {
+      "id": "eps-indi-b",
+      "observations": 6,
+      "source": "irsa",
+      "images_are": "SPHEREx level-2 detector image",
+      "size": [
+        2040,
+        2040
+      ],
+      "target_pixel": [
+        794.106,
+        561.506
+      ],
+      "image_png_bytes": 3969357,
+      "mask_status": 200
+    },
+    {
+      "id": "wise-0855",
+      "observations": 5,
+      "source": "irsa",
+      "images_are": "SPHEREx level-2 detector image",
+      "size": [
+        2040,
+        2040
+      ],
+      "target_pixel": [
+        1310.998,
+        656.102
+      ],
+      "image_png_bytes": 3970307,
+      "mask_status": 200
+    },
+    {
+      "id": "rw-aurigae",
+      "observations": 5,
+      "source": "irsa",
+      "images_are": "SPHEREx level-2 detector image",
+      "size": [
+        2040,
+        2040
+      ],
+      "target_pixel": [
+        1772.847,
+        1644.866
+      ],
+      "image_png_bytes": 2947531,
+      "mask_status": 200
+    },
+    {
+      "id": "r-draconis",
+      "observations": 4,
+      "source": "irsa",
+      "images_are": "SPHEREx level-2 detector image",
+      "size": [
+        2040,
+        2040
+      ],
+      "target_pixel": [
+        1448.134,
+        1716.497
+      ],
+      "image_png_bytes": 3042130,
+      "mask_status": 200
+    }
+  ],
+  "missing_image_status": 404
+}

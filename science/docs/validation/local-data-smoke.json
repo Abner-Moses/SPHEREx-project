@@ -1,0 +1,649 @@
+{
+  "method": "Offline real files, API, numerical and bounded Orion browser checks; not independent scientific validation. Recomputed after preserving parent-detector offsets in recut IRSA cutouts.",
+  "indexed_level2": 47,
+  "indexed_cubes": 8,
+  "targets": [
+    {
+      "target": "Barnard star",
+      "coordinates": {
+        "ra": 269.4460633098195,
+        "dec": 4.770839627536788,
+        "frame": "icrs",
+        "epoch_jyear_tt": 2026.8709459445608
+      },
+      "covering_point": 14,
+      "strict_status": "insufficient",
+      "strict_frames": 0,
+      "exploratory_frames": 14,
+      "epochs": [
+        "2025-10-01T06:22:54.995Z",
+        "2026-03-11T02:11:37.212Z",
+        "2026-03-15T00:46:05.099Z",
+        "2026-03-19T07:25:17.581Z",
+        "2026-05-05T01:59:28.744Z",
+        "2026-08-16T15:08:22.122Z",
+        "2026-08-18T20:48:38.781Z",
+        "2026-09-02T06:10:07.914Z",
+        "2026-09-22T15:04:20.982Z"
+      ],
+      "calibrated_photometric_points": 0,
+      "spectral_measurements": [],
+      "fitted_centroids": 0,
+      "epsf_zone": 48,
+      "photometry_rejections": [
+        {
+          "asset_id": "064c62e1c1c2fc7183739dd3d65bc123",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "ed88460418a588b49788571fe1c6926b",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "3f989a48335bfc2a32fa2b49d976fe8e",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "915b2ddc6806d71ea895fb3abf2e230c",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "2db7ff36f54a0cea8699534a35e51684",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "02728d4fdd0d93adf0f2eca0c49afd48",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "4ba797cd86c91f655695b46d9624e453",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "181b4c2bd42b87c698ff080f01636da0",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "58ae492d43889c0437678f0e8d826b0f",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "d22edec58b63d1280a4f23747ba46833",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "bbb9cc53576c663decc36c9871bd6434",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "a76c7406f81c09f7588e3d8012fd116d",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "56b3bc8c3495c6170b7dbf4dc9acd993",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "f76bae0c8e1c2ca641ae0871fe040265",
+          "reason": "Inspection-only quality"
+        }
+      ],
+      "observation_ids": [
+        "2025W40_1A_0500_1",
+        "2025W40_1A_0500_1",
+        "2026W11_1A_0430_2",
+        "2026W11_1A_0430_2",
+        "2026W11_2A_0501_1",
+        "2026W12_1A_0598_1",
+        "2026W19_1A_0403_1",
+        "2026W19_1A_0403_1",
+        "2026W33_2A_0594_4",
+        "2026W33_2A_0594_4",
+        "2026W34_1A_0363_1",
+        "2026W34_1A_0363_1",
+        "2026W36_1A_0510_1",
+        "2026W39_1A_0371_1"
+      ]
+    },
+    {
+      "target": "epsilon Indi B",
+      "coordinates": {
+        "ra": 331.0984290256927,
+        "dec": -56.801245221273255,
+        "frame": "icrs",
+        "epoch_jyear_tt": 2026.8709459445608
+      },
+      "covering_point": 6,
+      "strict_status": "insufficient",
+      "strict_frames": 1,
+      "exploratory_frames": 6,
+      "epochs": [
+        "2025-04-29T03:09:29.468Z",
+        "2025-04-30T02:05:31.157Z",
+        "2025-05-01T13:57:52.125Z",
+        "2025-11-01T10:40:11.134Z",
+        "2025-11-03T00:10:09.388Z",
+        "2025-11-04T12:05:07.054Z"
+      ],
+      "calibrated_photometric_points": 3,
+      "spectral_measurements": [
+        {
+          "asset_id": "68ce1002d296abb3d105037826892412",
+          "observation_id": "2025W44_2B_0494_1",
+          "collection": "spherex_dr1",
+          "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W44_2B/l2b-v27-2026-246/6/level2_2025W44_2B_0494_1D6_spx_l2b-v27-2026-246.fits",
+          "flux_jy": 0.020442808275293677,
+          "flux_err_jy": 0.00037295151128438614,
+          "timestamp": "2025-11-01T10:40:11.134Z",
+          "mjd": 60980.44457331,
+          "time_source": "IMAGE.MJD-OBS",
+          "time_scale": "UTC",
+          "wavelength_um": 4.507174968719482,
+          "bandwidth_um": 0.034941285848617554,
+          "calibration": {
+            "status": "calibrated",
+            "wavelength_um": 4.507174968719482,
+            "bandwidth_um": 0.034941285848617554,
+            "sampling": "nearest original detector pixel; no spectral interpolation",
+            "calibration_pixel": [
+              309,
+              1692
+            ],
+            "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+            "source": "local original-version matched CWAVE/CBAND",
+            "source_url": "/Users/abnermoses/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+            "calibration_version": "3.0",
+            "parent_pixel": [
+              308.5783287819436,
+              1691.5900824957832
+            ],
+            "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+          }
+        },
+        {
+          "asset_id": "def07d5301bd883bf19d5fb88b1373d4",
+          "observation_id": "2025W18_1B_0091_1",
+          "collection": "spherex_dr1",
+          "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0091_1D6_spx_l2b-v27-2026-196.fits",
+          "flux_jy": 0.017201614431386555,
+          "flux_err_jy": 0.00034498149187130796,
+          "timestamp": "2025-04-29T03:09:29.468Z",
+          "mjd": 60794.131591065,
+          "time_source": "IMAGE.MJD-OBS",
+          "time_scale": "UTC",
+          "wavelength_um": 4.527048110961914,
+          "bandwidth_um": 0.035791002213954926,
+          "calibration": {
+            "status": "calibrated",
+            "wavelength_um": 4.527048110961914,
+            "bandwidth_um": 0.035791002213954926,
+            "sampling": "nearest original detector pixel; no spectral interpolation",
+            "calibration_pixel": [
+              798,
+              1594
+            ],
+            "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+            "source": "local original-version matched CWAVE/CBAND",
+            "source_url": "/Users/abnermoses/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+            "calibration_version": "3.0",
+            "parent_pixel": [
+              798.107809571957,
+              1593.548508245696
+            ],
+            "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+          }
+        },
+        {
+          "asset_id": "623d69cc89a512123263bc39e9f635e4",
+          "observation_id": "2025W45_1A_0327_1",
+          "collection": "spherex_dr1",
+          "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W45_1A/l2b-v27-2026-247/6/level2_2025W45_1A_0327_1D6_spx_l2b-v27-2026-247.fits",
+          "flux_jy": 0.01984930034932396,
+          "flux_err_jy": 0.0003810747718866408,
+          "timestamp": "2025-11-04T12:05:07.054Z",
+          "mjd": 60983.503553866,
+          "time_source": "IMAGE.MJD-OBS",
+          "time_scale": "UTC",
+          "wavelength_um": 4.640284538269043,
+          "bandwidth_um": 0.03620154783129692,
+          "calibration": {
+            "status": "calibrated",
+            "wavelength_um": 4.640284538269043,
+            "bandwidth_um": 0.03620154783129692,
+            "sampling": "nearest original detector pixel; no spectral interpolation",
+            "calibration_pixel": [
+              304,
+              1233
+            ],
+            "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+            "source": "local original-version matched CWAVE/CBAND",
+            "source_url": "/Users/abnermoses/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+            "calibration_version": "3.0",
+            "parent_pixel": [
+              304.38619597828585,
+              1232.9204661667702
+            ],
+            "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+          }
+        }
+      ],
+      "fitted_centroids": 6,
+      "epsf_zone": 344,
+      "photometry_rejections": [
+        {
+          "asset_id": "f4d22384fc7c153637bdd843d33db853",
+          "reason": "Unusable aperture or uncertainty"
+        },
+        {
+          "asset_id": "459d0f60d0e330820bcfe7d0c19ac965",
+          "reason": "Unusable aperture or uncertainty"
+        },
+        {
+          "asset_id": "213ea95b18030856f0f6c08c8e885b8e",
+          "reason": "Unusable aperture or uncertainty"
+        }
+      ],
+      "observation_ids": [
+        "2025W18_1B_0091_1",
+        "2025W18_1B_0238_4",
+        "2025W18_2B_0011_3",
+        "2025W44_2B_0494_1",
+        "2025W45_1A_0003_1",
+        "2025W45_1A_0327_1"
+      ]
+    },
+    {
+      "target": "WISE 0855",
+      "coordinates": {
+        "ra": 133.79512916666664,
+        "dec": -7.245147222222222,
+        "frame": "icrs",
+        "epoch_jyear_tt": null
+      },
+      "covering_point": 5,
+      "strict_status": "insufficient",
+      "strict_frames": 1,
+      "exploratory_frames": 5,
+      "epochs": [
+        "2025-05-05T16:50:11.390Z",
+        "2025-11-10T07:14:12.445Z",
+        "2025-11-14T12:13:48.188Z",
+        "2026-05-09T04:39:40.828Z",
+        "2026-05-09T22:23:49.212Z"
+      ],
+      "calibrated_photometric_points": 4,
+      "spectral_measurements": [
+        {
+          "asset_id": "2f1268ec430cd9a8cc235d3aebd93d3b",
+          "observation_id": "2025W46_1A_0076_3",
+          "collection": "spherex_dr1",
+          "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W46_1A/l2b-v27-2026-206/6/level2_2025W46_1A_0076_3D6_spx_l2b-v27-2026-206.fits",
+          "flux_jy": 0.0004679521690123867,
+          "flux_err_jy": 0.0002505967889987545,
+          "timestamp": "2025-11-10T07:14:12.445Z",
+          "mjd": 60989.301532928,
+          "time_source": "IMAGE.MJD-OBS",
+          "time_scale": "UTC",
+          "wavelength_um": 4.511605262756348,
+          "bandwidth_um": 0.03604670986533165,
+          "calibration": {
+            "status": "calibrated",
+            "wavelength_um": 4.511605262756348,
+            "bandwidth_um": 0.03604670986533165,
+            "sampling": "nearest original detector pixel; no spectral interpolation",
+            "calibration_pixel": [
+              909,
+              1645
+            ],
+            "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+            "source": "local original-version matched CWAVE/CBAND",
+            "source_url": "/Users/abnermoses/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+            "calibration_version": "3.0",
+            "parent_pixel": [
+              908.6575588935001,
+              1645.3497526290917
+            ],
+            "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+          }
+        },
+        {
+          "asset_id": "c495828417df4fd8a870808b02a2441e",
+          "observation_id": "2026W19_2A_0651_1",
+          "collection": "spherex_dr1",
+          "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2026W19_2A/l2b-v27-2026-245/6/level2_2026W19_2A_0651_1D6_spx_l2b-v27-2026-245.fits",
+          "flux_jy": 0.00029723387796810197,
+          "flux_err_jy": 0.00029839334898749514,
+          "timestamp": "2026-05-09T04:39:40.828Z",
+          "mjd": 61169.194222546,
+          "time_source": "IMAGE.MJD-OBS",
+          "time_scale": "UTC",
+          "wavelength_um": 4.8607306480407715,
+          "bandwidth_um": 0.036471229046583176,
+          "calibration": {
+            "status": "calibrated",
+            "wavelength_um": 4.8607306480407715,
+            "bandwidth_um": 0.036471229046583176,
+            "sampling": "nearest original detector pixel; no spectral interpolation",
+            "calibration_pixel": [
+              383,
+              490
+            ],
+            "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+            "source": "local original-version matched CWAVE/CBAND",
+            "source_url": "/Users/abnermoses/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+            "calibration_version": "3.0",
+            "parent_pixel": [
+              382.7678596697711,
+              489.99932222231655
+            ],
+            "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+          }
+        },
+        {
+          "asset_id": "76a60fa934576a0eeebe9d59698be64d",
+          "observation_id": "2026W19_2A_0952_1",
+          "collection": "spherex_dr1",
+          "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2026W19_2A/l2b-v27-2026-245/6/level2_2026W19_2A_0952_1D6_spx_l2b-v27-2026-245.fits",
+          "flux_jy": 0.0003383433178520735,
+          "flux_err_jy": 0.0003426330524092425,
+          "timestamp": "2026-05-09T22:23:49.212Z",
+          "mjd": 61169.933208472,
+          "time_source": "IMAGE.MJD-OBS",
+          "time_scale": "UTC",
+          "wavelength_um": 4.932468891143799,
+          "bandwidth_um": 0.037146393209695816,
+          "calibration": {
+            "status": "calibrated",
+            "wavelength_um": 4.932468891143799,
+            "bandwidth_um": 0.037146393209695816,
+            "sampling": "nearest original detector pixel; no spectral interpolation",
+            "calibration_pixel": [
+              381,
+              260
+            ],
+            "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+            "source": "local original-version matched CWAVE/CBAND",
+            "source_url": "/Users/abnermoses/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+            "calibration_version": "3.0",
+            "parent_pixel": [
+              380.6258833510627,
+              259.98105527411303
+            ],
+            "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+          }
+        },
+        {
+          "asset_id": "0b6fe65fbcd6b655e7b9c88a978e5ebc",
+          "observation_id": "2025W19_1B_0116_2",
+          "collection": "spherex_dr1",
+          "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W19_1B/l2b-v27-2026-197/6/level2_2025W19_1B_0116_2D6_spx_l2b-v27-2026-197.fits",
+          "flux_jy": -0.0002512337575812356,
+          "flux_err_jy": 0.00034996900993237865,
+          "timestamp": "2025-05-05T16:50:11.390Z",
+          "mjd": 60800.701520718,
+          "time_source": "IMAGE.MJD-OBS",
+          "time_scale": "UTC",
+          "wavelength_um": 5.0049729347229,
+          "bandwidth_um": 0.03701012209057808,
+          "calibration": {
+            "status": "calibrated",
+            "wavelength_um": 5.0049729347229,
+            "bandwidth_um": 0.03701012209057808,
+            "sampling": "nearest original detector pixel; no spectral interpolation",
+            "calibration_pixel": [
+              380,
+              29
+            ],
+            "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+            "source": "local original-version matched CWAVE/CBAND",
+            "source_url": "/Users/abnermoses/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+            "calibration_version": "3.0",
+            "parent_pixel": [
+              380.0232986719057,
+              28.78893232241262
+            ],
+            "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+          }
+        }
+      ],
+      "fitted_centroids": 0,
+      "epsf_zone": 3,
+      "photometry_rejections": [
+        {
+          "asset_id": "9e7152e16a67cb6fcdc6bd81095673ee",
+          "reason": "Unusable aperture or uncertainty"
+        }
+      ],
+      "observation_ids": [
+        "2025W19_1B_0116_2",
+        "2025W46_1A_0076_3",
+        "2025W46_2A_0214_4",
+        "2026W19_2A_0651_1",
+        "2026W19_2A_0952_1"
+      ]
+    },
+    {
+      "target": "RW Aur",
+      "coordinates": {
+        "ra": 76.9565886034785,
+        "dec": 30.4012864276709,
+        "frame": "icrs",
+        "epoch_jyear_tt": 2026.8709459445608
+      },
+      "covering_point": 5,
+      "strict_status": "insufficient",
+      "strict_frames": 0,
+      "exploratory_frames": 5,
+      "epochs": [
+        "2025-09-09T20:07:28.233Z",
+        "2025-09-10T12:26:34.636Z",
+        "2026-03-07T07:37:18.909Z",
+        "2026-09-11T21:01:31.400Z",
+        "2026-09-13T13:42:13.792Z"
+      ],
+      "calibrated_photometric_points": 0,
+      "spectral_measurements": [],
+      "fitted_centroids": 0,
+      "epsf_zone": 354,
+      "photometry_rejections": [
+        {
+          "asset_id": "e041e2b46e3402abb2a7749c7a1ed3c4",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "4f300d4f4bd9d3e3dda25b44a7fb9bdc",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "cb3d3c7947bf5c9149cf7f05b6a34032",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "ad25a134b7236bd4d133773c9691aa6f",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "fadaf113806addb35df1aef4eea5a205",
+          "reason": "Inspection-only quality"
+        }
+      ],
+      "observation_ids": [
+        "2025W37_1A_0366_1",
+        "2025W37_1A_0496_1",
+        "2026W10_2B_0340_2",
+        "2026W37_2A_0287_4",
+        "2026W37_2A_0630_2"
+      ]
+    },
+    {
+      "target": "R Dra",
+      "coordinates": {
+        "ra": 248.1672204161109,
+        "dec": 66.75502531401573,
+        "frame": "icrs",
+        "epoch_jyear_tt": 2026.8709459445608
+      },
+      "covering_point": 4,
+      "strict_status": "insufficient",
+      "strict_frames": 0,
+      "exploratory_frames": 4,
+      "epochs": [
+        "2025-06-09T12:52:43.379Z",
+        "2025-06-10T00:15:14.226Z",
+        "2025-12-10T20:59:59.273Z",
+        "2025-12-12T08:43:43.119Z"
+      ],
+      "calibrated_photometric_points": 0,
+      "spectral_measurements": [],
+      "fitted_centroids": 0,
+      "epsf_zone": 53,
+      "photometry_rejections": [
+        {
+          "asset_id": "928d7ab0655d8c0bced104ab1a8d1e52",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "7ae09c32a3deefadf7897fef2bb21f90",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "e928ae7f572e9fae80cfdf5dbac9ef63",
+          "reason": "Inspection-only quality"
+        },
+        {
+          "asset_id": "c952b8929c7c1c491a7e69e1f7b48997",
+          "reason": "Inspection-only quality"
+        }
+      ],
+      "observation_ids": [
+        "2025W24_1A_0123_2",
+        "2025W24_1A_0215_1",
+        "2025W50_1A_0661_3",
+        "2025W50_2A_0259_2"
+      ]
+    }
+  ],
+  "cube_tests": [
+    {
+      "target": "wise_0855",
+      "id": "8c191816ac45eb07ca61cd31c7cdd58d",
+      "spectrum_http": 200,
+      "channels": 102,
+      "feature_http": 200,
+      "feature_valid_cells": 16379,
+      "slice_http": 200
+    },
+    {
+      "target": "epsilon_indi_b",
+      "id": "b747c362d227264b8b5369a52e5440d8",
+      "spectrum_http": 200,
+      "channels": 102,
+      "feature_http": 200,
+      "feature_valid_cells": 16333,
+      "slice_http": 200
+    },
+    {
+      "target": "rw_aurigae",
+      "id": "bae44296e4a6765f6412ec2c77ca5e23",
+      "spectrum_http": 200,
+      "channels": 102,
+      "feature_http": 200,
+      "feature_valid_cells": 16355,
+      "slice_http": 200
+    },
+    {
+      "target": "r_draconis",
+      "id": "790cc3ea06a7821990e541075d349d9e",
+      "spectrum_http": 200,
+      "channels": 102,
+      "feature_http": 200,
+      "feature_valid_cells": 16376,
+      "slice_http": 200
+    },
+    {
+      "target": "cygnus_x",
+      "id": "2c32cf80c1b68508f50d514dad59ae94",
+      "spectrum_http": 200,
+      "channels": 102,
+      "feature_http": 200,
+      "feature_valid_cells": 16319,
+      "slice_http": 200
+    },
+    {
+      "target": "orion",
+      "id": "a954caef5734f67f98304a374a6a4557",
+      "spectrum_http": 200,
+      "channels": 102,
+      "feature_http": 200,
+      "feature_valid_cells": 16319,
+      "slice_http": 200
+    },
+    {
+      "target": "cosmos",
+      "id": "d0eeeb34c80b70fef713b7e292bceab2",
+      "spectrum_http": 200,
+      "channels": 102,
+      "feature_http": 200,
+      "feature_valid_cells": 16246,
+      "slice_http": 200
+    },
+    {
+      "target": "barnards_star",
+      "id": "a961becafe10b2208e592832251f93e7",
+      "spectrum_http": 200,
+      "channels": 102,
+      "feature_http": 200,
+      "feature_valid_cells": 16364,
+      "slice_http": 200
+    }
+  ],
+  "new_feature_check": {
+    "Orion_feature": {
+      "seconds": 0.14797412499319762,
+      "maps": [
+        "Continuum-subtracted feature strength",
+        "Continuum residual RMS",
+        "Apparent optical-depth integral (positive intensities only)",
+        "Equivalent width (positive intensities only)"
+      ],
+      "finite_cells": [
+        16319,
+        16319,
+        16278,
+        16278
+      ],
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix5359_cube.fits"
+    },
+    "pixel_sky": {
+      "ra": 84.37225341796875,
+      "dec": -5.979156796301312,
+      "frame": "ICRS",
+      "pixel": [
+        256,
+        256
+      ]
+    },
+    "spectrum_channels": 102,
+    "native_peak_api": {
+      "status": 200,
+      "result_status": "completed"
+    },
+    "offline_network_guards": "passed"
+  },
+  "browser_smoke": {
+    "spectralPoints": 6,
+    "mapCells": 16319,
+    "imageDimensions": [
+      512,
+      512
+    ],
+    "pageErrors": []
+  },
+  "exploratory_playback_browser": {
+    "changedFrames": true,
+    "changedRenderedPixels": true,
+    "frameInfo": "Frame 4/6. Observation 2025W44_2B_0494_1. Date: 2025-11-01T10:40:11.134Z. Elapsed astronomical time: 186.312982 days. Collection: spherex_dr1. Detector: 6. Target wavelength: 4.507174968719482 \u00b5m; bandwidth: 0.034941285848617554 \u00b5m. Quality: {\"policy_version\":\"spherex-level2-v3\",\"structural_validity\":{\"status\":\"passed\"},\"numerical_wcs\":{\"status\":\"passed\",\"roundtrip_arcsec\":2.5156108276352207e-8},\"target_coverage\":{\"status\":\"covered\",\"pixel\":[22.578328781943608,22.590082495783218]},\"astrometric_quality\":{\"status\":\"good\",\"finast\":0,\"reference\":\"https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8\"},\"scientific_acceptance\":{\"accepted\":true,\"status\":\"accepted\",\"reasons\":[]},\"measurement_quality\":{\"target_usable\":true},\"warnings\":[\"Some pixels are excluded from scientific acceptance; original values and flags remain accessible.\"],\"extensions\":[\"EPSF\",\"FLAGS\",\"IMAGE\",\"PRIMARY\",\"VARIANCE\",\"WCS-WAVE\",\"ZODI\"],\"shape\":[47,47],\"wcs_passed\":true,\"target_pixel\":[22.578328781943608,22.590082495783218],\"roundtrip_arcsec\":2.5156108276352207e-8,\"footprint_icrs_deg\":[[331.0011835388208,-56.7856358642668],[331.0721372972609,-56.85428222092299],[331.19939089706395,-56.81733260084398],[331.12824730648106,-56.74876384254906]],\"usable_pixels\":2099,\"masked_pixels\":110,\"bunit\":\"MJy / sr\",\"header\":{\"OBSID\":\"2025W44_2B_0494_1\",\"OBS_ID\":null,\"OBSTIME\":null,\"DETECTOR\":6,\"BAND\":null,\"DATE-OBS\":\"2025-11-01T10:40:11.134\",\"MJD-OBS\":60980.44457331,\"MJD-BEG\":60980.44457331,\"MJD-END\":60980.445905689,\"PROCVER\":null,\"VERSION\":\"7.0.5\",\"PIPEVER\":null,\"FINAST\":0},\"zodi_subtracted\":false,\"quality_policy\":{\"TRANSIENT\":0,\"OVERFLOW\":1,\"SUR_ERROR\":2,\"PHANTOM\":4,\"REFERENCE\":5,\"NONFUNC\":6,\"DICHROIC\":7,\"MISSING_DATA\":9,\"HOT\":10,\"COLD\":11,\"FULLSAMPLE\":12,\"PHANMISS\":14,\"NONLINEAR\":15,\"PERSIST\":17,\"OUTLIER\":19,\"CROSSTALK\":20,\"GHOST\":22,\"GHOST_FPA\":23,\"GHOST_EXT\":24,\"STREAK\":25,\"BLOOM\":26,\"SNOWBALL\":27,\"HALO\":28,\"SATELLITE_HALO\":29},\"display_limits\":[0.2783106827735901,1.0673851633071618],\"accepted\":true,\"status\":\"accepted\",\"reasons\":[],\"sequence_target_astrometry\":{\"status\":\"good\",\"finast\":0,\"reference\":\"https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8\"}}. Coverage: 0.851063829787234. Prepared center: RA 331.0984290256927\u00b0, Dec -56.801245221273255\u00b0; prepared mode: all.",
+    "upstreamRequests": 0,
+    "mode": "Explicit exploratory All Observations; not quantitative temporal comparison"
+  }
+}

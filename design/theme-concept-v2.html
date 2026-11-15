@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Slab Kit</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,300..800&family=Martian+Mono:wght@300;400;500&family=Silkscreen&display=swap" rel="stylesheet">
+<style>
+:root{
+  --void:#060608; --graphite:#17181c; --graphite-2:#202227; --graphite-3:#2a2c32; --edge:#3a3d45; --alu:#c9ccd2; --alu-dim:#8d9099; --etch:#5d606a; --text:#e7e8ea;
+  --d1:#7c8cff; --d2:#4fd1e0; --d3:#8fe07a; --d4:#f4d35e; --d5:#ff9b42; --d6:#ff5a5f; --band:var(--d6);
+  --step:polygon(0 6px,2px 6px,2px 4px,4px 4px,4px 2px,6px 2px,6px 0,calc(100% - 6px) 0,calc(100% - 6px) 2px,calc(100% - 4px) 2px,calc(100% - 4px) 4px,calc(100% - 2px) 4px,calc(100% - 2px) 6px,100% 6px,100% calc(100% - 6px),calc(100% - 2px) calc(100% - 6px),calc(100% - 2px) calc(100% - 4px),calc(100% - 4px) calc(100% - 4px),calc(100% - 4px) calc(100% - 2px),calc(100% - 6px) calc(100% - 2px),calc(100% - 6px) 100%,6px 100%,6px calc(100% - 2px),4px calc(100% - 2px),4px calc(100% - 4px),2px calc(100% - 4px),2px calc(100% - 6px),0 calc(100% - 6px));
+  --brushed:repeating-linear-gradient(90deg,rgba(255,255,255,.018) 0 1px,transparent 1px 3px),repeating-linear-gradient(90deg,rgba(0,0,0,.08) 0 1px,transparent 1px 7px);
+  --mech:cubic-bezier(.3,1.35,.45,1);
+}
+*{box-sizing:border-box}
+body{margin:0;background:var(--void);color:var(--text);font:15px/1.6 Archivo,system-ui,sans-serif;font-variation-settings:"wdth" 100}
+.wrap{max-width:1160px;margin:0 auto;padding:40px 20px 90px}
+.mono{font-family:"Martian Mono",monospace}
+.px{font-family:Silkscreen,monospace}
+.etched{font:600 10px Archivo;font-variation-settings:"wdth" 125;letter-spacing:.22em;text-transform:uppercase;color:var(--etch);text-shadow:0 1px 0 rgba(255,255,255,.06),0 -1px 0 rgba(0,0,0,.6)}
+h1{font:800 clamp(52px,9vw,112px)/.86 Archivo;font-variation-settings:"wdth" 62;text-transform:uppercase;letter-spacing:-.01em;margin:10px 0 14px}
+h1 span{color:var(--band)}
+h2{font:700 12px Archivo;font-variation-settings:"wdth" 125;letter-spacing:.24em;text-transform:uppercase;color:var(--alu-dim);margin:64px 0 18px;display:flex;gap:14px;align-items:center}
+h2::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--edge),transparent)}
+.lede{max-width:660px;color:var(--alu-dim);font-size:17px}
+.metal{background:var(--brushed),linear-gradient(180deg,var(--graphite-2),var(--graphite));box-shadow:inset 0 1px 0 rgba(255,255,255,.07),inset 0 -1px 0 rgba(0,0,0,.5)}
+.screw{width:9px;height:9px;border-radius:50%;background:radial-gradient(circle at 35% 30%,#6c707a,#2b2d33 70%);box-shadow:inset 0 0 0 1px #111,0 1px 0 rgba(255,255,255,.06);position:relative;flex:none}
+.screw::after{content:"";position:absolute;left:2px;right:2px;top:4px;height:1px;background:#0d0d10;transform:rotate(var(--r,35deg))}
+.screws{position:absolute;inset:7px;pointer-events:none}
+.screws .screw{position:absolute}.screws .screw:nth-child(1){left:0;top:0}.screws .screw:nth-child(2){right:0;top:0;--r:-20deg}.screws .screw:nth-child(3){left:0;bottom:0;--r:70deg}.screws .screw:nth-child(4){right:0;bottom:0;--r:10deg}
+.led{width:7px;height:7px;background:var(--band);box-shadow:0 0 0 1px rgba(0,0,0,.6),0 0 8px var(--band);flex:none}
+
+/* ---- mock */
+.screen{position:relative;margin-top:30px;height:640px;overflow:hidden;background:var(--void);border:1px solid var(--edge);clip-path:var(--step)}
+.screen canvas.sky{position:absolute;inset:0;width:100%;height:100%;image-rendering:pixelated}
+.rail{position:absolute;left:14px;right:14px;top:12px;height:46px;display:flex;align-items:center;gap:12px;padding:0 14px;clip-path:var(--step)}
+.rail .brand{font:800 15px Archivo;font-variation-settings:"wdth" 62;letter-spacing:.06em;text-transform:uppercase}
+.rail .search{flex:1;max-width:420px;height:28px;background:#0c0d10;box-shadow:inset 0 1px 2px rgba(0,0,0,.8),0 1px 0 rgba(255,255,255,.05);display:flex;align-items:center;padding:0 10px;font:400 11.5px "Martian Mono";color:var(--alu-dim)}
+.bands{margin-left:auto;display:flex;gap:4px}
+.bands button{all:unset;cursor:pointer;width:30px;height:24px;display:grid;place-items:center;font:400 10px Silkscreen;color:var(--alu-dim);background:#0f1013;box-shadow:inset 0 1px 0 rgba(255,255,255,.05),0 2px 0 #000;transition:transform .12s var(--mech),box-shadow .12s}
+.bands button.on{color:var(--void);background:var(--band);box-shadow:0 0 0 1px rgba(0,0,0,.5),0 0 12px var(--band);transform:translateY(2px)}
+.slabs{position:absolute;right:14px;top:70px;bottom:126px;width:316px;display:grid;grid-template-rows:auto auto 1fr auto;gap:4px;perspective:1100px}
+.slab{position:relative;padding:14px 16px 13px;clip-path:var(--step);transform-origin:right center;transform-style:preserve-3d}
+.slabs.unfold .slab{animation:hinge .55s var(--mech) both}
+.slabs.unfold .slab:nth-child(2){animation-delay:.09s}.slabs.unfold .slab:nth-child(3){animation-delay:.18s}.slabs.unfold .slab:nth-child(4){animation-delay:.27s}
+@keyframes hinge{from{transform:rotateY(-88deg);filter:brightness(.4)}to{transform:none;filter:none}}
+.slab .hd{display:flex;justify-content:space-between;align-items:center}
+.slab h3{font:800 34px/.95 Archivo;font-variation-settings:"wdth" 70;text-transform:uppercase;margin:8px 0 4px;letter-spacing:.005em}
+.slab .sub{font-size:12.5px;color:var(--alu-dim)}
+.readout{margin-top:10px;background:#090a0c;box-shadow:inset 0 1px 3px rgba(0,0,0,.9);padding:8px 10px;font:400 11px "Martian Mono";color:var(--band);display:flex;justify-content:space-between}
+.kv{display:grid;grid-template-columns:1fr auto;font:400 11.5px "Martian Mono";row-gap:7px;margin-top:8px}
+.kv span{color:var(--etch)}
+.spec{display:flex;align-items:flex-end;gap:2px;height:52px;margin-top:10px}
+.spec i{flex:1;background:var(--band);opacity:.25}
+.spec i.hi{opacity:1}
+.acts{display:flex;gap:6px}
+.key{all:unset;cursor:pointer;flex:1;text-align:center;font:400 11px Silkscreen;padding:9px 0 8px;color:var(--text);background:linear-gradient(180deg,#2c2f35,#1d1f24);box-shadow:inset 0 1px 0 rgba(255,255,255,.1),0 3px 0 #050506,0 4px 6px rgba(0,0,0,.5);clip-path:var(--step);transition:transform .08s,box-shadow .08s}
+.key:active{transform:translateY(3px);box-shadow:inset 0 1px 0 rgba(255,255,255,.08),0 0 0 #050506}
+.key.pri{background:var(--band);color:var(--void);box-shadow:inset 0 1px 0 rgba(255,255,255,.35),0 3px 0 rgba(0,0,0,.7),0 0 16px color-mix(in srgb,var(--band) 40%,transparent)}
+.dock{position:absolute;left:14px;right:14px;bottom:12px;height:102px;display:flex;align-items:flex-end;gap:8px;padding:10px 12px;clip-path:var(--step)}
+.dock .slot{position:absolute;left:12px;right:12px;bottom:10px;height:8px;background:#08090b;box-shadow:inset 0 2px 3px #000}
+.mod{position:relative;width:132px;height:78px;padding:9px 11px;cursor:pointer;clip-path:polygon(0 0,40% 0,40% 4px,60% 4px,60% 0,100% 0,100% 100%,0 100%);transition:transform .25s var(--mech);z-index:1}
+.mod:hover{transform:translateY(-8px)}
+.mod.seated{transform:translateY(4px)}
+.mod .t{font:800 14px Archivo;font-variation-settings:"wdth" 70;text-transform:uppercase;letter-spacing:.04em;margin-top:6px}
+.mod .pn{font:400 9.5px "Martian Mono";color:var(--etch);position:absolute;left:11px;bottom:8px}
+.mod .led{position:absolute;right:10px;top:10px}
+.mod .led.off{background:#26282d;box-shadow:0 0 0 1px rgba(0,0,0,.6)}
+.dock .info{margin-left:auto;align-self:center;text-align:right}
+.voy{position:absolute;image-rendering:pixelated;pointer-events:none}
+.xmit{position:absolute;width:290px;padding:12px 14px 13px;clip-path:var(--step);font-size:13.5px;line-height:1.5}
+.xmit .hd{display:flex;justify-content:space-between;margin-bottom:7px}
+.xmit p{margin:0}
+.caret{display:inline-block;width:7px;height:13px;background:var(--band);vertical-align:-2px;animation:blink 1s steps(1) infinite}
+@keyframes blink{50%{opacity:0}}
+.lbl{position:absolute;font:400 11px "Martian Mono";white-space:nowrap}
+.lbl small{color:var(--etch)}
+.ret{position:absolute;width:30px;height:30px;transform:translate(-50%,-50%);border:2px solid var(--band);clip-path:polygon(0 0,32% 0,32% 100%,68% 100%,68% 0,100% 0,100% 32%,0 32%,0 68%,100% 68%,100% 100%,0 100%)}
+
+/* ---- sections */
+.anat{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,1fr);gap:20px;align-items:center}
+.anat svg{width:100%;height:auto;display:block}
+.anat svg .layer{transition:transform .5s var(--mech)}
+.anat svg:hover .l1{transform:translate(-36px,-28px)}.anat svg:hover .l2{transform:translate(-12px,-9px)}.anat svg:hover .l3{transform:translate(12px,9px)}.anat svg:hover .l4{transform:translate(36px,28px)}
+.anat svg .call{opacity:.35;transition:opacity .4s}.anat svg:hover .call{opacity:1}
+.ideas{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(210px,1fr))}
+.idea{position:relative;padding:20px 18px 18px;clip-path:var(--step)}
+.idea .n{font:400 10px Silkscreen;color:var(--band)}
+.idea h4{font:800 24px/1 Archivo;font-variation-settings:"wdth" 70;text-transform:uppercase;margin:8px 0 8px}
+.idea p{margin:0;color:var(--alu-dim);font-size:13.5px}
+.voice{display:grid;grid-template-columns:minmax(0,280px) minmax(0,1fr);gap:14px}
+.panel{position:relative;padding:20px;clip-path:var(--step)}
+.dial{margin:6px 0 18px}
+.dial label{display:flex;justify-content:space-between;font:400 11px "Martian Mono";color:var(--alu-dim);margin-bottom:8px}
+.dial label b{color:var(--band);font-weight:400}
+input[type=range]{-webkit-appearance:none;appearance:none;width:100%;height:10px;background:#0a0b0d;box-shadow:inset 0 1px 3px #000;outline:none}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:16px;height:26px;background:linear-gradient(180deg,#d6d9de,#8d9099);box-shadow:0 2px 0 #000,inset 0 -2px 0 rgba(0,0,0,.25);cursor:pointer;clip-path:polygon(0 2px,2px 2px,2px 0,calc(100% - 2px) 0,calc(100% - 2px) 2px,100% 2px,100% calc(100% - 2px),calc(100% - 2px) calc(100% - 2px),calc(100% - 2px) 100%,2px 100%,2px calc(100% - 2px),0 calc(100% - 2px))}
+input[type=range]::-moz-range-thumb{width:16px;height:26px;border:0;border-radius:0;background:#c9ccd2}
+.say{font-size:17px;line-height:1.6;min-height:120px}
+.say .who{display:flex;gap:10px;align-items:center;margin-bottom:10px}
+.mat{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px}
+.mat div{clip-path:var(--step);background:var(--graphite)}
+.mat i{display:block;height:74px}
+.mat b,.mat span{display:block;padding:0 12px;font:400 11px "Martian Mono"}
+.mat b{padding-top:10px}.mat span{color:var(--etch);padding-bottom:10px}
+.types{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(250px,1fr))}
+.types .panel .s{font-size:30px;line-height:1.05;margin:10px 0}
+.types p{margin:0;color:var(--alu-dim);font-size:13px}
+.note{color:var(--etch);font-size:13px;margin-top:10px}
+.replay{all:unset;cursor:pointer;font:400 11px Silkscreen;color:var(--alu-dim);margin-left:12px}
+@media (max-width:820px){.slabs,.bands{display:none}.anat,.voice{grid-template-columns:1fr}.screen{height:560px}}
+@media (prefers-reduced-motion:reduce){.slabs.unfold .slab{animation:none}.caret{animation:none}.mod,.anat svg .layer{transition:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="etched">Theme concept 02 · SPHEREx Sky Explorer · modular hardware × monolith</div>
+  <h1>Slab<span>/</span>Kit</h1>
+  <p class="lede">The interface is a piece of field hardware you could take apart. Panels are machined slabs that swing open on hinges. Tools are expansion modules that click into a rail. Screws, etched part numbers and exploded views show how it's put together. The wavelength accent from Spectral Plate carries over: every LED, readout and lit key glows in the colour of the band you're viewing.</p>
+
+  <div class="screen" id="screen">
+    <canvas class="sky" id="sky"></canvas>
+
+    <div class="rail metal">
+      <span class="screw"></span>
+      <span class="brand">SPHEREx</span><span class="etched" style="margin-left:-4px">SKY·EXP</span>
+      <div class="search">› search object · name · coordinates</div>
+      <div class="bands" id="bands"></div>
+      <span class="screw" style="--r:-30deg"></span>
+    </div>
+
+    <div class="ret" style="left:max(40%,290px);top:44%"></div>
+    <div class="lbl" style="left:calc(max(40%,290px) + 24px);top:calc(44% - 8px)">BARNARD'S STAR <small>· 5.96 ly</small></div>
+    <div class="lbl" style="left:20%;top:66%"><small>+</small> CEBALRAI</div>
+    <div class="lbl" style="left:55%;top:20%"><small>+</small> RASALHAGUE</div>
+
+    <canvas class="voy" id="voyMain" width="80" height="40"></canvas>
+    <div class="xmit metal" id="xmitMain" style="left:max(12px,calc(40% - 300px));top:calc(44% + 46px);max-width:calc(100% - 24px)">
+      <div class="hd"><span class="etched" style="color:var(--alu-dim)">Voyager · transmission</span><span class="led"></span></div>
+      <p id="mainLine"></p>
+    </div>
+
+    <div class="slabs unfold" id="slabs">
+      <div class="slab metal"><div class="screws"><i class="screw"></i><i class="screw"></i><i class="screw"></i><i class="screw"></i></div>
+        <div class="hd"><span class="etched">Target · slab 01</span><span class="led"></span></div>
+        <h3>Barnard's<br>Star</h3><div class="sub">Red dwarf · Ophiuchus · 5.96 light-years</div>
+      </div>
+      <div class="slab metal"><div class="hd"><span class="etched">Exposure · slab 02</span></div>
+        <div class="readout"><span id="bandName">D6</span><span id="bandRange">4.42–5.00 µm</span><span>2026-08-31</span></div>
+      </div>
+      <div class="slab metal"><div class="hd"><span class="etched">Measure · slab 03</span></div>
+        <div class="kv"><span>RA / Dec</span><b>269.4521° +4.6934°</b><span>Proper motion</span><b>10.39″ / yr</b><span>Brightness</span><b>142 / 255</b><span>Detector px</span><b>648.7 · 1476.0</b></div>
+        <div class="spec" id="spec"></div>
+      </div>
+      <div class="slab metal"><div class="acts"><button class="key pri">Open image</button><button class="key">Ask Voyager</button></div></div>
+    </div>
+
+    <div class="dock metal">
+      <div class="slot"></div>
+      <div class="mod metal seated" data-m="0"><span class="led"></span><div class="etched">Mod·01</div><div class="t">Inspect</div><div class="pn">SPX-M01 · PIXEL</div></div>
+      <div class="mod metal" data-m="1"><span class="led off"></span><div class="etched">Mod·02</div><div class="t">Aperture</div><div class="pn">SPX-M02 · PHOT</div></div>
+      <div class="mod metal" data-m="2"><span class="led off"></span><div class="etched">Mod·03</div><div class="t">Spectrum</div><div class="pn">SPX-M03 · 102CH</div></div>
+      <div class="mod metal" data-m="3"><span class="led off"></span><div class="etched">Mod·04</div><div class="t">3D surface</div><div class="pn">SPX-M04 · HGT</div></div>
+      <div class="info"><div class="etched">Expansion rail · 4 / 6</div><div class="mono" style="font-size:11px;color:var(--alu-dim);margin-top:4px">08:46:02 · 2026-11-15</div></div>
+    </div>
+  </div>
+  <p class="note">Try it: hover a module to lift it, click to seat it (its LED lights up), switch D1–D6, or <button class="replay" id="replay">replay hinge ↻</button></p>
+
+  <h2>Six ideas</h2>
+  <div class="ideas">
+    <div class="idea metal"><div class="n">01</div><h4>Slabs on hinges</h4><p>Panels are machined slabs that swing open in sequence on a right-hand hinge, with a short mechanical overshoot. They close the same way.</p></div>
+    <div class="idea metal"><div class="n">02</div><h4>Tools are modules</h4><p>Analysis tools are expansion modules that slot into a rail. You lift one out and click another in. Seated modules light up.</p></div>
+    <div class="idea metal"><div class="n">03</div><h4>Show the build</h4><p>Screws, etched part numbers and seams are visible on purpose. Hold Alt and any panel opens into an exploded view with labelled parts.</p></div>
+    <div class="idea metal"><div class="n">04</div><h4>One light source</h4><p>Everything is matte graphite. The only colour comes from LEDs, readouts and the primary key, all lit in the current band.</p></div>
+    <div class="idea metal"><div class="n">05</div><h4>Keys travel</h4><p>Buttons are physical keys with 3 px of travel and a hard bottom, so every press feels like a real control.</p></div>
+    <div class="idea metal"><div class="n">06</div><h4>Pixel seams</h4><p>Corners keep Spectral Plate's 2 px stair-steps, so the machined parts and the pixel-art Voyager share one grid.</p></div>
+  </div>
+
+  <h2>Module anatomy · hover to explode</h2>
+  <div class="anat">
+    <svg viewBox="0 0 520 330" role="img" aria-label="Exploded view of an expansion module: faceplate, LED, circuit board, and rail port">
+      <defs><pattern id="br" width="3" height="3" patternUnits="userSpaceOnUse"><rect width="1" height="3" fill="rgba(255,255,255,.03)"/></pattern></defs>
+      <g class="layer l4"><path d="M150 210 L330 210 L390 250 L210 250 Z" fill="#0b0c0e" stroke="#3a3d45"/><path d="M240 210 L300 210 L306 214 L246 214 Z" fill="#000"/></g>
+      <g class="layer l3"><path d="M150 180 L330 180 L390 220 L210 220 Z" fill="#14321f" stroke="#2f6b45"/><path d="M190 190 h60 M200 198 h90 M230 206 h70" stroke="#3f8f5c" stroke-width="2"/><rect x="300" y="186" width="16" height="8" fill="#0d0d10"/></g>
+      <g class="layer l2"><circle cx="352" cy="164" r="5" fill="var(--band)"/><circle cx="352" cy="164" r="11" fill="var(--band)" opacity=".25"/></g>
+      <g class="layer l1"><path d="M150 120 L330 120 L390 160 L210 160 Z" fill="#202227" stroke="#5d606a"/><path d="M150 120 L330 120 L390 160 L210 160 Z" fill="url(#br)"/><path d="M210 160 L390 160 L390 170 L210 170 Z" fill="#111215"/><circle cx="172" cy="128" r="3.5" fill="#4b4e56"/><circle cx="368" cy="152" r="3.5" fill="#4b4e56"/><text x="215" y="146" fill="#5d606a" font-family="Martian Mono" font-size="10">SPX-M03 · 102CH</text></g>
+      <g class="call" font-family="Martian Mono" font-size="10.5" fill="#c9ccd2">
+        <path d="M150 128 L60 70 H10" stroke="#5d606a" fill="none"/><text x="10" y="62">Faceplate · brushed graphite</text>
+        <path d="M352 164 L440 110 H515" stroke="#5d606a" fill="none"/><text x="404" y="102">Band LED</text>
+        <path d="M200 200 L70 250 H10" stroke="#5d606a" fill="none"/><text x="10" y="242">Board · the tool's logic</text>
+        <path d="M270 238 L350 300 H515" stroke="#5d606a" fill="none"/><text x="362" y="292">Port · clicks into rail</text>
+      </g>
+    </svg>
+    <div>
+      <p class="lede" style="font-size:15px">Every module has the same four parts, and the interface shows them. In the app this is a real interaction: hold <span class="mono" style="color:var(--text)">Alt</span> over a panel to see it come apart into labelled layers. It's mostly for delight, and it also teaches what each part of the tool does.</p>
+      <p class="note">The exploded view uses the same hinge easing, so the whole kit moves like one machine.</p>
+    </div>
+  </div>
+
+  <h2>Voyager's voice · dial it</h2>
+  <div class="voice">
+    <div class="panel metal">
+      <div class="etched">Personality · settings</div>
+      <div class="dial"><label>Humor <b id="hv">75%</b></label><input type="range" id="humor" min="0" max="100" step="25" value="75"></div>
+      <div class="dial"><label>Detail <b id="dv">60%</b></label><input type="range" id="detail" min="20" max="100" step="40" value="60"></div>
+      <p class="note" style="margin:0">These are real settings in the app. They go to the model as two numbers, which keeps the system prompt small.</p>
+    </div>
+    <div class="panel metal say">
+      <div class="who"><canvas id="voySmall" width="20" height="16" style="width:60px;height:48px;image-rendering:pixelated"></canvas><span class="etched" style="color:var(--alu-dim)">Voyager · on Barnard's Star</span></div>
+      <div id="sayLine"></div>
+    </div>
+  </div>
+
+  <h2>Materials</h2>
+  <div class="mat" id="mat"></div>
+
+  <h2>Type</h2>
+  <div class="types">
+    <div class="panel metal"><div class="etched">Display · Archivo condensed 800</div><div class="s" style="font:800 40px/1 Archivo;font-variation-settings:'wdth' 62;text-transform:uppercase">Barnard's Star</div><p>Tall, condensed capitals, like stamped hardware labels.</p></div>
+    <div class="panel metal"><div class="etched">Etched · Archivo expanded 600</div><div class="s etched" style="font-size:14px;color:var(--alu-dim)">Expansion rail · 4 / 6</div><p>Wide-tracked tiny caps with a pressed-in shadow, for part labels.</p></div>
+    <div class="panel metal"><div class="etched">Data · Martian Mono</div><div class="s mono" style="font-size:20px">269.4521° +4.6934°</div><p>Every number and readout.</p></div>
+    <div class="panel metal"><div class="etched">Pixel · Silkscreen</div><div class="s px" style="font-size:20px">VOYAGER ONLINE</div><p>Voyager, band chips and keys only.</p></div>
+  </div>
+</div>
+
+<script>
+const BANDS=[['D1','0.75–1.09 µm','--d1'],['D2','1.10–1.62 µm','--d2'],['D3','1.63–2.41 µm','--d3'],['D4','2.42–3.82 µm','--d4'],['D5','3.83–4.41 µm','--d5'],['D6','4.42–5.00 µm','--d6']]
+const css=(v)=>getComputedStyle(document.documentElement).getPropertyValue(v).trim()
+const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches
+let band=5
+const $=(id)=>document.getElementById(id)
+
+BANDS.forEach(([id],i)=>{const b=document.createElement('button');b.textContent=id;b.onclick=()=>setBand(i);$('bands').appendChild(b)})
+function setBand(i){band=i;document.documentElement.style.setProperty('--band',`var(${BANDS[i][2]})`);[...$('bands').children].forEach((b,j)=>b.classList.toggle('on',j===i));$('bandName').textContent=BANDS[i][0];$('bandRange').textContent=BANDS[i][1];drawSky()}
+
+for(let i=0;i<40;i++){const x=i/39,h=14+80*Math.exp(-((x-.55)**2)/.01)+6*Math.sin(i*2.1)**2,e=document.createElement('i');e.style.height=Math.min(100,h)+'%';if(Math.abs(x-.55)<.12)e.className='hi';$('spec').appendChild(e)}
+
+document.querySelectorAll('.mod').forEach((m)=>m.onclick=()=>{document.querySelectorAll('.mod').forEach((o)=>{o.classList.toggle('seated',o===m);o.querySelector('.led').classList.toggle('off',o!==m)})})
+$('replay').onclick=()=>{const s=$('slabs');s.classList.remove('unfold');void s.offsetWidth;s.classList.add('unfold')}
+
+const mats=[['Graphite','#17181c','linear-gradient(180deg,#202227,#17181c)'],['Brushed face','—','var(--brushed),linear-gradient(180deg,#2a2c32,#202227)'],['Machined edge','#3a3d45','linear-gradient(180deg,#5a5e68 0 2px,#3a3d45 2px 6px,#17181c 6px)'],['Recess','#090a0c','#090a0c'],['Aluminium','#c9ccd2','linear-gradient(180deg,#e2e4e8,#9a9da5)'],['Etch','#5d606a','#5d606a'],...BANDS.map(([id,,v])=>[`LED ${id}`,css(v),`radial-gradient(circle at 50% 55%,${css(v)} 0 10px,color-mix(in srgb,${css(v)} 25%,#0b0c0e) 11px 18px,#0b0c0e 19px)`])]
+$('mat').innerHTML=mats.map(([n,h,bg])=>`<div><i style="background:${bg}"></i><b>${n}</b><span>${h}</span></div>`).join('')
+
+let seed=11;const rnd=()=>(seed=(seed*16807)%2147483647)/2147483647
+function drawSky(){const c=$('sky'),S=3,w=Math.ceil(c.clientWidth/S),h=Math.ceil(c.clientHeight/S);c.width=w;c.height=h;const g=c.getContext('2d');seed=11;g.fillStyle='#060608';g.fillRect(0,0,w,h);const tint=css(BANDS[band][2]);for(let y=0;y<h;y+=2)for(let x=(y/2)%2;x<w;x+=2){const d=Math.exp(-(((x-w*.42)/(w*.55))**2+((y-h*.5)/(h*.3))**2));if(rnd()<d*.14){g.globalAlpha=.06;g.fillStyle=tint;g.fillRect(x,y,1,1)}}g.globalAlpha=1;for(let i=0;i<w*h/95;i++){const x=rnd()*w|0,y=rnd()*h|0,m=rnd();g.fillStyle=m>.975?tint:m>.9?'#e7e8ea':'#4d505a';g.fillRect(x,y,1,1);if(m>.987){g.globalAlpha=.45;g.fillRect(x-1,y,3,1);g.fillRect(x,y-1,1,3);g.globalAlpha=1}}const bx=w*.4|0,by=h*.44|0;g.fillStyle=tint;g.fillRect(bx-1,by-1,3,3);g.globalAlpha=.4;g.fillRect(bx-3,by,7,1);g.fillRect(bx,by-3,1,7);g.globalAlpha=1}
+
+const SPR=['.....WWWWWW.....','...WW......WW...','..W....AA....W..','.......AA.......','.....GGGGGG.....','....GHHHHHHG....','...GHGEEEEGHG...','...GHGEeEEGHG...','...GHGEEEEGHG...','....GHHHHHHG....','.....GGGGGG.....','......D..D......','......D..D......']
+const pal=()=>({W:'#e7e8ea',A:'#8d9099',G:'#b07a22',H:'#f3c15b',E:css(BANDS[band][2]),e:'#fff',D:'#55585f'})
+function drawVoy(g,cx,cy,sx,sy,boom=0){const p=pal();g.save();g.translate(cx,cy+6.5);g.scale(sx,sy);g.translate(-8,-13);SPR.forEach((r,y)=>[...r].forEach((ch,x)=>{if(ch!=='.'){g.fillStyle=p[ch];g.fillRect(x,y,1,1)}}));g.restore();if(boom){const y=Math.round(cy+1),x0=Math.round(cx+6);g.fillStyle='#8d9099';g.fillRect(x0,y,boom,1);g.fillStyle=p.E;g.fillRect(x0+boom,y-1,2,3)}}
+
+const vm=$('voyMain'),vg=vm.getContext('2d');vm.style.cssText='width:320px;height:160px;left:calc(max(40%,290px) - 268px);top:calc(44% - 84px)'
+const vs=$('voySmall').getContext('2d')
+
+const LINES={
+ 0:['Barnard\'s Star. Red dwarf, 5.96 light-years away.','Barnard\'s Star is a red dwarf 5.96 light-years away. It has the largest proper motion of any known star: 10.39 arcseconds per year.','Barnard\'s Star is a red dwarf 5.96 light-years away, the fourth-closest star system to the Sun. It has the largest proper motion of any known star, 10.39 arcseconds per year, because it is both close and moving fast relative to us.'],
+ 25:['Barnard\'s Star. Small, red and close.','Barnard\'s Star: a red dwarf 5.96 light-years out. It drifts across our sky faster than any other star, about one Moon-width every 180 years.','Barnard\'s Star is a red dwarf 5.96 light-years away. It drifts across the sky faster than any other star, about one Moon-width every 180 years. SPHEREx caught it 277 arcseconds from where old catalogues put it.'],
+ 50:['Barnard\'s Star. Small, red and in a hurry.','Barnard\'s Star is small, red and in a hurry. It crosses one Moon-width of sky every 180 years, which for a star counts as sprinting.','Barnard\'s Star is small, red and in a hurry. It crosses one Moon-width of sky every 180 years, which for a star counts as sprinting. Compare two SPHEREx visits and you can watch it move.'],
+ 75:['The fastest star in our sky. Relatively speaking.','The fastest-moving star in our sky. It takes 180 years to cover one Moon-width. I\'ve watched paint with more ambition, but I respect the commitment.','This is the fastest-moving star in our sky. It takes 180 years to cover one Moon-width. I\'ve watched paint with more ambition, but I respect the commitment. Set the date back a few decades and you\'ll see it slide. Slowly. Bring snacks.'],
+ 100:['Fastest star in the sky. Don\'t get excited.','The fastest-moving star in our sky, which is like being the fastest glacier. 180 years per Moon-width. If you blinked, you missed nothing.','The fastest-moving star in our sky, which is like being the fastest glacier. 180 years per Moon-width. If you blinked, you missed nothing, and I mean that kindly. Move the date slider and watch it creep. I\'ll wait. I\'m good at waiting.']}
+const pick=(h,d)=>LINES[h][d===20?0:d===60?1:2]
+let typing=null
+function typeInto(el,text){clearInterval(typing);if(reduced){el.innerHTML=text+'<span class="caret"></span>';return}let i=0;typing=setInterval(()=>{i+=2;el.innerHTML=text.slice(0,i)+'<span class="caret"></span>';if(i>=text.length)clearInterval(typing)},18)}
+function updVoice(){const h=+$('humor').value,d=+$('detail').value;$('hv').textContent=h+'%';$('dv').textContent=d+'%';typeInto($('sayLine'),pick(h,d))}
+$('humor').oninput=updVoice;$('detail').oninput=updVoice
+$('mainLine').innerHTML=LINES[75][1]+'<span class="caret"></span>'
+
+function loop(now){const t=reduced?0:now/1000,b=Math.sin(t*2.4),sq=b>.6?(b-.6)*.2:0
+ vg.clearRect(0,0,80,40);drawVoy(vg,12,Math.round(20+b*1.5),1+sq,1-sq,48)
+ vs.clearRect(0,0,20,16);drawVoy(vs,10,Math.round(8+b),1+sq,1-sq)
+ if(!reduced)requestAnimationFrame(loop)}
+setBand(5);updVoice();requestAnimationFrame(loop);addEventListener('resize',drawSky)
+</script>
+</body>
+</html>

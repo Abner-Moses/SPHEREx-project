@@ -1,0 +1,38 @@
+{
+  "train": {
+    "fields": [
+      "h0_r2_08"
+    ],
+    "independent_groups": [
+      "h0_r2_08"
+    ],
+    "bands": [
+      "SPHEREx-D6"
+    ],
+    "pairs": 2
+  },
+  "val": {
+    "fields": [
+      "h0_r1_01"
+    ],
+    "independent_groups": [
+      "h0_r1_01"
+    ],
+    "bands": [
+      "SPHEREx-D3"
+    ],
+    "pairs": 1
+  },
+  "test": {
+    "fields": [
+      "h1_r0_09"
+    ],
+    "independent_groups": [
+      "h1_r0_09"
+    ],
+    "bands": [
+      "SPHEREx-D1"
+    ],
+    "pairs": 1
+  }
+}

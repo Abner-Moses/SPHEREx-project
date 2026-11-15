@@ -1,0 +1,45 @@
+{
+  "results": [
+    {
+      "id": "barnards-star",
+      "fov": 2,
+      "localCube": true,
+      "unavailableAll": [],
+      "unavailableSpectrum": [],
+      "text": "ANALYSIS\nBARNARD'S STAR\n\nRed dwarf (M4V), highest proper motion known\n\n×\nEXPLORATORY\nlocal dataset: DR1 spectral cube · local dataset: Level-2 observations · 25 frames found, 11 measured · position SIMBAD (CDS)\nRECOMPUTE\nAll24\nSpectrum4\nTime4\nImage6\n3D3\nStatistics7\nSPECTRAL ENERGY DISTRIBUTION\nSED · log flux vs wavelength\n⤢\n↓\n\nExploratory: 11 frames failed SPHEREx scientific acceptance; values include lower limits where core pixels are flagged.\n\nSPECTRUM (LINEAR, FΝ)\nFν vs λ with band colours\n⤢\n↓\n\nExploratory: 11 frames failed SPHEREx scientific acceptance; values include lower limits where core pixels are flagged.\n\nΛFΛ (ENERGY PER LOG BAND)\nEnergy output vs wavelength\n⤢\n↓\n\nExploratory: 11 frames failed SPHEREx scientific acceptance; values include lower limits where core pixels are flagged. λFλ = c·Fν/λ.\n\nLOCAL CUBE SPECTRUM (102 CHANNELS)\nDR1 spectral cube at the target\n⤢\n↓\n\nLocal dataset · DR1 combined spectral cube, not a single epoch. No variance supplied."
+    },
+    {
+      "id": "eps-indi-b",
+      "fov": 2,
+      "localCube": true,
+      "unavailableAll": [],
+      "unavailableSpectrum": [],
+      "text": "ANALYSIS\nEPSILON INDI B\n\nBinary brown dwarf (T1 + T6)\n\n×\nSCIENCE GRADE\nlocal dataset: DR1 spectral cube · local dataset: Level-2 observations · 6 frames found, 6 measured · position SIMBAD (CDS)\nRECOMPUTE\nAll22\nSpectrum4\nTime2\nImage6\n3D3\nStatistics7\nSPECTRAL ENERGY DISTRIBUTION\nSED · log flux vs wavelength\n⤢\n↓\n\nCalibrated SPHEREx aperture spectrophotometry (science-accepted frames).\n\nSPECTRUM (LINEAR, FΝ)\nFν vs λ with band colours\n⤢\n↓\n\nCalibrated SPHEREx aperture spectrophotometry (science-accepted frames).\n\nΛFΛ (ENERGY PER LOG BAND)\nEnergy output vs wavelength\n⤢\n↓\n\nCalibrated SPHEREx aperture spectrophotometry (science-accepted frames). λFλ = c·Fν/λ.\n\nLOCAL CUBE SPECTRUM (102 CHANNELS)\nDR1 spectral cube at the target\n⤢\n↓\n\nLocal dataset · DR1 combined spectral cube, not a single epoch. No variance supplied."
+    },
+    {
+      "id": "wise-0855",
+      "fov": 2,
+      "localCube": true,
+      "unavailableAll": [],
+      "unavailableSpectrum": [],
+      "text": "ANALYSIS\nWISE 0855-0714\n\nColdest known brown dwarf (Y4)\n\n×\nSCIENCE GRADE\nlocal dataset: DR1 spectral cube · local dataset: Level-2 observations · 5 frames found, 5 measured · position SIMBAD (CDS)\nRECOMPUTE\nAll22\nSpectrum4\nTime2\nImage6\n3D3\nStatistics7\nSPECTRAL ENERGY DISTRIBUTION\nSED · log flux vs wavelength\n⤢\n↓\n\nCalibrated SPHEREx aperture spectrophotometry (science-accepted frames).\n\nSPECTRUM (LINEAR, FΝ)\nFν vs λ with band colours\n⤢\n↓\n\nCalibrated SPHEREx aperture spectrophotometry (science-accepted frames).\n\nΛFΛ (ENERGY PER LOG BAND)\nEnergy output vs wavelength\n⤢\n↓\n\nCalibrated SPHEREx aperture spectrophotometry (science-accepted frames). λFλ = c·Fν/λ.\n\nLOCAL CUBE SPECTRUM (102 CHANNELS)\nDR1 spectral cube at the target\n⤢\n↓\n\nLocal dataset · DR1 combined spectral cube, not a single epoch. No variance supplied."
+    },
+    {
+      "id": "rw-aurigae",
+      "fov": 2,
+      "localCube": true,
+      "unavailableAll": [],
+      "unavailableSpectrum": [],
+      "text": "ANALYSIS\nRW AURIGAE\n\nYoung T Tauri binary with a disk\n\n×\nEXPLORATORY\nlocal dataset: DR1 spectral cube · local dataset: Level-2 observations · 5 frames found, 5 measured · position SIMBAD (CDS)\nRECOMPUTE\nAll24\nSpectrum4\nTime4\nImage6\n3D3\nStatistics7\nSPECTRAL ENERGY DISTRIBUTION\nSED · log flux vs wavelength\n⤢\n↓\n\nExploratory: 5 frames failed SPHEREx scientific acceptance; values include lower limits where core pixels are flagged.\n\nSPECTRUM (LINEAR, FΝ)\nFν vs λ with band colours\n⤢\n↓\n\nExploratory: 5 frames failed SPHEREx scientific acceptance; values include lower limits where core pixels are flagged.\n\nΛFΛ (ENERGY PER LOG BAND)\nEnergy output vs wavelength\n⤢\n↓\n\nExploratory: 5 frames failed SPHEREx scientific acceptance; values include lower limits where core pixels are flagged. λFλ = c·Fν/λ.\n\nLOCAL CUBE SPECTRUM (102 CHANNELS)\nDR1 spectral cube at the target\n⤢\n↓\n\nLocal dataset · DR1 combined spectral cube, not a single epoch. No variance supplied."
+    },
+    {
+      "id": "r-draconis",
+      "fov": 2,
+      "localCube": true,
+      "unavailableAll": [],
+      "unavailableSpectrum": [],
+      "text": "ANALYSIS\nR DRACONIS\n\nMira variable (long-period pulsating giant)\n\n×\nEXPLORATORY\nlocal dataset: DR1 spectral cube · local dataset: Level-2 observations · 4 frames found, 4 measured · position SIMBAD (CDS)\nRECOMPUTE\nAll23\nSpectrum3\nTime4\nImage6\n3D3\nStatistics7\nSPECTRAL ENERGY DISTRIBUTION\nSED · log flux vs wavelength\n⤢\n↓\n\nExploratory: 4 frames failed SPHEREx scientific acceptance; values are innermost unflagged ring brightness (saturated core).\n\nSPECTRUM (LINEAR, FΝ)\nFν vs λ with band colours\n⤢\n↓\n\nExploratory: 4 frames failed SPHEREx scientific acceptance; values are innermost unflagged ring brightness (saturated core).\n\nLOCAL CUBE SPECTRUM (102 CHANNELS)\nDR1 spectral cube at the target\n⤢\n↓\n\nLocal dataset · DR1 combined spectral cube, not a single epoch. No variance supplied."
+    }
+  ],
+  "pageErrors": []
+}

@@ -1,0 +1,16 @@
+{"file": "Npix3676_cube.fits", "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix3676_cube.fits", "bytes": 320909760, "sha256": "0e18d497ac289c3b30293d891c9094dd33e70f964c5542369222824f35f7b431"}
+{"region": "cygnus_x", "file": "Npix3676_cube.fits", "healpix": 3676, "ra": 309.75665, "dec": 42.32719, "release": "dr1"}
+{"file": "Npix5359_cube.fits", "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix5359_cube.fits", "bytes": 320909760, "sha256": "5ae1bb6b8fcd2a4951569d15623a2cca2a34aa469d85eb3ef27b94a2b8d01893"}
+{"region": "orion", "file": "Npix5359_cube.fits", "healpix": 5359, "ra": 83.8201, "dec": -5.3876, "release": "dr1"}
+{"file": "Npix6814_cube.fits", "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix6814_cube.fits", "bytes": 320909760, "sha256": "1881e1e37e415723fac7c707e3cc12236360da2ab617cbe5b273fd95d2a9ba07"}
+{"region": "cosmos", "file": "Npix6814_cube.fits", "healpix": 6814, "ra": 150.1163, "dec": 2.2058, "release": "dr1"}
+{"file": "Npix11391_cube.fits", "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir10000/Npix11391_cube.fits", "bytes": 320909760, "sha256": "bc684468c4dfa57b2431a08331b890c1d411c8f9c9dc9cfdb068205bbf765cc3"}
+{"region": "epsilon_indi_b", "file": "Npix11391_cube.fits", "ra": 331.04414583, "dec": -56.78284417, "healpix": 11391, "release": "dr1"}
+{"file": "Npix10226_cube.fits", "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir10000/Npix10226_cube.fits", "bytes": 320909760, "sha256": "fba7214b3a56492f422063f8b6d881213f152987b57176a5b0c744889fdfba6c"}
+{"region": "wise_0855", "file": "Npix10226_cube.fits", "ra": 133.79512917, "dec": -7.24514722, "healpix": 10226, "release": "dr1"}
+{"file": "Npix277_cube.fits", "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix277_cube.fits", "bytes": 320909760, "sha256": "627bd0bdd58367154a00365ca73da9254e4493408bfb53407fd49bd2b1b6dae8"}
+{"region": "rw_aurigae", "file": "Npix277_cube.fits", "ra": 76.956525, "dec": 30.401438, "healpix": 277, "release": "dr1"}
+{"file": "Npix2928_cube.fits", "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix2928_cube.fits", "bytes": 320909760, "sha256": "0591544a12fdf005329107fe756bb2b07019ec3002ac4b2337dff6174f47d857"}
+{"region": "r_draconis", "file": "Npix2928_cube.fits", "ra": 248.1676125, "dec": 66.75497944, "healpix": 2928, "release": "dr1"}
+{"file": "Npix7945_cube.fits", "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/hips5_cube/hips_20261026/Norder5/Dir0/Npix7945_cube.fits", "bytes": 320909760, "sha256": "00e6e83df65d7e85eabb7029fc99d924e9e8c631037572bc2e7453935f9cc5b7"}
+{"region": "barnards_star", "file": "Npix7945_cube.fits", "ra": 269.4521, "dec": 4.6934, "healpix": 7945, "release": "dr1"}

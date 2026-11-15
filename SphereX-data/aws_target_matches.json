@@ -1,0 +1,220 @@
+{
+  "epsilon_indi_b": [
+    {
+      "key": "dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0091_1D6_spx_l2b-v27-2026-196.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0091_1D6_spx_l2b-v27-2026-196.fits",
+      "mjd": 60794.131591065,
+      "pixel": [
+        809.5367005811344,
+        1610.0089493499502
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0238_4D6_spx_l2b-v27-2026-196.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0238_4D6_spx_l2b-v27-2026-196.fits",
+      "mjd": 60795.087166169,
+      "pixel": [
+        804.6288297469775,
+        576.9102580411285
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W18_2B/l2b-v27-2026-197/6/level2_2025W18_2B_0042_2D6_spx_l2b-v27-2026-197.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_2B/l2b-v27-2026-197/6/level2_2025W18_2B_0042_2D6_spx_l2b-v27-2026-197.fits",
+      "mjd": 60796.782170544,
+      "pixel": [
+        1464.8959365693602,
+        8.375449600823124
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W18_2B/l2b-v27-2026-197/6/level2_2025W18_2B_0011_3D6_spx_l2b-v27-2026-197.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_2B/l2b-v27-2026-197/6/level2_2025W18_2B_0011_3D6_spx_l2b-v27-2026-197.fits",
+      "mjd": 60796.581853299,
+      "pixel": [
+        813.0647726077074,
+        1838.0303370663767
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W44_2B/l2b-v27-2026-246/6/level2_2025W44_2B_0494_1D6_spx_l2b-v27-2026-246.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W44_2B/l2b-v27-2026-246/6/level2_2025W44_2B_0494_1D6_spx_l2b-v27-2026-246.fits",
+      "mjd": 60980.44457331,
+      "pixel": [
+        298.7674975351149,
+        1673.9817799982657
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W45_1A/l2b-v27-2026-247/6/level2_2025W45_1A_0003_1D6_spx_l2b-v27-2026-247.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W45_1A/l2b-v27-2026-247/6/level2_2025W45_1A_0003_1D6_spx_l2b-v27-2026-247.fits",
+      "mjd": 60982.007053102,
+      "pixel": [
+        298.03047622402624,
+        1559.3177894060857
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W45_1A/l2b-v27-2026-247/6/level2_2025W45_1A_0327_1D6_spx_l2b-v27-2026-247.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W45_1A/l2b-v27-2026-247/6/level2_2025W45_1A_0327_1D6_spx_l2b-v27-2026-247.fits",
+      "mjd": 60983.503553866,
+      "pixel": [
+        294.5528804809105,
+        1215.2670557443216
+      ],
+      "release": "dr1"
+    }
+  ],
+  "wise_0855": [
+    {
+      "key": "dr1/level2/2025W19_1B/l2b-v27-2026-197/6/level2_2025W19_1B_0116_2D6_spx_l2b-v27-2026-197.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W19_1B/l2b-v27-2026-197/6/level2_2025W19_1B_0116_2D6_spx_l2b-v27-2026-197.fits",
+      "mjd": 60800.701520718,
+      "pixel": [
+        380.02330015534255,
+        28.788930474984333
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W46_1A/l2b-v27-2026-206/6/level2_2025W46_1A_0076_3D6_spx_l2b-v27-2026-206.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W46_1A/l2b-v27-2026-206/6/level2_2025W46_1A_0076_3D6_spx_l2b-v27-2026-206.fits",
+      "mjd": 60989.301532928,
+      "pixel": [
+        908.6575575078564,
+        1645.349754547875
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W46_2A/l2b-v27-2026-207/6/level2_2025W46_2A_0214_4D6_spx_l2b-v27-2026-207.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W46_2A/l2b-v27-2026-207/6/level2_2025W46_2A_0214_4D6_spx_l2b-v27-2026-207.fits",
+      "mjd": 60993.509585509,
+      "pixel": [
+        1290.8589519130833,
+        661.6728090736312
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2026W19_2A/l2b-v27-2026-245/6/level2_2026W19_2A_0651_1D6_spx_l2b-v27-2026-245.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2026W19_2A/l2b-v27-2026-245/6/level2_2026W19_2A_0651_1D6_spx_l2b-v27-2026-245.fits",
+      "mjd": 61169.194222546,
+      "pixel": [
+        382.7678611508089,
+        489.9993203760903
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2026W19_2A/l2b-v27-2026-245/6/level2_2026W19_2A_0952_1D6_spx_l2b-v27-2026-245.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2026W19_2A/l2b-v27-2026-245/6/level2_2026W19_2A_0952_1D6_spx_l2b-v27-2026-245.fits",
+      "mjd": 61169.933208472,
+      "pixel": [
+        380.6258848331133,
+        259.98105342717764
+      ],
+      "release": "dr1"
+    }
+  ],
+  "rw_aurigae": [
+    {
+      "key": "dr1/level2/2025W37_1A/l2b-v27-2026-235/2/level2_2025W37_1A_0366_1D2_spx_l2b-v27-2026-235.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W37_1A/l2b-v27-2026-235/2/level2_2025W37_1A_0366_1D2_spx_l2b-v27-2026-235.fits",
+      "mjd": 60927.838521215,
+      "pixel": [
+        1772.370253258741,
+        1644.452496050075
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W37_1A/l2b-v27-2026-235/2/level2_2025W37_1A_0496_1D2_spx_l2b-v27-2026-235.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W37_1A/l2b-v27-2026-235/2/level2_2025W37_1A_0496_1D2_spx_l2b-v27-2026-235.fits",
+      "mjd": 60928.518456435,
+      "pixel": [
+        1757.8081387955585,
+        225.8631964503668
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2026W10_2B/l2b-v27-2026-231/2/level2_2026W10_2B_0340_2D2_spx_l2b-v27-2026-231.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2026W10_2B/l2b-v27-2026-231/2/level2_2026W10_2B_0340_2D2_spx_l2b-v27-2026-231.fits",
+      "mjd": 61106.317579965,
+      "pixel": [
+        238.3915379652539,
+        1694.9775581995907
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "qr3/level2/2026W37_2A/l2b-v27-2026-259/2/level2_2026W37_2A_0630_2D2_spx_l2b-v27-2026-259.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/qr3/level2/2026W37_2A/l2b-v27-2026-259/2/level2_2026W37_2A_0630_2D2_spx_l2b-v27-2026-259.fits",
+      "mjd": 61296.570992963,
+      "pixel": [
+        1871.7169437255536,
+        49.98667144889177
+      ],
+      "release": "qr3"
+    },
+    {
+      "key": "qr3/level2/2026W37_2A/l2b-v27-2026-259/2/level2_2026W37_2A_0287_4D2_spx_l2b-v27-2026-259.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/qr3/level2/2026W37_2A/l2b-v27-2026-259/2/level2_2026W37_2A_0287_4D2_spx_l2b-v27-2026-259.fits",
+      "mjd": 61294.87605787,
+      "pixel": [
+        1889.7898591437222,
+        1928.5299761844547
+      ],
+      "release": "qr3"
+    }
+  ],
+  "r_draconis": [
+    {
+      "key": "dr1/level2/2025W24_1A/l2b-v27-2026-201/2/level2_2025W24_1A_0215_1D2_spx_l2b-v27-2026-201.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W24_1A/l2b-v27-2026-201/2/level2_2025W24_1A_0215_1D2_spx_l2b-v27-2026-201.fits",
+      "mjd": 60836.010581319,
+      "pixel": [
+        1447.664827876225,
+        1715.9114878040916
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W24_1A/l2b-v27-2026-201/2/level2_2025W24_1A_0123_2D2_spx_l2b-v27-2026-201.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W24_1A/l2b-v27-2026-201/2/level2_2025W24_1A_0123_2D2_spx_l2b-v27-2026-201.fits",
+      "mjd": 60835.536613183,
+      "pixel": [
+        1122.9507690083324,
+        203.98532393270494
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W50_1A/l2b-v27-2026-209/2/level2_2025W50_1A_0661_3D2_spx_l2b-v27-2026-209.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W50_1A/l2b-v27-2026-209/2/level2_2025W50_1A_0661_3D2_spx_l2b-v27-2026-209.fits",
+      "mjd": 61019.874991586,
+      "pixel": [
+        1979.9658245643488,
+        597.4739975293865
+      ],
+      "release": "dr1"
+    },
+    {
+      "key": "dr1/level2/2025W50_2A/l2b-v27-2026-210/2/level2_2025W50_2A_0259_2D2_spx_l2b-v27-2026-210.fits",
+      "aws": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W50_2A/l2b-v27-2026-210/2/level2_2025W50_2A_0259_2D2_spx_l2b-v27-2026-210.fits",
+      "mjd": 61021.363693507,
+      "pixel": [
+        1990.4170293851946,
+        1670.0836007315786
+      ],
+      "release": "dr1"
+    }
+  ]
+}

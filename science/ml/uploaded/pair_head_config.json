@@ -1,0 +1,11 @@
+{
+  "architecture": "PairHead V3",
+  "input_features": 15,
+  "hidden_widths": [
+    48,
+    24
+  ],
+  "parameters": 2065,
+  "threshold": 0.01,
+  "best_epoch": 1
+}
