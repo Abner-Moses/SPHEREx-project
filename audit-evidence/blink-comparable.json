@@ -1,0 +1,2303 @@
+{
+  "id": "c5c0c5e0c284431c8a34f7ddee9579b1",
+  "status": "insufficient",
+  "cancel_requested": false,
+  "progress": {
+    "completed": 6,
+    "total": 6
+  },
+  "frames": [
+    {
+      "id": "0d4598b4eddb498b8694b71ebc42339d",
+      "product_id": "ef7ca8ce5cea9c4ada0e000dd896b8e2",
+      "candidate_index": 0,
+      "status": "ready",
+      "asset_id": "9a6b67b60e2ee4fe3ddceda989bb2346",
+      "observation_id": "2025W18_1B_0091_1",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0091_1D6_spx_l2b-v27-2026-196.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-04-29T03:09:29.468Z",
+      "mjd": 60794.131591065,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 1.1075339430102335e-07
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            13.573099587623023,
+            14.201667988088643
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          13.573099587623023,
+          14.201667988088643
+        ],
+        "roundtrip_arcsec": 1.1075339430102335e-07,
+        "footprint_icrs_deg": [
+          [
+            331.15388464088767,
+            -56.81398230351194
+          ],
+          [
+            331.11793183440125,
+            -56.77019412613164
+          ],
+          [
+            331.036660603973,
+            -56.788212856672764
+          ],
+          [
+            331.07254655242303,
+            -56.83202319642622
+          ]
+        ],
+        "usable_pixels": 781,
+        "masked_pixels": 60,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W18_1B_0091_1",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-04-29T03:09:29.468",
+          "MJD-OBS": 60794.131591065,
+          "MJD-BEG": 60794.131591065,
+          "MJD-END": 60794.132923443,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.2365630716085434,
+          0.9558283567428957
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.527032852172852,
+        "bandwidth_um": 0.03579883277416229,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          799,
+          1594
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          798.573099587623,
+          1594.2016679880887
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.527032852172852,
+      "bandwidth_um": 0.03579883277416229,
+      "aligned_cache_key": "aba2525b5b95983320c8a9657626526f8111d274c729c90ed127183155b89788",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8355555555555556,
+      "usable_fraction": 0.7133333333333334,
+      "original_variance": {
+        "asset_id": "9a6b67b60e2ee4fe3ddceda989bb2346",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      }
+    }
+  ],
+  "failed_frames": [],
+  "excluded_frames": [
+    {
+      "id": "da28b21800c3409ca972211966dec2ef",
+      "product_id": "6c1b6ac25f11e4ddc7d2f4831b4c100a",
+      "candidate_index": 1,
+      "status": "excluded",
+      "asset_id": "765b8eed49d513bdc66f29f991eb54f4",
+      "observation_id": "2025W18_1B_0238_4",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0238_4D6_spx_l2b-v27-2026-196.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-04-30T02:05:31.157Z",
+      "mjd": 60795.087166169,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 6.866030756728006e-07
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            13.605942568163938,
+            14.005784709396181
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          13.605942568163938,
+          14.005784709396181
+        ],
+        "roundtrip_arcsec": 6.866030756728006e-07,
+        "footprint_icrs_deg": [
+          [
+            331.1534053798363,
+            -56.813550305928494
+          ],
+          [
+            331.1176628621454,
+            -56.769936115575725
+          ],
+          [
+            331.0368416387191,
+            -56.787991819650955
+          ],
+          [
+            331.07251686202255,
+            -56.83162766889631
+          ]
+        ],
+        "usable_pixels": 775,
+        "masked_pixels": 66,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W18_1B_0238_4",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-04-30T02:05:31.157",
+          "MJD-OBS": 60795.087166169,
+          "MJD-BEG": 60795.087166169,
+          "MJD-END": 60795.088498547,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.3793017280101776,
+          1.642186070680615
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.832333564758301,
+        "bandwidth_um": 0.036662958562374115,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          794,
+          561
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          793.605942568164,
+          561.0057847093962
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.832333564758301,
+      "bandwidth_um": 0.036662958562374115,
+      "aligned_cache_key": "f3298b3e86634bfd664ee005ea1586cf135ba48b91486ead6df97e40466732cd",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8344444444444444,
+      "usable_fraction": 0.7033333333333334,
+      "original_variance": {
+        "asset_id": "765b8eed49d513bdc66f29f991eb54f4",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      },
+      "reason_code": "spectral_mismatch",
+      "reason": "Outside deterministically selected largest seed-built pairwise CWAVE/CBAND-compatible group; all prepared pairs checked in both directions"
+    },
+    {
+      "id": "384451c393b64c0a859b4f6f067ce13a",
+      "product_id": "e451da9d1dcce88b0f3d1f1d8292bab2",
+      "candidate_index": 2,
+      "status": "excluded",
+      "asset_id": "56adc441a397a429b0d632eb649a29f8",
+      "observation_id": "2025W18_2B_0011_3",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_2B/l2b-v27-2026-197/6/level2_2025W18_2B_0011_3D6_spx_l2b-v27-2026-197.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-05-01T13:57:52.125Z",
+      "mjd": 60796.581853299,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 8.381693152521478e-07
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            14.111443888102274,
+            14.24804154106473
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          14.111443888102274,
+          14.24804154106473
+        ],
+        "roundtrip_arcsec": 8.381693152521478e-07,
+        "footprint_icrs_deg": [
+          [
+            331.1555786785162,
+            -56.81373828571309
+          ],
+          [
+            331.1195870892198,
+            -56.76990197483691
+          ],
+          [
+            331.0382133873115,
+            -56.78790933753353
+          ],
+          [
+            331.07413820574084,
+            -56.83176782910368
+          ]
+        ],
+        "usable_pixels": 816,
+        "masked_pixels": 25,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W18_2B_0011_3",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-05-01T13:57:52.125",
+          "MJD-OBS": 60796.581853299,
+          "MJD-BEG": 60796.581853299,
+          "MJD-END": 60796.583185677,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.20444745421409607,
+          1.420409485697736
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.462592124938965,
+        "bandwidth_um": 0.035296786576509476,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          802,
+          1822
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          802.1114438881023,
+          1822.2480415410648
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.462592124938965,
+      "bandwidth_um": 0.035296786576509476,
+      "aligned_cache_key": "d50886251ed130ef699f7b7135d891a03753691d86b194a19d0b068c9003d40d",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8366666666666667,
+      "usable_fraction": 0.75,
+      "original_variance": {
+        "asset_id": "56adc441a397a429b0d632eb649a29f8",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      },
+      "reason_code": "spectral_mismatch",
+      "reason": "Outside deterministically selected largest seed-built pairwise CWAVE/CBAND-compatible group; all prepared pairs checked in both directions"
+    },
+    {
+      "id": "4a2e3d4ef4e04dae8f30fbbedb6511f5",
+      "product_id": "eeecfa6d9df5d96f3d250ab9847dcaa7",
+      "candidate_index": 3,
+      "status": "excluded",
+      "asset_id": "e1b9036502f7f596944e7aaa6d16893e",
+      "observation_id": "2025W44_2B_0494_1",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W44_2B/l2b-v27-2026-246/6/level2_2025W44_2B_0494_1D6_spx_l2b-v27-2026-246.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-11-01T10:40:11.134Z",
+      "mjd": 60980.44457331,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 2.514482807308816e-08
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            14.17741420667255,
+            13.890295191198032
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          14.17741420667255,
+          13.890295191198032
+        ],
+        "roundtrip_arcsec": 2.514482807308816e-08,
+        "footprint_icrs_deg": [
+          [
+            331.0356202286815,
+            -56.791167883919314
+          ],
+          [
+            331.07882580238703,
+            -56.8329447877618
+          ],
+          [
+            331.1562618804778,
+            -56.81046517273214
+          ],
+          [
+            331.1129859672403,
+            -56.768717016106876
+          ]
+        ],
+        "usable_pixels": 794,
+        "masked_pixels": 47,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W44_2B_0494_1",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-11-01T10:40:11.134",
+          "MJD-OBS": 60980.44457331,
+          "MJD-BEG": 60980.44457331,
+          "MJD-END": 60980.445905689,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.29370336413383485,
+          1.4569207185506643
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.507593631744385,
+        "bandwidth_um": 0.034986089915037155,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          308,
+          1691
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          308.17741420667255,
+          1690.890295191198
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.507593631744385,
+      "bandwidth_um": 0.034986089915037155,
+      "aligned_cache_key": "9c5196fdea87a85ba7a29a9a91647dcc8c4de88bbc79cbb710a5613dacc75dcc",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8211111111111111,
+      "usable_fraction": 0.7022222222222222,
+      "original_variance": {
+        "asset_id": "e1b9036502f7f596944e7aaa6d16893e",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      },
+      "reason_code": "spectral_mismatch",
+      "reason": "Outside deterministically selected largest seed-built pairwise CWAVE/CBAND-compatible group; all prepared pairs checked in both directions"
+    },
+    {
+      "id": "d724ffd0826347e8bf49da2c16bf25fa",
+      "product_id": "56653fdf224941c4379d6facfc20117c",
+      "candidate_index": 4,
+      "status": "excluded",
+      "asset_id": "b826320bee56c56b3fe908affc832cc9",
+      "observation_id": "2025W45_1A_0003_1",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W45_1A/l2b-v27-2026-247/6/level2_2025W45_1A_0003_1D6_spx_l2b-v27-2026-247.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-11-03T00:10:09.388Z",
+      "mjd": 60982.007053102,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 2.6947253253897377e-06
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            14.445011912804162,
+            14.236501540054554
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          14.445011912804162,
+          14.236501540054554
+        ],
+        "roundtrip_arcsec": 2.6947253253897377e-06,
+        "footprint_icrs_deg": [
+          [
+            331.03438052890846,
+            -56.79087460727777
+          ],
+          [
+            331.0775601705833,
+            -56.83263093510801
+          ],
+          [
+            331.1549544456599,
+            -56.81015523383244
+          ],
+          [
+            331.11170459945583,
+            -56.768427572227836
+          ]
+        ],
+        "usable_pixels": 736,
+        "masked_pixels": 105,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W45_1A_0003_1",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-11-03T00:10:09.388",
+          "MJD-OBS": 60982.007053102,
+          "MJD-BEG": 60982.007053102,
+          "MJD-END": 60982.00838548,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.3124487280845642,
+          1.8302862584592048
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.54056453704834,
+        "bandwidth_um": 0.03651933744549751,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          307,
+          1576
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          307.44501191280415,
+          1576.2365015400546
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.54056453704834,
+      "bandwidth_um": 0.03651933744549751,
+      "aligned_cache_key": "3e680c6b166a4e4b7aacc0a106389ee9e47c43dd1862c86228581abacbba4894",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8244444444444444,
+      "usable_fraction": 0.6233333333333333,
+      "original_variance": {
+        "asset_id": "b826320bee56c56b3fe908affc832cc9",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      },
+      "reason_code": "spectral_mismatch",
+      "reason": "Outside deterministically selected largest seed-built pairwise CWAVE/CBAND-compatible group; all prepared pairs checked in both directions"
+    },
+    {
+      "id": "8f3cd0f329db4253a1a9d4504dd636d9",
+      "product_id": "df684a846635eb61e7b7565301dca19a",
+      "candidate_index": 5,
+      "status": "excluded",
+      "asset_id": "4cb1f8c34d50ef513fb56fd92176fd62",
+      "observation_id": "2025W45_1A_0327_1",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W45_1A/l2b-v27-2026-247/6/level2_2025W45_1A_0327_1D6_spx_l2b-v27-2026-247.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-11-04T12:05:07.054Z",
+      "mjd": 60983.503553866,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 3.457184914289613e-06
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            13.984366831729352,
+            14.218872194737953
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          13.984366831729352,
+          14.218872194737953
+        ],
+        "roundtrip_arcsec": 3.457184914289613e-06,
+        "footprint_icrs_deg": [
+          [
+            331.0357921520757,
+            -56.79056110840263
+          ],
+          [
+            331.0788877310288,
+            -56.83225567516574
+          ],
+          [
+            331.15614292602936,
+            -56.809783120455656
+          ],
+          [
+            331.1129776532804,
+            -56.768117112749515
+          ]
+        ],
+        "usable_pixels": 827,
+        "masked_pixels": 14,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W45_1A_0327_1",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-11-04T12:05:07.054",
+          "MJD-OBS": 60983.503553866,
+          "MJD-BEG": 60983.503553866,
+          "MJD-END": 60983.504886244,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.38254058837890625,
+          1.640016450881959
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.640514850616455,
+        "bandwidth_um": 0.03640902787446976,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          304,
+          1232
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          303.98436683172935,
+          1232.218872194738
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.640514850616455,
+      "bandwidth_um": 0.03640902787446976,
+      "aligned_cache_key": "885f0b68230f4dc12e22863de7c707f668252b51800a8946bc59c907bcd316b0",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8211111111111111,
+      "usable_fraction": 0.77,
+      "original_variance": {
+        "asset_id": "4cb1f8c34d50ef513fb56fd92176fd62",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      },
+      "reason_code": "spectral_mismatch",
+      "reason": "Outside deterministically selected largest seed-built pairwise CWAVE/CBAND-compatible group; all prepared pairs checked in both directions"
+    }
+  ],
+  "frame_states": [
+    {
+      "id": "0d4598b4eddb498b8694b71ebc42339d",
+      "product_id": "ef7ca8ce5cea9c4ada0e000dd896b8e2",
+      "candidate_index": 0,
+      "status": "ready",
+      "asset_id": "9a6b67b60e2ee4fe3ddceda989bb2346",
+      "observation_id": "2025W18_1B_0091_1",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0091_1D6_spx_l2b-v27-2026-196.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-04-29T03:09:29.468Z",
+      "mjd": 60794.131591065,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 1.1075339430102335e-07
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            13.573099587623023,
+            14.201667988088643
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          13.573099587623023,
+          14.201667988088643
+        ],
+        "roundtrip_arcsec": 1.1075339430102335e-07,
+        "footprint_icrs_deg": [
+          [
+            331.15388464088767,
+            -56.81398230351194
+          ],
+          [
+            331.11793183440125,
+            -56.77019412613164
+          ],
+          [
+            331.036660603973,
+            -56.788212856672764
+          ],
+          [
+            331.07254655242303,
+            -56.83202319642622
+          ]
+        ],
+        "usable_pixels": 781,
+        "masked_pixels": 60,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W18_1B_0091_1",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-04-29T03:09:29.468",
+          "MJD-OBS": 60794.131591065,
+          "MJD-BEG": 60794.131591065,
+          "MJD-END": 60794.132923443,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.2365630716085434,
+          0.9558283567428957
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.527032852172852,
+        "bandwidth_um": 0.03579883277416229,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          799,
+          1594
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          798.573099587623,
+          1594.2016679880887
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.527032852172852,
+      "bandwidth_um": 0.03579883277416229,
+      "aligned_cache_key": "aba2525b5b95983320c8a9657626526f8111d274c729c90ed127183155b89788",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8355555555555556,
+      "usable_fraction": 0.7133333333333334,
+      "original_variance": {
+        "asset_id": "9a6b67b60e2ee4fe3ddceda989bb2346",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      }
+    },
+    {
+      "id": "da28b21800c3409ca972211966dec2ef",
+      "product_id": "6c1b6ac25f11e4ddc7d2f4831b4c100a",
+      "candidate_index": 1,
+      "status": "excluded",
+      "asset_id": "765b8eed49d513bdc66f29f991eb54f4",
+      "observation_id": "2025W18_1B_0238_4",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_1B/l2b-v27-2026-196/6/level2_2025W18_1B_0238_4D6_spx_l2b-v27-2026-196.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-04-30T02:05:31.157Z",
+      "mjd": 60795.087166169,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 6.866030756728006e-07
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            13.605942568163938,
+            14.005784709396181
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          13.605942568163938,
+          14.005784709396181
+        ],
+        "roundtrip_arcsec": 6.866030756728006e-07,
+        "footprint_icrs_deg": [
+          [
+            331.1534053798363,
+            -56.813550305928494
+          ],
+          [
+            331.1176628621454,
+            -56.769936115575725
+          ],
+          [
+            331.0368416387191,
+            -56.787991819650955
+          ],
+          [
+            331.07251686202255,
+            -56.83162766889631
+          ]
+        ],
+        "usable_pixels": 775,
+        "masked_pixels": 66,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W18_1B_0238_4",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-04-30T02:05:31.157",
+          "MJD-OBS": 60795.087166169,
+          "MJD-BEG": 60795.087166169,
+          "MJD-END": 60795.088498547,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.3793017280101776,
+          1.642186070680615
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.832333564758301,
+        "bandwidth_um": 0.036662958562374115,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          794,
+          561
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          793.605942568164,
+          561.0057847093962
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.832333564758301,
+      "bandwidth_um": 0.036662958562374115,
+      "aligned_cache_key": "f3298b3e86634bfd664ee005ea1586cf135ba48b91486ead6df97e40466732cd",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8344444444444444,
+      "usable_fraction": 0.7033333333333334,
+      "original_variance": {
+        "asset_id": "765b8eed49d513bdc66f29f991eb54f4",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      },
+      "reason_code": "spectral_mismatch",
+      "reason": "Outside deterministically selected largest seed-built pairwise CWAVE/CBAND-compatible group; all prepared pairs checked in both directions"
+    },
+    {
+      "id": "384451c393b64c0a859b4f6f067ce13a",
+      "product_id": "e451da9d1dcce88b0f3d1f1d8292bab2",
+      "candidate_index": 2,
+      "status": "excluded",
+      "asset_id": "56adc441a397a429b0d632eb649a29f8",
+      "observation_id": "2025W18_2B_0011_3",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W18_2B/l2b-v27-2026-197/6/level2_2025W18_2B_0011_3D6_spx_l2b-v27-2026-197.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-05-01T13:57:52.125Z",
+      "mjd": 60796.581853299,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 8.381693152521478e-07
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            14.111443888102274,
+            14.24804154106473
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          14.111443888102274,
+          14.24804154106473
+        ],
+        "roundtrip_arcsec": 8.381693152521478e-07,
+        "footprint_icrs_deg": [
+          [
+            331.1555786785162,
+            -56.81373828571309
+          ],
+          [
+            331.1195870892198,
+            -56.76990197483691
+          ],
+          [
+            331.0382133873115,
+            -56.78790933753353
+          ],
+          [
+            331.07413820574084,
+            -56.83176782910368
+          ]
+        ],
+        "usable_pixels": 816,
+        "masked_pixels": 25,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W18_2B_0011_3",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-05-01T13:57:52.125",
+          "MJD-OBS": 60796.581853299,
+          "MJD-BEG": 60796.581853299,
+          "MJD-END": 60796.583185677,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.20444745421409607,
+          1.420409485697736
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.462592124938965,
+        "bandwidth_um": 0.035296786576509476,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          802,
+          1822
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          802.1114438881023,
+          1822.2480415410648
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.462592124938965,
+      "bandwidth_um": 0.035296786576509476,
+      "aligned_cache_key": "d50886251ed130ef699f7b7135d891a03753691d86b194a19d0b068c9003d40d",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8366666666666667,
+      "usable_fraction": 0.75,
+      "original_variance": {
+        "asset_id": "56adc441a397a429b0d632eb649a29f8",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      },
+      "reason_code": "spectral_mismatch",
+      "reason": "Outside deterministically selected largest seed-built pairwise CWAVE/CBAND-compatible group; all prepared pairs checked in both directions"
+    },
+    {
+      "id": "4a2e3d4ef4e04dae8f30fbbedb6511f5",
+      "product_id": "eeecfa6d9df5d96f3d250ab9847dcaa7",
+      "candidate_index": 3,
+      "status": "excluded",
+      "asset_id": "e1b9036502f7f596944e7aaa6d16893e",
+      "observation_id": "2025W44_2B_0494_1",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W44_2B/l2b-v27-2026-246/6/level2_2025W44_2B_0494_1D6_spx_l2b-v27-2026-246.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-11-01T10:40:11.134Z",
+      "mjd": 60980.44457331,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 2.514482807308816e-08
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            14.17741420667255,
+            13.890295191198032
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          14.17741420667255,
+          13.890295191198032
+        ],
+        "roundtrip_arcsec": 2.514482807308816e-08,
+        "footprint_icrs_deg": [
+          [
+            331.0356202286815,
+            -56.791167883919314
+          ],
+          [
+            331.07882580238703,
+            -56.8329447877618
+          ],
+          [
+            331.1562618804778,
+            -56.81046517273214
+          ],
+          [
+            331.1129859672403,
+            -56.768717016106876
+          ]
+        ],
+        "usable_pixels": 794,
+        "masked_pixels": 47,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W44_2B_0494_1",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-11-01T10:40:11.134",
+          "MJD-OBS": 60980.44457331,
+          "MJD-BEG": 60980.44457331,
+          "MJD-END": 60980.445905689,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.29370336413383485,
+          1.4569207185506643
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.507593631744385,
+        "bandwidth_um": 0.034986089915037155,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          308,
+          1691
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          308.17741420667255,
+          1690.890295191198
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.507593631744385,
+      "bandwidth_um": 0.034986089915037155,
+      "aligned_cache_key": "9c5196fdea87a85ba7a29a9a91647dcc8c4de88bbc79cbb710a5613dacc75dcc",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8211111111111111,
+      "usable_fraction": 0.7022222222222222,
+      "original_variance": {
+        "asset_id": "e1b9036502f7f596944e7aaa6d16893e",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      },
+      "reason_code": "spectral_mismatch",
+      "reason": "Outside deterministically selected largest seed-built pairwise CWAVE/CBAND-compatible group; all prepared pairs checked in both directions"
+    },
+    {
+      "id": "d724ffd0826347e8bf49da2c16bf25fa",
+      "product_id": "56653fdf224941c4379d6facfc20117c",
+      "candidate_index": 4,
+      "status": "excluded",
+      "asset_id": "b826320bee56c56b3fe908affc832cc9",
+      "observation_id": "2025W45_1A_0003_1",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W45_1A/l2b-v27-2026-247/6/level2_2025W45_1A_0003_1D6_spx_l2b-v27-2026-247.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-11-03T00:10:09.388Z",
+      "mjd": 60982.007053102,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 2.6947253253897377e-06
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            14.445011912804162,
+            14.236501540054554
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          14.445011912804162,
+          14.236501540054554
+        ],
+        "roundtrip_arcsec": 2.6947253253897377e-06,
+        "footprint_icrs_deg": [
+          [
+            331.03438052890846,
+            -56.79087460727777
+          ],
+          [
+            331.0775601705833,
+            -56.83263093510801
+          ],
+          [
+            331.1549544456599,
+            -56.81015523383244
+          ],
+          [
+            331.11170459945583,
+            -56.768427572227836
+          ]
+        ],
+        "usable_pixels": 736,
+        "masked_pixels": 105,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W45_1A_0003_1",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-11-03T00:10:09.388",
+          "MJD-OBS": 60982.007053102,
+          "MJD-BEG": 60982.007053102,
+          "MJD-END": 60982.00838548,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.3124487280845642,
+          1.8302862584592048
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.54056453704834,
+        "bandwidth_um": 0.03651933744549751,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          307,
+          1576
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          307.44501191280415,
+          1576.2365015400546
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.54056453704834,
+      "bandwidth_um": 0.03651933744549751,
+      "aligned_cache_key": "3e680c6b166a4e4b7aacc0a106389ee9e47c43dd1862c86228581abacbba4894",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8244444444444444,
+      "usable_fraction": 0.6233333333333333,
+      "original_variance": {
+        "asset_id": "b826320bee56c56b3fe908affc832cc9",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      },
+      "reason_code": "spectral_mismatch",
+      "reason": "Outside deterministically selected largest seed-built pairwise CWAVE/CBAND-compatible group; all prepared pairs checked in both directions"
+    },
+    {
+      "id": "8f3cd0f329db4253a1a9d4504dd636d9",
+      "product_id": "df684a846635eb61e7b7565301dca19a",
+      "candidate_index": 5,
+      "status": "excluded",
+      "asset_id": "4cb1f8c34d50ef513fb56fd92176fd62",
+      "observation_id": "2025W45_1A_0327_1",
+      "source_url": "https://nasa-irsa-spherex.s3.amazonaws.com/dr1/level2/2025W45_1A/l2b-v27-2026-247/6/level2_2025W45_1A_0327_1D6_spx_l2b-v27-2026-247.fits",
+      "detector": 6,
+      "collection": "spherex_dr1",
+      "retrieval_coordinates": {
+        "ra": 331.0962400386477,
+        "dec": -56.800523162666664,
+        "frame": "ICRS"
+      },
+      "warnings": [
+        "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE."
+      ],
+      "timestamp": "2025-11-04T12:05:07.054Z",
+      "mjd": 60983.503553866,
+      "time_source": "IMAGE.MJD-OBS",
+      "time_scale": "UTC",
+      "quality": {
+        "policy_version": "spherex-level2-v3",
+        "structural_validity": {
+          "status": "passed"
+        },
+        "numerical_wcs": {
+          "status": "passed",
+          "roundtrip_arcsec": 3.457184914289613e-06
+        },
+        "target_coverage": {
+          "status": "covered",
+          "pixel": [
+            13.984366831729352,
+            14.218872194737953
+          ]
+        },
+        "astrometric_quality": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        },
+        "scientific_acceptance": {
+          "accepted": true,
+          "status": "accepted",
+          "reasons": []
+        },
+        "measurement_quality": {
+          "target_usable": true
+        },
+        "warnings": [
+          "Some pixels are excluded from scientific acceptance; original values and flags remain accessible."
+        ],
+        "extensions": [
+          "EPSF",
+          "FLAGS",
+          "IMAGE",
+          "PRIMARY",
+          "VARIANCE",
+          "WCS-WAVE",
+          "ZODI"
+        ],
+        "shape": [
+          29,
+          29
+        ],
+        "wcs_passed": true,
+        "target_pixel": [
+          13.984366831729352,
+          14.218872194737953
+        ],
+        "roundtrip_arcsec": 3.457184914289613e-06,
+        "footprint_icrs_deg": [
+          [
+            331.0357921520757,
+            -56.79056110840263
+          ],
+          [
+            331.0788877310288,
+            -56.83225567516574
+          ],
+          [
+            331.15614292602936,
+            -56.809783120455656
+          ],
+          [
+            331.1129776532804,
+            -56.768117112749515
+          ]
+        ],
+        "usable_pixels": 827,
+        "masked_pixels": 14,
+        "bunit": "MJy / sr",
+        "header": {
+          "OBSID": "2025W45_1A_0327_1",
+          "OBS_ID": null,
+          "OBSTIME": null,
+          "DETECTOR": 6,
+          "BAND": null,
+          "DATE-OBS": "2025-11-04T12:05:07.054",
+          "MJD-OBS": 60983.503553866,
+          "MJD-BEG": 60983.503553866,
+          "MJD-END": 60983.504886244,
+          "PROCVER": null,
+          "VERSION": "7.0.5",
+          "PIPEVER": null,
+          "FINAST": 0
+        },
+        "zodi_subtracted": false,
+        "quality_policy": {
+          "TRANSIENT": 0,
+          "OVERFLOW": 1,
+          "SUR_ERROR": 2,
+          "PHANTOM": 4,
+          "REFERENCE": 5,
+          "NONFUNC": 6,
+          "DICHROIC": 7,
+          "MISSING_DATA": 9,
+          "HOT": 10,
+          "COLD": 11,
+          "FULLSAMPLE": 12,
+          "PHANMISS": 14,
+          "NONLINEAR": 15,
+          "PERSIST": 17,
+          "OUTLIER": 19,
+          "CROSSTALK": 20,
+          "GHOST": 22,
+          "GHOST_FPA": 23,
+          "GHOST_EXT": 24,
+          "STREAK": 25,
+          "BLOOM": 26,
+          "SNOWBALL": 27,
+          "HALO": 28,
+          "SATELLITE_HALO": 29
+        },
+        "display_limits": [
+          0.38254058837890625,
+          1.640016450881959
+        ],
+        "accepted": true,
+        "status": "accepted",
+        "reasons": [],
+        "sequence_target_astrometry": {
+          "status": "good",
+          "finast": 0,
+          "reference": "https://irsa.ipac.caltech.edu/data/SPHEREx/docs/SPHEREx_Expsupp.pdf section 3.2.8"
+        }
+      },
+      "spectral": {
+        "status": "calibrated",
+        "wavelength_um": 4.640514850616455,
+        "bandwidth_um": 0.03640902787446976,
+        "sampling": "nearest original detector pixel; no spectral interpolation",
+        "calibration_pixel": [
+          304,
+          1232
+        ],
+        "reference": "https://caltech-ipac.github.io/spherex-archive-documentation/spherex-data-products/",
+        "source": "local original-version matched CWAVE/CBAND",
+        "source_url": "/Users/abnermoses/Downloads/SphereX/SphereX/SphereX-data/calibrations/dr1/spectral_wcs/cal-swcs-v5-2026-191/6/spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits",
+        "calibration_version": "3.0",
+        "parent_pixel": [
+          303.98436683172935,
+          1232.218872194738
+        ],
+        "association": "Embedded WCS-WAVE calibration version, release and detector; not inferred from detector alone"
+      },
+      "wavelength_um": 4.640514850616455,
+      "bandwidth_um": 0.03640902787446976,
+      "aligned_cache_key": "885f0b68230f4dc12e22863de7c707f668252b51800a8946bc59c907bcd316b0",
+      "aligned_cache_hit": true,
+      "coverage_fraction": 0.8211111111111111,
+      "usable_fraction": 0.77,
+      "original_variance": {
+        "asset_id": "4cb1f8c34d50ef513fb56fd92176fd62",
+        "hdu": "VARIANCE",
+        "retained_in_derived_fits": "ORIGVAR",
+        "grid": "original source pixels"
+      },
+      "reason_code": "spectral_mismatch",
+      "reason": "Outside deterministically selected largest seed-built pairwise CWAVE/CBAND-compatible group; all prepared pairs checked in both directions"
+    }
+  ],
+  "display": {
+    "low": 0.2678114303946495,
+    "high": 0.9873719286918735,
+    "stretch": "asinh",
+    "asinh_a": 0.1,
+    "sample_policy": "Shared 1st/99th percentiles; <=10000 deterministic samples/frame",
+    "unit": "MJy/sr",
+    "display_only": true,
+    "png_origin": "upper; FITS rows reversed so celestial north is up"
+  },
+  "common_wcs": {
+    "header": {
+      "WCSAXES": 2,
+      "CRPIX1": 15.5,
+      "CRPIX2": 15.5,
+      "CDELT1": -0.0017083333333333,
+      "CDELT2": 0.0017083333333333,
+      "CUNIT1": "deg",
+      "CUNIT2": "deg",
+      "CTYPE1": "RA---TAN",
+      "CTYPE2": "DEC--TAN",
+      "CRVAL1": 331.09624003865,
+      "CRVAL2": -56.800523162667,
+      "LONPOLE": 180.0,
+      "LATPOLE": -56.800523162667,
+      "MJDREF": 0.0,
+      "RADESYS": "ICRS"
+    },
+    "shape": [
+      30,
+      30
+    ],
+    "pixel_scale_arcsec": 6.15,
+    "north_up": true,
+    "field_of_view_arcsec": [
+      184.5,
+      184.5
+    ],
+    "field_of_view_deg": [
+      0.05125,
+      0.05125
+    ],
+    "center": {
+      "ra": 331.0962400386477,
+      "dec": -56.800523162666664,
+      "frame": "icrs"
+    }
+  },
+  "warnings": [
+    "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE.",
+    "Spectral agreement is tested only at the requested target pixel, not across the image. WCS reprojection does not correct astrometric errors or match PSFs; no variability inference is provided.",
+    "Comparable group selection: largest deterministic complete-link seed group among the explicitly prepared candidate subset; not a claim of globally exhaustive spectral grouping.",
+    "Only one frame satisfies the sequence policy; inspect it individually. Time playback needs at least two frames."
+  ],
+  "request": {
+    "adaptive": false,
+    "candidate_budget": 6,
+    "total_timeout_s": 600.0,
+    "ra": 331.0962400386477,
+    "dec": -56.800523162666664,
+    "cutout_size_deg": 0.05,
+    "dimension": 30,
+    "observation_ids": [
+      "ef7ca8ce5cea9c4ada0e000dd896b8e2",
+      "6c1b6ac25f11e4ddc7d2f4831b4c100a",
+      "e451da9d1dcce88b0f3d1f1d8292bab2",
+      "eeecfa6d9df5d96f3d250ab9847dcaa7",
+      "56653fdf224941c4379d6facfc20117c",
+      "df684a846635eb61e7b7565301dca19a"
+    ],
+    "max_frames": 6,
+    "mode": "comparable",
+    "spectral_tolerance_fraction": 0.01,
+    "wavelength_min_um": null,
+    "wavelength_max_um": null,
+    "date_start": null,
+    "date_end": null,
+    "mjd_start": null,
+    "mjd_end": null,
+    "end_exclusive": false,
+    "display": {
+      "low": null,
+      "high": null,
+      "stretch": "asinh",
+      "asinh_a": 0.1
+    }
+  },
+  "error": null,
+  "selection": {
+    "supplied": 6,
+    "max_frames": 6,
+    "backend_cap": 100,
+    "archive_table_modified": false,
+    "scope": "Supplied candidate order bounded before retrieval; prepared frames sorted by FITS observation time"
+  }
+}

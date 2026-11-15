@@ -8,13 +8,19 @@ The API key never leaves the server: set DEEPSEEK_API_KEY. Optional: DEEPSEEK_MO
 DeepSeek's fast V4.1 Flash tier), DEEPSEEK_BASE_URL, DEEPSEEK_TIMEOUT (seconds), DEEPSEEK_THINKING ("disabled" by
 default, so replies come back quickly; set "enabled" to let the model reason first).
 
-Standard library only, so it can be tested without the archive dependencies.
+Prompt/reply logic uses the standard library; HTTPS uses the installed certifi CA bundle.
 """
 
 from __future__ import annotations
 
 import json
 import os
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+# The local secret file is authoritative, including over stale shell exports.
+load_dotenv(Path(__file__).resolve().with_name(".env"), override=True)
 import urllib.error
 import urllib.request
 
@@ -119,8 +125,11 @@ def _post(payload: dict, key: str) -> dict:
         method="POST",
     )
     timeout = float(os.getenv("DEEPSEEK_TIMEOUT", "30"))
+    import ssl
+    import certifi  # already installed with requests
+    context = ssl.create_default_context(cafile=certifi.where())
     try:
-        with urllib.request.urlopen(req, timeout=timeout) as resp:
+        with urllib.request.urlopen(req, timeout=timeout, context=context) as resp:
             return json.loads(resp.read().decode())
     except urllib.error.HTTPError as exc:
         if exc.code in (401, 403):

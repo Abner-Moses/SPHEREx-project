@@ -1,0 +1,27 @@
+{
+  "results": [
+    {
+      "name": "Barnard's Star",
+      "cubeRows": 102
+    },
+    {
+      "name": "Epsilon Indi B",
+      "cubeRows": 102
+    },
+    {
+      "name": "WISE 0855-0714",
+      "cubeRows": 102
+    },
+    {
+      "name": "RW Aurigae",
+      "cubeRows": 102
+    },
+    {
+      "name": "R Draconis",
+      "cubeRows": 102
+    }
+  ],
+  "rDraconisUnitCorrect": true,
+  "emptyLocalQueryExplicit": true,
+  "pageErrors": []
+}

@@ -1,0 +1,8 @@
+...................................................                      [100%]
+=============================== warnings summary ===============================
+tests/test_pipeline.py: 174 warnings
+  /Users/abnermoses/Downloads/SphereX/SphereX/.venv/lib/python3.14/site-packages/astropy/wcs/wcs.py:2062: RuntimeWarning: All-NaN slice encountered
+    while np.nanmax(dn) >= tol2 and k < maxiter:
+
+-- Docs: https://docs.pytest.org/en/stable/how-to/capture-warnings.html
+51 passed, 174 warnings in 5.92s

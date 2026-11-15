@@ -1,0 +1,28 @@
+
+> spherex-sky-explorer@0.2.0 build
+> vite build
+
+vite v8.3.8 building client environment for production...
+transforming...
+✓ 68 modules transformed.
+rendering chunks...
+computing gzip size...
+dist/index.html                             1.33 kB │ gzip:   0.64 kB
+dist/assets/Intro-DPgum1Br.css              6.72 kB │ gzip:   2.17 kB
+dist/assets/index-C8NOEK7m.css             58.47 kB │ gzip:  12.44 kB
+dist/assets/rolldown-runtime-XKyaHtl9.js    0.72 kB │ gzip:   0.42 kB
+dist/assets/SurfaceView-BkYh3aAs.js         6.45 kB │ gzip:   2.78 kB
+dist/assets/NavBar3D-J1Y1Q5ua.js            9.50 kB │ gzip:   3.46 kB
+dist/assets/DepthView-CR_xHORa.js           9.82 kB │ gzip:   4.13 kB
+dist/assets/DetectorView-DJ615cTr.js       10.04 kB │ gzip:   3.83 kB
+dist/assets/Capture-7CRMADiE.js            14.10 kB │ gzip:   5.69 kB
+dist/assets/Voyager-CVGdGCSG.js            14.30 kB │ gzip:   6.29 kB
+dist/assets/Intro-PH_SCS97.js              30.24 kB │ gzip:  11.87 kB
+dist/assets/AnalysisDeck-BwSwrAFu.js       41.18 kB │ gzip:  15.11 kB
+dist/assets/index-Cd_KOZuv.js             161.42 kB │ gzip:  56.13 kB
+dist/assets/react-C1iE8mnY.js             218.75 kB │ gzip:  68.27 kB
+dist/assets/three-CDYTzRHt.js             530.67 kB │ gzip: 130.69 kB
+
+[33m[INEFFECTIVE_DYNAMIC_IMPORT] [0msrc/api.js is dynamically imported by src/App.jsx but also statically imported by src/components/Capture.jsx, src/explorer.js, src/model/index.js, dynamic import will not move module into another chunk.
+
+✓ built in 177ms

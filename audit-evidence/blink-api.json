@@ -1,0 +1,67 @@
+[
+  {
+    "target": "barnards-star",
+    "sequence_id": "4acc8764431d4c4eb20d2709b22e6767",
+    "status": "ready",
+    "frames": 6,
+    "distinct_previews": 6,
+    "warnings": [
+      "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE.",
+      "Spectral agreement is tested only at the requested target pixel, not across the image. WCS reprojection does not correct astrometric errors or match PSFs; no variability inference is provided.",
+      "Exploratory all mode: frames may sample different wavelengths/bandwidths or lack calibration. Apparent changes must not be interpreted as time variability."
+    ],
+    "error": null
+  },
+  {
+    "target": "eps-indi-b",
+    "sequence_id": "2489818045744f8ab377cf8df8f62dcc",
+    "status": "ready",
+    "frames": 6,
+    "distinct_previews": 6,
+    "warnings": [
+      "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE.",
+      "Spectral agreement is tested only at the requested target pixel, not across the image. WCS reprojection does not correct astrometric errors or match PSFs; no variability inference is provided.",
+      "Exploratory all mode: frames may sample different wavelengths/bandwidths or lack calibration. Apparent changes must not be interpreted as time variability."
+    ],
+    "error": null
+  },
+  {
+    "target": "wise-0855",
+    "sequence_id": "99d02a95f7c14cdbb01e3ebc7c2ff677",
+    "status": "ready",
+    "frames": 5,
+    "distinct_previews": 5,
+    "warnings": [
+      "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE.",
+      "Spectral agreement is tested only at the requested target pixel, not across the image. WCS reprojection does not correct astrometric errors or match PSFs; no variability inference is provided.",
+      "Exploratory all mode: frames may sample different wavelengths/bandwidths or lack calibration. Apparent changes must not be interpreted as time variability."
+    ],
+    "error": null
+  },
+  {
+    "target": "rw-aurigae",
+    "sequence_id": "bed535db1fbd41f68f9e33eb176bcd06",
+    "status": "ready",
+    "frames": 5,
+    "distinct_previews": 5,
+    "warnings": [
+      "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE.",
+      "Spectral agreement is tested only at the requested target pixel, not across the image. WCS reprojection does not correct astrometric errors or match PSFs; no variability inference is provided.",
+      "Exploratory all mode: frames may sample different wavelengths/bandwidths or lack calibration. Apparent changes must not be interpreted as time variability."
+    ],
+    "error": null
+  },
+  {
+    "target": "r-draconis",
+    "sequence_id": "077ca5ae212e431dbf74bf26890de966",
+    "status": "ready",
+    "frames": 4,
+    "distinct_previews": 4,
+    "warnings": [
+      "Aligned variance omitted: interpolation weights/covariance have not been validated. ORIGVAR retains the original source-grid variance; it is not the uncertainty of aligned IMAGE.",
+      "Spectral agreement is tested only at the requested target pixel, not across the image. WCS reprojection does not correct astrometric errors or match PSFs; no variability inference is provided.",
+      "Exploratory all mode: frames may sample different wavelengths/bandwidths or lack calibration. Apparent changes must not be interpreted as time variability."
+    ],
+    "error": null
+  }
+]

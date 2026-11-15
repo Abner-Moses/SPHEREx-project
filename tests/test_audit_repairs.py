@@ -93,3 +93,17 @@ def test_local_index_feeds_real_sky_image_without_http(monkeypatch, l2_file, tmp
     product = pipeline.observe(269.45, 4.69, mode='live')
     assert product.source == 'irsa' and product.width == 200
     assert product.pixel_of(269.45, 4.69) == pytest.approx([100., 100.], abs=.6)
+
+
+def test_dataset_observation_route_is_local_only(monkeypatch):
+    import observation_service
+    seen = []
+    monkeypatch.setattr(local, 'discover', lambda ra, dec: {'observations': [], 'query': {'ra': ra, 'dec': dec, 'source': 'local indexed footprints'}})
+    monkeypatch.setattr(observation_service, 'register_catalog', lambda rows: seen.append(rows))
+    import requests
+    monkeypatch.setattr(requests.Session, 'request', lambda *a, **k: pytest.fail('unexpected external HTTP'))
+    with TestClient(main.app) as client:
+        r = client.get('/api/dataset/observations', params={'ra': 15, 'dec': -4})
+        assert r.status_code == 200 and r.json()['query']['source'] == 'local indexed footprints'
+        assert seen == [[]]
+        assert client.get('/api/dataset/observations', params={'ra': 400, 'dec': 0}).status_code == 422

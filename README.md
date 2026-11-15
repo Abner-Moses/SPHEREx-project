@@ -1,6 +1,6 @@
-# SPHEREx Sky Explorer
+# SPHEREx Dataset Explorer
 
-A Stellarium-style sky dome for NASA's SPHEREx infrared survey. Look around the whole sky, search any object or coordinate, see every SPHEREx image that covers a spot, and zoom from the full sky down to single detector pixels, with the real image laid on the sky through the telescope's own WCS.
+A local SPHEREx dataset workspace with observation tables, measured spectra and chronological image blinking. Enter ICRS RA/Dec or select one of five demonstration targets. The existing sky explorer remains available. See [CHALLENGE_ALIGNMENT.md](CHALLENGE_ALIGNMENT.md) for NASA challenge objectives, implemented behavior and scientific limits.
 
 ## Run
 
@@ -22,6 +22,8 @@ npm run dev               # http://localhost:5173
 ```
 
 Try it: press **Open the Barnard's Star SPHEREx preview**. The uploaded `SphereX-data/` is used first for observation lists, real detector images and five-target science. Original FITS files remain read-only. For a fully local backend demo, run `SPHEREX_OFFLINE=1 .venv/bin/python main.py`; uncovered images return an explicit error.
+
+Voyager loads server secrets from the repository-root `.env` (copy `.env.example` for a fresh setup). Set `DEEPSEEK_API_KEY` there and restart the backend. The local `.env` takes precedence over exported variables; restart after changing it. `.env` is ignored by Git.
 
 Voyager (the AI guide): `DEEPSEEK_API_KEY` (required for Voyager to answer; stays on the server), `DEEPSEEK_MODEL` (default `deepseek-flash`, DeepSeek's V4.1 Flash tier), `DEEPSEEK_THINKING` (default `disabled` for fast replies), `DEEPSEEK_TIMEOUT` (default 30 s), `DEEPSEEK_BASE_URL`.
 
@@ -132,7 +134,7 @@ A pixel-art guide (`frontend/src/voyager/`, backend `voyager.py`, `POST /api/voy
 
 * HYG stars through V=8 and constellation lines/names are bundled. Fainter stars and catalogue enrichment come from SIMBAD on demand and require network access; offline Capture retains the bundled stars. Deeper HiPS imagery and Google Fonts are external browser resources; only base imagery and CSS fallback fonts are available without network.
 * Live downloads are ~60 MB per image; on slow links the first fetch takes minutes (it resumes if interrupted).
-* The overlay uses one image at a time; multi-date blinking is possible with the data (123 images cover Barnard's Star across six bands) but not built yet.
+* The sky overlay uses one image at a time. The dataset workspace supports chronological blinking of real WCS-aligned local observations, with explicit exploratory/comparable modes and shared display limits.
 
 ## Audited validation
 
@@ -147,3 +149,5 @@ Run the suites separately, since each backend owns a `test_pipeline.py` module:
 ```
 
 The full science unit suite uses isolated fixtures and mock transports; the explicit local-data smoke run uses the unchanged uploaded FITS. `SPHEREX_OFFLINE=1` blocks backend remote discovery, FITS, calibration and SIMBAD requests. It does not disable browser requests for deeper HiPS tiles or web fonts. Voyager needs its server-side API key and an internet connection; no key is bundled.
+
+Dataset update: `/api/dataset/observations?ra=&dec=` searches only local FITS footprints and registers their provenance for sequence preparation. It never falls through to a remote archive. All five target sequences were verified with distinct real PNGs; see `audit-evidence/blink-api.json`.

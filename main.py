@@ -88,6 +88,21 @@ async def science_status() -> dict:
     return out
 
 
+@app.get("/api/dataset/observations")
+async def dataset_observations(
+    ra: float = Query(ge=0, lt=360),
+    dec: float = Query(ge=-90, le=90),
+) -> dict:
+    """Search only unchanged local Level-2 footprints; never contact an archive."""
+    if sci_main is None:
+        raise HTTPException(503, "The local science backend is unavailable.")
+    import local_science
+    import observation_service
+    result = await run_in_threadpool(local_science.discover, ra, dec)
+    await run_in_threadpool(observation_service.register_catalog, result["observations"])
+    return result
+
+
 class VoyagerRequest(BaseModel):
     question: str = Field(min_length=1, max_length=600)
     humor: int = Field(default=50, ge=0, le=100)
