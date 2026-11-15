@@ -29,7 +29,7 @@ const DEFAULT_2D = { black: 0, white: 255, stretch: 'asinh', invert: false, inte
 const VIEWS = [{ id: 'sky', label: 'Sky' }, { id: 'image', label: 'Image' }, { id: 'surface', label: '3D' }, { id: 'depth', label: 'Depth' }]
 const TABS = [{ id: 'obs', label: 'Observations' }, { id: 'image', label: 'Image' }, { id: 'ai', label: 'AI tools' }, { id: 'learn', label: 'Learn' }, { id: 'ask', label: 'Ask' }]
 
-export default function App() {
+export default function App({ presentation = false, presentationRef }) {
   const x = useExplorer()
   const { engineRef, sky, layers, setLayers, projection, setProjection, epochMs, setEpoch, timeRate, setTimeRate, selected, product, observations, backendUp } = x
   const [view, setView] = useState('sky')
@@ -52,10 +52,11 @@ export default function App() {
   const [pins, setPins] = useState([])
   const [now, setNow] = useState(Date.now())
   const searchRef = useRef(null)
-  const [intro, setIntro] = useState(() => (reducedMotion() ? null : introSeen() ? 'return' : 'first'))
+  const [intro, setIntro] = useState(() => (presentation || reducedMotion() ? null : introSeen() ? 'return' : 'first'))
   const [uplink, setUplink] = useState(0)
   const [capture, setCapture] = useState(false)
   const depthRef = useRef(null)
+  const capturePresentation = useRef(null)
   const canCapture = view === 'sky' || view === 'depth'
   const pausedRate = useRef(0)
   // capturing pauses time (so moving stars hold still) and restores the previous rate afterwards
@@ -88,6 +89,7 @@ export default function App() {
     else if (product.status === 'error') logEvent('r', `uplink failed · ${product.error}`)
   }, [product.status]) // eslint-disable-line react-hooks/exhaustive-deps
   useEffect(() => { if (!uplink) return undefined; const t = setTimeout(() => setUplink(0), 2100); return () => clearTimeout(t) }, [uplink])
+  useEffect(() => { if (presentation) setIntro(null) }, [presentation])
   const finishIntro = useCallback(() => { saveSetting('spherex.intro.seen', true); setIntro(null) }, [])
   useEffect(() => { setAperture(null); setLine(null) }, [product.meta?.id])
   useEffect(() => { if (selected) { setPanel((p) => (p === 'learn' || p === 'ask' ? p : 'obs')) } }, [selected])
@@ -204,6 +206,18 @@ export default function App() {
     return () => window.removeEventListener('keydown', onKey)
   }, [layers, setLayers, x, goView, view, capture, openCapture, closeCapture, engineRef])
 
+  useEffect(() => {
+    if (!presentationRef) return
+    presentationRef.current = {
+      ready: sky.status === 'ready' && !!engineRef.current,
+      imageReady: product.status === 'ready',
+      prepare: async () => { goView('sky'); await x.openBarnardPreview(); setPanelOpen(false); setVisited(new Set(['sky', 'image', 'surface', 'depth'])) },
+      focus: () => { setPanelOpen(false); const pos = selected ? propagate(selected.ra, selected.dec, selected.pmra ?? 0, selected.pmdec ?? 0, yearsSinceJ2000(epochMs)) : null; if (pos) engineRef.current?.jumpTo(pos.lon / DEG, pos.lat / DEG, 2) },
+      view: goView, capture: openCapture, closeCapture,
+      frame: (rect) => capturePresentation.current?.(rect),
+    }
+  })
+
   const fullscreen = () => { if (document.fullscreenElement) document.exitFullscreen(); else document.documentElement.requestFullscreen?.() }
   const image = product.image
   const insets = useMemo(() => ({ left: 0, right: panelOpen && window.innerWidth > 900 ? 396 : 0 }), [panelOpen])
@@ -244,7 +258,7 @@ export default function App() {
         </div>
       </header>
 
-      {canCapture && capture && <Suspense fallback={null}><Capture engineRef={view === 'depth' ? depthRef : engineRef} mode={view} key={view} backendUp={backendUp} onClose={closeCapture}
+      {canCapture && capture && <Suspense fallback={null}><Capture presentationRef={capturePresentation} engineRef={view === 'depth' ? depthRef : engineRef} mode={view} key={view} backendUp={backendUp} onClose={closeCapture}
         onSelect={(o) => { const depth = view === 'depth'; if (depth) { closeCapture(); goView('sky') } x.select({ name: o.name, ra: o.ra, dec: o.dec, pmra: o.pmra, pmdec: o.pmdec, otype: o.otype, vmag: o.mag ?? undefined, distance_ly: o.dist, landmark: o.landmark }, { fly: depth, fov: 20 }) }}
         onAskVoyager={voy.show ? (o) => { x.select({ name: o.name, ra: o.ra, dec: o.dec, pmra: o.pmra, pmdec: o.pmdec, otype: o.otype, vmag: o.mag ?? undefined, distance_ly: o.dist, landmark: o.landmark }, { fly: false }); setTimeout(() => voyagerAsk(`What is ${o.name}?`, 'sel'), 60) } : null}
         onOpenImage={(o, row) => { closeCapture(); x.loadProduct({ ra: o.ra, dec: o.dec, obsId: row.obs_id, detector: row.detector }).then((m) => m?.mjd_avg && setEpoch(Date.UTC(2000, 0, 1, 12) + (m.mjd_avg - 51544.5) * 86400000)) }} /></Suspense>}
@@ -277,7 +291,7 @@ export default function App() {
       <TimePill epochMs={epochMs} setEpoch={setEpoch} timeRate={timeRate} setTimeRate={setTimeRate} productMjd={product.meta?.mjd_avg} />
 
       {x.toast && <div className={`toast ${x.toast.tone ?? ''}`} role="status"><span>{x.toast.text}</span><button type="button" className="icon-btn subtle" aria-label="Dismiss" onClick={() => x.setToast(null)}>{Icon.close}</button></div>}
-      {voy.show && <Suspense fallback={null}><Voyager ready={!intro && sky.status === 'ready'} humor={voy.humor} detail={voy.detail} getTargets={getTargets} resolveTarget={resolveTarget} getContext={getContext} /></Suspense>}
+      {voy.show && !presentation && <Suspense fallback={null}><Voyager ready={!intro && sky.status === 'ready'} humor={voy.humor} detail={voy.detail} getTargets={getTargets} resolveTarget={resolveTarget} getContext={getContext} /></Suspense>}
       {intro && <Suspense fallback={<div className="intro-hold" />}><Intro returning={intro === 'return'} onDone={finishIntro} /></Suspense>}
     </div>
   )

@@ -41,7 +41,7 @@ const HTML = `<section class="phase on" data-x="gate">
 <div class="bars top" data-x="barT"></div><div class="bars bot" data-x="barB"></div>
 <div class="skip" data-x="skip">ESC · SKIP</div>`
 
-export function runIntro(root, { returning = false, onDone = () => {} } = {}) {
+export function runIntro(root, { returning = false, onDone = () => {}, autoStart = false, timeScale = 1 } = {}) {
 root.innerHTML = HTML
 
 const $=(id)=>root.querySelector('[data-x="'+id+'"]')
@@ -57,13 +57,13 @@ const hash=(x,y)=>((((x|0)*73856093)^((y|0)*19349663))>>>0)
 // ============================================================ phases
 let phase='gate',muted=true,mode='first',timers=[]
 function show(id){for(const s of root.querySelectorAll('.phase'))s.classList.toggle("on",s.dataset.x===id);phase=id;$('skip').classList.toggle('on',id==='film'||id==='boot')}
-function later(ms,fn){timers.push(setTimeout(fn,ms))}
+function later(ms,fn){timers.push(setTimeout(fn,ms/timeScale))}
 function clearTimers(){timers.forEach(clearTimeout);timers=[]}
 function begin(sound){
   mode=returning?'return':'first'
   muted=!sound
   if(sound)audio.init()
-  if(reduced){toSite();return}
+  if(reduced&&!autoStart){toSite();return}
   if(mode==='return')startBoot(); else startFilm()
 }
 $('yes').onclick=()=>begin(true);$('no').onclick=()=>begin(false)
@@ -324,7 +324,7 @@ function startFilm(){
 }
 function filmFrame(now){
   if(phase!=='film')return
-  filmT=(now-filmStart)/1000
+  filmT=(now-filmStart)/1000*timeScale
   const T=Math.floor(filmT*FPS)/FPS
   if(T!==lastDraw){lastDraw=T;drawFilm(T)}
   if(filmT>=T_END){startBoot();return}
@@ -423,5 +423,6 @@ function dispose(){if(done)return;done=true;cancelAnimationFrame(raf);clearTimer
   setTimeout(()=>{try{ctx.close()}catch{}},tail)}
 function toSite(){if(done)return;dispose();onDone()}
 
+if(autoStart)begin(false)
 return dispose
 }

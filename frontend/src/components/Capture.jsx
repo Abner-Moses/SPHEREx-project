@@ -35,7 +35,7 @@ function norm(o) {
   }
 }
 
-export default function Capture({ engineRef, mode = 'sky', backendUp, onSelect, onOpenImage, onAskVoyager, onClose }) {
+export default function Capture({ engineRef, mode = 'sky', backendUp, onSelect, onOpenImage, onAskVoyager, onClose, presentationRef }) {
   const [phase, setPhase] = useState('aim')
   const [drag, setDrag] = useState(null)
   const [flash, setFlash] = useState(0)
@@ -126,6 +126,11 @@ export default function Capture({ engineRef, mode = 'sky', backendUp, onSelect, 
   }, [engineRef, backendUp])
 
   // aim: drag a frame, or click for a quick one
+  useEffect(() => {
+    if (presentationRef) presentationRef.current = shoot
+    return () => { if (presentationRef) presentationRef.current = null }
+  }, [presentationRef, shoot])
+
   const down = (ev) => { if (ev.button !== 0) return; ev.currentTarget.setPointerCapture(ev.pointerId); start.current = { x: ev.clientX, y: ev.clientY, shift: ev.shiftKey }; setDrag({ x0: ev.clientX, y0: ev.clientY, x1: ev.clientX, y1: ev.clientY }) }
   const move = (ev) => { if (start.current) setDrag({ x0: Math.min(start.current.x, ev.clientX), y0: Math.min(start.current.y, ev.clientY), x1: Math.max(start.current.x, ev.clientX), y1: Math.max(start.current.y, ev.clientY) }) }
   const up = (ev) => {
