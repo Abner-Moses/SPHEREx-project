@@ -167,6 +167,7 @@ export class SkyEngine {
       plane: mk(8000, lineMaterial(0x9b9484, 0.45), THREE.LineSegments),
       foot: mk(MAX_SEG, lineMaterial(0x4aa3ff, 0.24), THREE.LineSegments),
       footActive: mk(2000, lineMaterial(0xf2b705, 0.95), THREE.LineSegments),
+      trail: mk(4000, lineMaterial(0xf2b705, 0.85), THREE.LineSegments), // selected star's motion history
       cons: mk(20000, lineMaterial(0x8fb4c8, 0.42), THREE.LineSegments),
     }
     Object.values(this.lines).forEach((l, i) => { l.renderOrder = 2 + (i % 3) })
@@ -663,6 +664,22 @@ export class SkyEngine {
     const cGal = equatorialToGalactic(this.state.lon0 / DEG, this.state.lat0 / DEG).l
     seg(this.lines.ecl, (push) => { if (L.ecliptic) circle((l) => eclipticToEquatorial(l, 0), cEcl)(push) })
     seg(this.lines.plane, (push) => { if (L.galPlane) circle((l) => galacticToEquatorial(l, 0), cGal)(push) })
+    // ---- motion history of the selected star: its path from 1800 to the epoch shown, ticks every 50 years
+    const sel = this.markers.find((m) => m.selected && (m.pmra || m.pmdec))
+    seg(this.lines.trail, (push) => {
+      if (!sel) return
+      const from = 1800 - 2000, to = years, n = 120, pts = []
+      for (let i = 0; i <= n; i++) { const q = propagate(sel.ra, sel.dec, sel.pmra || 0, sel.pmdec || 0, from + ((to - from) * i) / n); pts.push([q.lon, q.lat]) }
+      const a = view.project(pts[0][0], pts[0][1]), b = view.project(pts[n][0], pts[n][1])
+      if (!a.visible || !b.visible || Math.hypot(a.x - b.x, a.y - b.y) < 6) return // too short to see at this zoom
+      polyline(pts, push)
+      for (let yr = 1800; yr <= 2000 + to; yr += 50) {
+        const q = propagate(sel.ra, sel.dec, sel.pmra || 0, sel.pmdec || 0, yr - 2000), p = view.project(q.lon, q.lat)
+        if (!p.visible || !onScreen(p.x, p.y)) continue
+        push({ x: p.x - 4, y: p.y }, { x: p.x + 4, y: p.y }); push({ x: p.x, y: p.y - 4 }, { x: p.x, y: p.y + 4 })
+        if (L.labels && labelN < 260) this.label(labelN++, String(yr), p.x + 6, p.y + 4, 'trail')
+      }
+    })
     // ---- constellations: stick figures always (when on), names only at "constellation scale"
     seg(this.lines.cons, (push) => { if (L.constellations && this.cons) for (const line of this.cons.lines) polyline(line, push) })
     if (L.constellations && L.labels && this.cons && fov > 6 && fov < 260) {

@@ -143,8 +143,25 @@ export function dragCenter(view, from, to) {
   }
   const anchor = view.unproject(from.x, from.y)
   const vTo = skyVector(view, to.x, to.y)
-  if (!anchor || !vTo) return { lon0: view.lon0, lat0: view.lat0 }
-  return solveCenter(view, anchor, to, centerAfterMoving(view, vTo, unit(anchor.lon, anchor.lat)))
+  const px = Math.hypot(to.x - from.x, to.y - from.y)
+  const radPerPx = (view.fov * DEG) / Math.max(1, view.width)
+  const exact = anchor && vTo ? solveCenter(view, anchor, to, centerAfterMoving(view, vTo, unit(anchor.lon, anchor.lat))) : null
+  // The exact "grab" solve is ill-conditioned near the poles and at the edge of wide views: a few pixels can
+  // swing the centre by up to 180° (the sky spins). Accept it only if the centre moved about as far as the
+  // pointer did; otherwise pan by the pointer delta directly.
+  if (exact) {
+    const step = Math.acos(Math.max(-1, Math.min(1, dot(unit(view.lon0, view.lat0), unit(exact.lon0, exact.lat0)))))
+    if (step <= px * radPerPx * 3 + 1e-9) return exact
+  }
+  return panByPixels(view, to.x - from.x, to.y - from.y)
+}
+
+/** Fallback pan: pointer delta in pixels -> centre shift, with RA scaled by 1/cos(dec) (capped near the poles). */
+export function panByPixels(view, dx, dy) {
+  const k = (view.fov * DEG) / Math.max(1, view.width)
+  const lat0 = Math.max(-89.99 * DEG, Math.min(89.99 * DEG, view.lat0 + dy * k))
+  const lon0 = view.lon0 + (dx * k) / Math.max(0.25, Math.cos(view.lat0))
+  return { lon0: ((lon0 % (2 * Math.PI)) + 2 * Math.PI) % (2 * Math.PI), lat0 }
 }
 
 /**

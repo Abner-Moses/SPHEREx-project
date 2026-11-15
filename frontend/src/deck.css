@@ -353,3 +353,6 @@ input[type="range"]::-moz-range-thumb { width: 12px; height: 20px; border-radius
 .glchart-tip { position: absolute; pointer-events: none; background: var(--panel); border-left: 2px solid var(--accent); padding: 3px 7px; font: 400 10.5px var(--mono); color: var(--cream); white-space: nowrap; z-index: 2; }
 .glchart-err { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font: 400 11px var(--mono); color: var(--red); }
 @media (max-width: 720px) { .da-grid { grid-template-columns: 1fr; padding: 10px; } .da-head { padding: 10px; } }
+
+/* selected star motion history: year ticks */
+.sky-label.trail { color: rgba(242, 183, 5, 0.85); font-family: var(--mono); font-size: 10px; }
