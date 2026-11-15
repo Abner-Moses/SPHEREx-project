@@ -1,0 +1,19 @@
+
+=== CUBE: cygnus_x ===
+  Saved Npix3676_cube.fits: 320.91 MB
+
+=== CUBE: orion ===
+  Saved Npix5359_cube.fits: 320.91 MB
+
+=== CUBE: cosmos ===
+  Saved Npix6814_cube.fits: 320.91 MB
+
+=== CUBE: galactic_centre ===
+  Cube allocation nearly exhausted.
+
+========== DATASET SUMMARY ==========
+observations        15 FITS  0.239 GB
+cubes                3 FITS  0.963 GB
+calibrations         0 FITS  0.000 GB
+Total FITS: 1.202 GB
+FITS limit: 4.600 GB

@@ -1,0 +1,27 @@
+
+=== EPSILON_INDI_B ===
+Cached candidates: 0
+Live IRSA metadata unavailable: HTTPSConnectionPool(host='irsa.ipac.caltech.edu', port=443): Max retries exceeded with url: /SIA?POS=CIRCLE+331.0441458333333+-56.78284416666666+0.05&COLLECTION=spherex_dr1&COLLECTION=spherex_qr3 (Caused by ConnectTimeoutError(<HTTPSConnection(host='irsa.ipac.caltech.edu', port=443) at 0x123553a70>, 'Connection to irsa.ipac.caltech.edu timed out. (connect timeout=15)'))
+No observation metadata. Skipping.
+
+=== WISE_0855 ===
+Cached candidates: 0
+Live IRSA metadata unavailable: HTTPSConnectionPool(host='irsa.ipac.caltech.edu', port=443): Max retries exceeded with url: /SIA?POS=CIRCLE+133.79512917+-7.24514722+0.05&COLLECTION=spherex_dr1&COLLECTION=spherex_qr3 (Caused by ConnectTimeoutError(<HTTPSConnection(host='irsa.ipac.caltech.edu', port=443) at 0x123551d00>, 'Connection to irsa.ipac.caltech.edu timed out. (connect timeout=15)'))
+No observation metadata. Skipping.
+
+=== RW_AURIGAE ===
+Cached candidates: 0
+Live IRSA metadata unavailable: HTTPSConnectionPool(host='irsa.ipac.caltech.edu', port=443): Max retries exceeded with url: /SIA?POS=CIRCLE+76.95652499999998+30.401438055555555+0.05&COLLECTION=spherex_dr1&COLLECTION=spherex_qr3 (Caused by ConnectTimeoutError(<HTTPSConnection(host='irsa.ipac.caltech.edu', port=443) at 0x123569220>, 'Connection to irsa.ipac.caltech.edu timed out. (connect timeout=15)'))
+No observation metadata. Skipping.
+
+=== R_DRACONIS ===
+Cached candidates: 0
+Live IRSA metadata unavailable: HTTPSConnectionPool(host='irsa.ipac.caltech.edu', port=443): Max retries exceeded with url: /SIA?POS=CIRCLE+248.1676125+66.75497944444444+0.05&COLLECTION=spherex_dr1&COLLECTION=spherex_qr3 (Caused by ConnectTimeoutError(<HTTPSConnection(host='irsa.ipac.caltech.edu', port=443) at 0x1235699d0>, 'Connection to irsa.ipac.caltech.edu timed out. (connect timeout=15)'))
+No observation metadata. Skipping.
+
+========== DATASET SUMMARY ==========
+observations        26 FITS  0.928 GB
+cubes                3 FITS  0.963 GB
+calibrations        38 FITS  0.711 GB
+Total FITS: 2.602 GB
+FITS limit: 4.600 GB

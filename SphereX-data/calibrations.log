@@ -1,0 +1,57 @@
+
+=== CALIBRATION: dr1/spectral_wcs ===
+  Saved spectral_wcs_D1_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+  Saved spectral_wcs_D2_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+  Saved spectral_wcs_D3_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+  Saved spectral_wcs_D4_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+  Saved spectral_wcs_D5_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+  Saved spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+
+=== CALIBRATION: qr3/spectral_wcs ===
+  Saved spectral_wcs_D1_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+  Saved spectral_wcs_D2_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+  Saved spectral_wcs_D3_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+  Saved spectral_wcs_D4_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+  Saved spectral_wcs_D5_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+  Saved spectral_wcs_D6_spx_cal-swcs-v5-2026-191.fits: 33.31 MB
+
+=== CALIBRATION: dr1/solid_angle_pixel_map ===
+  Saved solid_angle_pixel_map_D1_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+  Saved solid_angle_pixel_map_D2_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+  Saved solid_angle_pixel_map_D3_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+  Saved solid_angle_pixel_map_D4_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+  Saved solid_angle_pixel_map_D5_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+  Saved solid_angle_pixel_map_D6_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+
+=== CALIBRATION: qr3/solid_angle_pixel_map ===
+  Saved solid_angle_pixel_map_D1_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+  Saved solid_angle_pixel_map_D2_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+  Saved solid_angle_pixel_map_D3_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+  Saved solid_angle_pixel_map_D4_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+  Saved solid_angle_pixel_map_D5_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+  Saved solid_angle_pixel_map_D6_spx_cal-sapm-v3-2026-191.fits: 16.65 MB
+
+=== CALIBRATION: dr1/epsf ===
+  Saved epsf_D1_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D2_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D3_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D4_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D5_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D6_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D3_spx_cal-epsf-v2-2026-191.fits: 8.12 MB
+
+=== CALIBRATION: qr3/epsf ===
+  Saved epsf_D1_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D2_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D3_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D4_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D5_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D6_spx_cal-epsf-v1-2026-191.fits: 7.94 MB
+  Saved epsf_D3_spx_cal-epsf-v2-2026-191.fits: 8.12 MB
+
+========== DATASET SUMMARY ==========
+observations        15 FITS  0.239 GB
+cubes                3 FITS  0.963 GB
+calibrations        38 FITS  0.711 GB
+Total FITS: 1.913 GB
+FITS limit: 4.600 GB

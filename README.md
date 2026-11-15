@@ -65,7 +65,7 @@ The SphereX2 science backend (`science/`, from the teammate's repository) runs i
   * **Multi-star graphs:** colour–magnitude, HR, J−H/H−K, luminosity function, log N–m, proper-motion vector-point diagram, sky motion map, distance histogram, parallax–magnitude, box plot by colour class, radial density, nearest-neighbour separations.
   * **Frame graphs:** captured-frame 3D surface, heatmap, RGB histogram.
 * **Shift + drag** captures every star in the frame, up to `clamp(round(area_px² / 2500), 2, 250)`, brightest first.
-* **Dataset:** the uploaded local copy contains 47 observations and 8 cubes (102 nominal channels, 50/51 intentionally blank). All five target bundles have been recomputed and verified offline. See `SCIENCE_DATASET_REPORT.md` and `audit-report.md` for actual measurements and validation. Original multi-gigabyte FITS files and regenerable caches are excluded from Git; the local copy is retained intact, and manifests record their source URLs and SHA-256 checksums. A fresh clone must restore the original data to `SphereX-data/` for local image opening; cached target analysis bundles remain included.
+* **Dataset:** the uploaded local copy contains 47 observations and 8 cubes (102 nominal channels, 50/51 intentionally blank). All five target bundles have been recomputed and verified offline. See `SCIENCE_DATASET_REPORT.md` and `audit-report.md` for actual measurements and validation. The complete original dataset is versioned through Git LFS; regenerable caches remain excluded. Manifests retain source URLs and SHA-256 checksums. Install Git LFS before cloning, then run `git lfs install` and `git lfs pull` to download all 93 original FITS files. Cached target analysis bundles remain included.
 
 ## Sky view (Stellarium-style)
 
@@ -151,3 +151,5 @@ Run the suites separately, since each backend owns a `test_pipeline.py` module:
 The full science unit suite uses isolated fixtures and mock transports; the explicit local-data smoke run uses the unchanged uploaded FITS. `SPHEREX_OFFLINE=1` blocks backend remote discovery, FITS, calibration and SIMBAD requests. It does not disable browser requests for deeper HiPS tiles or web fonts. Voyager needs its server-side API key and an internet connection; no key is bundled.
 
 Dataset update: `/api/dataset/observations?ra=&dec=` searches only local FITS footprints and registers their provenance for sequence preparation. It never falls through to a remote archive. All five target sequences were verified with distinct real PNGs; see `audit-evidence/blink-api.json`.
+
+Dataset checkout requires Git LFS. The original dataset contains 153 files (5,585,354,234 bytes), including 93 FITS products; FITS content is stored as LFS objects rather than ordinary Git blobs.

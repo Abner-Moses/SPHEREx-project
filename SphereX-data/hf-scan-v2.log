@@ -1,0 +1,56 @@
+FITS files available: 438
+Revision: b7dc587aa8ca8fbfc530718565dff2da8a530a3d
+Scanned 10/438
+Scanned 20/438
+Scanned 30/438
+Scanned 40/438
+Scanned 50/438
+Scanned 60/438
+Scanned 70/438
+Scanned 80/438
+Scanned 90/438
+Scanned 100/438
+Scanned 110/438
+Scanned 120/438
+Scanned 130/438
+Scanned 140/438
+Scanned 150/438
+Scanned 160/438
+Scanned 170/438
+Scanned 180/438
+Scanned 190/438
+Scanned 200/438
+Scanned 210/438
+Scanned 220/438
+Scanned 230/438
+Scanned 240/438
+Scanned 250/438
+Scanned 260/438
+Scanned 270/438
+Scanned 280/438
+Scanned 290/438
+Scanned 300/438
+Scanned 310/438
+Scanned 320/438
+Scanned 330/438
+Scanned 340/438
+Scanned 350/438
+Scanned 360/438
+Scanned 370/438
+Scanned 380/438
+Scanned 390/438
+Scanned 400/438
+Scanned 410/438
+Scanned 420/438
+Scanned 430/438
+Header unavailable: SPHEREx-D6/level2_2026W20_1A_0915_1D6_spx_l2b-v24-2026-135.fits HTTPSConnectionPool(host='us.aws.cdn.hf.co', port=443): Read timed out. (read timeout=30)
+Header unavailable: SPHEREx-D6/level2_2026W20_1A_0916_1D6_spx_l2b-v24-2026-135.fits ('Connection aborted.', RemoteDisconnected('Remote end closed connection without response'))
+Scanned 438/438
+
+=== RESULTS ===
+barnards_star 0 matching observations
+epsilon_indi_b 0 matching observations
+wise_0855 0 matching observations
+rw_aurigae 0 matching observations
+r_draconis 0 matching observations
+Header failures: 2

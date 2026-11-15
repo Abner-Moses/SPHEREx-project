@@ -99,3 +99,7 @@ PLAYWRIGHT_BROWSERS_PATH="$PWD/.audit/browsers" node .audit/check-presentation.c
 ```
 
 Update that harness first. The computer-use browser host was unavailable earlier, so repository-local Playwright was used. The existing dataset validation reports remain in `audit-report.md`, `SCIENCE_DATASET_REPORT.md`, `CHALLENGE_ALIGNMENT.md` and `audit-evidence/`.
+
+## Dataset committed after this handoff
+
+The user subsequently requested the dataset itself be committed. All 153 original `SphereX-data/` files are now included; the 93 FITS files use Git LFS via `.gitattributes`. Install Git LFS and run `git lfs pull` after cloning. Source dataset bytes are unchanged. Generated `.audit` assets and secrets remain excluded. This dataset addition does not complete the pending presentation validation or MP4 render described above.

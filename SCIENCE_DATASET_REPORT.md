@@ -35,4 +35,4 @@ Each target has one local cube. For all five, sources include both required loca
 
 See the changed-file inventory in `audit-report.md` for every repaired source/project file and generated artifact group. The original dataset, `science/local_science.py`, theme/styles, science acceptance policy, model limitations and unused regional cubes were preserved.
 
-Publication: the validated source was committed and pushed to `main` at https://github.com/Abner-Moses/SPHEREx-project.git; remote SHA verification is recorded in `audit-evidence/publishing.json`. Original FITS remain local and unchanged; manifests, cached bundles and evidence are versioned.
+Publication: the validated source was committed and pushed to `main` at https://github.com/Abner-Moses/SPHEREx-project.git; remote SHA verification is recorded in `audit-evidence/publishing.json`. Original FITS remain unchanged and were subsequently added using Git LFS at the user’s request; manifests, cached bundles and evidence are versioned.

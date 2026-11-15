@@ -10,7 +10,7 @@ __pycache__/
 .env
 .env.*
 !.env.example
-# Immutable upstream FITS remain local; source URLs/checksums are in manifests.
+# Generated FITS stay ignored; the original dataset is versioned with Git LFS.
 *.fits
 *.fits.gz
 *.log
@@ -19,3 +19,7 @@ __pycache__/
 *.sqlite-wal
 science/cache/observations/
 science/cache/hips/
+
+# Original uploaded dataset (large FITS use .gitattributes / Git LFS).
+!SphereX-data/**/*.fits
+!SphereX-data/**/*.log
