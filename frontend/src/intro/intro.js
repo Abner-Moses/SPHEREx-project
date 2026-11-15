@@ -41,7 +41,9 @@ const HTML = `<section class="phase on" data-x="gate">
 <div class="bars top" data-x="barT"></div><div class="bars bot" data-x="barB"></div>
 <div class="skip" data-x="skip">ESC · SKIP</div>`
 
-export function runIntro(root, { returning = false, onDone = () => {}, autoStart = false, timeScale = 1 } = {}) {
+// Demo cut (presentation): cut={from,to} plays only film seconds from..to (title, no pigeon), then a short boot at bootScale.
+// audioCtx/audioOut: an external AudioContext and node to play into (the presentation records them); never closed here.
+export function runIntro(root, { returning = false, onDone = () => {}, autoStart = false, timeScale = 1, cut = null, bootScale = timeScale, audioCtx = null, audioOut = null } = {}) {
 root.innerHTML = HTML
 
 const $=(id)=>root.querySelector('[data-x="'+id+'"]')
@@ -57,7 +59,8 @@ const hash=(x,y)=>((((x|0)*73856093)^((y|0)*19349663))>>>0)
 // ============================================================ phases
 let phase='gate',muted=true,mode='first',timers=[]
 function show(id){for(const s of root.querySelectorAll('.phase'))s.classList.toggle("on",s.dataset.x===id);phase=id;$('skip').classList.toggle('on',id==='film'||id==='boot')}
-function later(ms,fn){timers.push(setTimeout(fn,ms/timeScale))}
+let ts=timeScale
+function later(ms,fn){timers.push(setTimeout(fn,ms/ts))}
 function clearTimers(){timers.forEach(clearTimeout);timers=[]}
 function begin(sound){
   mode=returning?'return':'first'
@@ -83,13 +86,13 @@ const audio={
   ctx:null,
   init(){
     if(this.ctx){if(this.ctx.state==='suspended')this.ctx.resume();return}
-    const A=this.ctx=new (window.AudioContext||window.webkitAudioContext)()
+    const A=this.ctx=audioCtx||new (window.AudioContext||window.webkitAudioContext)()
     // analog chain: soft tape saturation -> gentle high cut -> glue compression
     this.master=A.createGain();this.master.gain.value=.8
     const sat=A.createWaveShaper();sat.curve=this.tanhCurve(1.8);sat.oversample='2x'
     const tone=A.createBiquadFilter();tone.type='lowpass';tone.frequency.value=9500;tone.Q.value=.5
     const comp=A.createDynamicsCompressor();comp.threshold.value=-16;comp.ratio.value=3;comp.attack.value=.01;comp.release.value=.25
-    this.master.connect(sat).connect(tone).connect(comp).connect(A.destination)
+    this.master.connect(sat).connect(tone).connect(comp).connect(audioOut||A.destination)
     this.rev=A.createConvolver();this.rev.buffer=this.impulse(5.5)
     const wet=A.createGain();wet.gain.value=.5;this.rev.connect(wet).connect(this.master)
   },
@@ -319,7 +322,7 @@ let filmStart=0,filmT=0,lastDraw=-1,raf=0,signed=false,signRule=null
 // where the title's amber rule sits, in film pixels (it is HTML, so it moves with the screen size)
 function ruleY(){if(signRule==null){const fr=$('frame').getBoundingClientRect(),r=$('tl').getBoundingClientRect();signRule=fr.height?((r.top-fr.top)/fr.height)*FH:FH*.47}return signRule}
 function startFilm(){
-  clearTimers();show('film');filmStart=performance.now();lastDraw=-1;filmAudio()
+  clearTimers();show('film');filmStart=performance.now()-(cut?cut.from*1000/timeScale:0);lastDraw=-1;if(cut)cutAudio();else filmAudio()
   $('cHook').textContent='';raf=requestAnimationFrame(filmFrame)
 }
 function filmFrame(now){
@@ -327,7 +330,7 @@ function filmFrame(now){
   filmT=(now-filmStart)/1000*timeScale
   const T=Math.floor(filmT*FPS)/FPS
   if(T!==lastDraw){lastDraw=T;drawFilm(T)}
-  if(filmT>=T_END){startBoot();return}
+  if(filmT>=(cut?cut.to:T_END)){startBoot();return}
   raf=requestAnimationFrame(filmFrame)
 }
 function drawFilm(T){
@@ -339,20 +342,20 @@ function drawFilm(T){
   else if(T<17)shotPullback(T-12.5)
   else if(T<T_TITLE-.5)voy=shotVoyager(T-T_VOY)
   else if(T<T_TITLE)clear()
-  else if(T<T_SIGN)shotTitle(T-T_TITLE)
+  else if(T<T_SIGN||cut)shotTitle(T-T_TITLE)
   else{shotTitle(T-T_TITLE);shotSign(T-T_SIGN,ruleY());if(!signed){signed=true;if(!muted&&audio.ctx)audio.flutter(audio.buses?.[0]??audio.bus(),audio.ctx.currentTime,5,.06,0)}}
   for(const [t,c] of FLASH)if(T>=t&&T<t+1/FPS){for(let y=0;y<FH;y++)for(let x=0;x<FW;x++)if(.6>B4(x,y))D[y*FW+x]=c}
   g.putImageData(img,0,0)
   if(voy){g.save();g.imageSmoothingEnabled=false;g.translate(Math.round(voy.x),Math.round(voy.y+30));g.scale(voy.sx*2,voy.sy*2);g.drawImage(VSPR[voy.ex],-16,-32);g.restore()}
   // cards: hard cuts, no fades
-  for(const [id,a,b] of CARDS)$(id).style.opacity=(T>=a&&T<b)?1:0
+  for(const [id,a,b] of CARDS)$(id).style.opacity=(T>=a&&T<b&&!(cut&&(id==='cSign'||id==='cPress')))?1:0
   // the hook types itself out
   const hook='Light takes time.';$('cHook').textContent=hook.slice(0,clamp(Math.floor((T-.6)*12),0,hook.length))+(T<2.9&&Math.floor(T*2)%2?'_':'')
   if(T>=9.35)$('yr').textContent=String(1916+Math.round(110*eio(clamp((T-9.34)/3,0,1))))
   if(T>=T_TITLE+.3){const k=clamp((T-T_TITLE-.3)/1.6,0,1);$('tw').style.letterSpacing=lerp(1.4,.42,eout(k)).toFixed(3)+'em';$('tl').style.width=(eout(clamp((T-T_TITLE-1.4)/.8,0,1))*60)+'%';$('ts').style.opacity=T>=T_TITLE+2.2?1:0}
   // sign-off: the title's words leave, the rule stays for the pigeon to stand on
-  const sk=clamp((T-T_SIGN-.5)/.6,0,1);$('tw').style.opacity=1-sk;$('ts').style.opacity=T>=T_TITLE+2.2?1-sk:0
-  $('cPress').style.visibility=T>=T_TITLE+4&&T<T_SIGN&&Math.floor(T)%2===0?'visible':'hidden'
+  const sk=cut?0:clamp((T-T_SIGN-.5)/.6,0,1);$('tw').style.opacity=1-sk;$('ts').style.opacity=T>=T_TITLE+2.2?1-sk:0
+  $('cPress').style.visibility=!cut&&T>=T_TITLE+4&&T<T_SIGN&&Math.floor(T)%2===0?'visible':'hidden'
   // gate weave and moving grain
   $('frame').style.transform=`translate(-50%,-50%) translate(${(hash(T*12,1)%3)-1}px,${(hash(T*12,2)%3)-1}px)`
   $('grain').style.backgroundPosition=`${hash(T*12,3)%160}px ${hash(T*12,4)%160}px`
@@ -369,6 +372,7 @@ const LOGO_FONT={S:['████','█   ','████','   █','███�
 const LOGO=[0,1,2,3,4].map((r)=>[...'SPHEREX'].map((ch)=>LOGO_FONT[ch][r].replace(/./g,(c)=>c+c)).join('  '))
 function bar(n,of=20){return '['+'#'.repeat(n)+'.'.repeat(of-n)+']'}
 function startBoot(){
+  if(cut){shortBoot();return}
   cancelAnimationFrame(raf);clearTimers();audio.stopAll();show('boot');term.innerHTML=''
   if(!muted&&audio.ctx){audio.bootBus=audio.newBus()}
   // letterbox bars snap open (they hold the film's shape for a beat first)
@@ -417,12 +421,42 @@ function startBoot(){
 // ============================================================ site placeholder
 let done=false,tail=700
 // first visit only: the film's main chord and a last arpeggio ring on into the site, then fade
+// ---- demo cut: the title's own score, then a short boot (essential lines only) at bootScale
+function cutAudio(){
+  if(muted||!audio.ctx)return
+  const A=audio.ctx,bus=audio.newBus(),t0=A.currentTime+.05,at=(x)=>t0+Math.max(0,x-cut.from)/timeScale
+  audio.hiss(bus,at(cut.from),(cut.to-cut.from)/timeScale+.5,.008)
+  audio.boom(bus,at(24.5),1);audio.braam(bus,at(24.5),.24,3.4)
+  audio.chord(bus,CH.Big,at(24.5),(cut.to-24.5)/timeScale,.26,3)
+  audio.ensemble(bus,[N.A3,N.C4,N.E4,N.A4],at(24.9),(cut.to-24.9)/timeScale)
+}
+function shortBoot(){
+  cancelAnimationFrame(raf);clearTimers();audio.stopAll();show('boot');term.innerHTML='';ts=bootScale
+  if(!muted&&audio.ctx)audio.bootBus=audio.newBus()
+  const crt=$('crt');crt.style.transition='none';crt.style.opacity=1;crt.style.transform='translateY(-50%) scaleX(0)';crt.style.height='2px'
+  later(30,()=>{crt.style.transition='transform 140ms ease-out';crt.style.transform='translateY(-50%) scaleX(1)';if(!muted&&audio.ctx){const n=audio.ctx.currentTime;audio.degauss(audio.bootBus,n);audio.post(audio.bootBus,n+.25)}})
+  later(190,()=>{crt.style.transition='height 110ms ease-in, opacity 160ms 110ms';crt.style.height='100%';crt.style.opacity=0})
+  let t=320
+  const at=(ms,fn)=>later(t+=ms,fn)
+  at(0,()=>{out('SPHEREx SKY-EXPLORER FIRMWARE v0.3.1          (c) 2026  OBSERVER BUILD','c');bootBeep(1400)})
+  ;['telescope · 20 cm','focal plane · 0.75–5.0 µm','homing module · PGN-1'].forEach((d,i)=>at(i?90:180,()=>{out(`BUS 0.${i}  ${d.padEnd(28,'.')} <span class="b">${i===2?'CALIBRATED':'OK'}</span>`);bootBeep(1200+i*150)}))
+  ;['D1','D2','D3','D4','D5','D6'].forEach((d,i)=>at(i?70:160,()=>{out(`CALIBRATE ${d}  <span style="color:var(--d${i+1},#fff)">${bar(20)}</span> <span class="b">LOCKED</span>`);bootBeep(900+i*140,.03)}))
+  at(220,()=>{out('<span class="a">VOYAGER:</span> Online.');bootBeep(990,.05,.04,'sine')})
+  const logoBox=document.createElement('div');logoBox.className='logo'
+  at(260,()=>{term.appendChild(logoBox);glitch(80);if(!muted&&audio.ctx){const n=audio.ctx.currentTime;audio.boom(audio.bootBus,n,.6);audio.braam(audio.bootBus,n,.16,1.4)}})
+  LOGO.forEach((row,i)=>at(50,()=>{logoBox.textContent+=(i?'\n':'')+row}))
+  at(220,()=>{const el=out('<span class="inv">ALL SYSTEMS GO</span>');let n=0;const iv=setInterval(()=>{el.style.visibility=n++%2?'visible':'hidden';if(n>=4){clearInterval(iv);el.style.visibility='visible'}},90);timers.push(iv)
+    if(!muted&&audio.ctx){const n0=audio.ctx.currentTime;audio.chord(audio.bootBus,[110,164.81,220,277.18],n0,1,.2,.04)}})
+  at(620,()=>{term.style.transition='transform 160ms ease-in';term.style.transform='scaleY(.004)';if(!muted&&audio.ctx){const n=audio.ctx.currentTime;audio.click(audio.bootBus,n,900,.25);audio.thud(audio.bootBus,n+.02,.2)}})
+  at(170,()=>{term.style.transition='transform 120ms ease-in';term.style.transform='scaleY(.004) scaleX(0)'})
+  at(140,()=>{term.style.transition='none';term.style.transform='';toSite()})
+}
 function outro(){if(muted||!audio.ctx)return;const A=audio.ctx,b=audio.bus(),n=A.currentTime+.05;audio.chord(b,CH.Am,n,2.8,.15,.35);[N.A4,N.C5,N.E5,N.A5,N.E5].forEach((f,i)=>audio.pluck(b,f,n+.35+i*.25,i===4?.03:.05));tail=7000}
-function dispose(){if(done)return;done=true;cancelAnimationFrame(raf);clearTimers();audio.stopAll();removeEventListener('keydown',onKey);const ctx=audio.ctx;if(!ctx)return
+function dispose(){if(done)return;done=true;cancelAnimationFrame(raf);clearTimers();audio.stopAll();removeEventListener('keydown',onKey);const ctx=audio.ctx;if(!ctx||audioCtx)return
   if(tail>700){const t=ctx.currentTime+tail/1000;audio.master.gain.setValueAtTime(audio.master.gain.value,t-1.6);audio.master.gain.linearRampToValueAtTime(0,t-.1)}
   setTimeout(()=>{try{ctx.close()}catch{}},tail)}
 function toSite(){if(done)return;dispose();onDone()}
 
-if(autoStart)begin(false)
+if(autoStart)begin(!!audioCtx) // with an external audio graph the intro plays its own sound into it
 return dispose
 }

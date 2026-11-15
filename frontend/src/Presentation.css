@@ -4,3 +4,9 @@
 .demo-launch{position:fixed;z-index:1100;right:270px;top:17px;border:1px solid #7b6a32;background:#151a1d;color:var(--accent);padding:10px 14px;font:11px var(--mono);cursor:pointer}@media(max-width:700px){.demo-launch{top:auto;bottom:16px;right:16px}}
 
 .demo-audio-note{margin-left:auto;color:var(--accent);font-size:30px}.demo-intro-exit{position:fixed;right:18px;top:18px;z-index:1300;background:#101417d9;color:var(--cream);border:1px solid #48545e;padding:8px 12px;font:11px var(--mono);cursor:pointer}
+
+/* 30-second film: Los Palomos sign-off (four pigeons on the title rule) */
+.demo-signoff{position:fixed;inset:0;z-index:1500;background:#050608}
+.demo-signoff canvas{display:block}
+.demo-signoff p{position:absolute;left:0;right:0;top:54%;margin:0;text-align:center;font:400 clamp(11px,1.1vw,16px) Michroma,sans-serif;letter-spacing:.55em;color:var(--accent,#f2b705);opacity:0;transition:opacity .5s}
+.demo-signoff p.on{opacity:1}
